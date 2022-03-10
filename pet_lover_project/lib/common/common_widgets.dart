@@ -76,3 +76,23 @@ class TextFieldElevationModule extends StatelessWidget {
     );
   }
 }
+
+Widget commonAppBarModule({required title}) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Container(
+          height: 45,
+          width: 45,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10), color: Colors.white),
+          child: Image.asset(
+            AppImages.backButton,
+            scale: 2,
+          )),
+      Text("$title", style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 19),),
+      Container(),
+    ],
+  );
+}
+
