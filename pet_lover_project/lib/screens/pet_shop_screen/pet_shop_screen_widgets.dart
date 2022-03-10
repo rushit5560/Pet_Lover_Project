@@ -35,6 +35,7 @@ class PetAccessoriesModule extends StatelessWidget {
       children: [
         const Text(
           'Pet Accessories',
+          maxLines: 1,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 20,
@@ -146,6 +147,7 @@ class PetFoodsModule extends StatelessWidget {
       children: [
         const Text(
           'Pet Foods',
+          maxLines: 1,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 20,
