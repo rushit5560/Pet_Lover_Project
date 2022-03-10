@@ -4,7 +4,9 @@ import 'constants/app_images.dart';
 
 class AuthScreenBackGroundModule extends StatelessWidget {
   final String heading;
-  const AuthScreenBackGroundModule({Key? key, required this.heading}) : super(key: key);
+
+  const AuthScreenBackGroundModule({Key? key, required this.heading})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +33,8 @@ class AuthScreenBackGroundModule extends StatelessWidget {
               image: DecorationImage(
                 image: AssetImage(AppImages.authBgImg),
                 fit: BoxFit.cover,
-              )
-          ),
+              )),
         ),
-
         Positioned(
           top: 25,
           left: 40,
@@ -81,18 +81,39 @@ Widget commonAppBarModule({required title}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      Container(
-          height: 45,
-          width: 45,
+      Material(
+        elevation: 10,
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          height: 52,
+          width: 52,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10), color: Colors.white),
           child: Image.asset(
-            AppImages.backButton,
+            AppImages.backButtonImg,
             scale: 2,
-          )),
-      Text("$title", style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 19),),
-      Container(),
+          ),
+        ),
+      ),
+      Text(
+        "$title",
+        style: const TextStyle(
+            color: Colors.black, fontWeight: FontWeight.bold, fontSize: 22),
+      ),
+      Material(
+        elevation: 10,
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          height: 52,
+          width: 52,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10), color: Colors.white),
+          child: Image.asset(
+            AppImages.cartImg,
+            scale: 2,
+          ),
+        ),
+      ),
     ],
   );
 }
-

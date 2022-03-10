@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
-// import 'package:pet_lover_project/controllers/sign_in_screen_controller/sign_in_screen_controller.dart';
-
+import '../../controllers/pet_shop_screen_controller/pet_shop_screen_controller.dart';
 import 'app_colors.dart';
+
 
 InputDecoration signInFormFieldDecoration(
     {required String hintText, int index = 0}) {
@@ -35,5 +34,22 @@ InputDecoration signInFormFieldDecoration(
     //     ),
     //   ),
     // ),
+  );
+}
+
+InputDecoration searchFieldDecoration(PetShopScreenController screenController) {
+  return InputDecoration(
+    hintText: 'Search',
+    hintStyle: TextStyle(color: AppColors.colorDarkBlue1),
+    border: InputBorder.none,
+    isDense: true,
+    contentPadding:
+    const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+    suffixIcon: GestureDetector(
+      onTap: () {
+        print(screenController.searchTextFieldController.text);
+      },
+      child: Icon(Icons.search_rounded, color: AppColors.colorLightBlue1),
+    ),
   );
 }

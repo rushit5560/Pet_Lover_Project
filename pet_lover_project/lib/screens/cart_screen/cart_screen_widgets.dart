@@ -44,7 +44,7 @@ class CartList extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Image.asset(AppImages.belt, scale: 2,),
+                          Image.asset(AppImages.beltImg, scale: 2,),
                           SizedBox(width: 20,),
 
                           Column(
@@ -68,7 +68,7 @@ class CartList extends StatelessWidget {
                               color: AppColors.colorDarkBlue
                             ),
                             child: Center(
-                              child: Image.asset(AppImages.plus),
+                              child: Image.asset(AppImages.plusImg),
                             ),
                           ),
 
@@ -81,7 +81,7 @@ class CartList extends StatelessWidget {
                                 color: AppColors.colorDarkBlue
                             ),
                             child: Center(
-                              child: Image.asset(AppImages.minus),
+                              child: Image.asset(AppImages.minusImg),
                             ),
                           ),
                         ],
