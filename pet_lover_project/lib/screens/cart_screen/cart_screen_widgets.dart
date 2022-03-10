@@ -36,24 +36,8 @@ class CartList extends StatelessWidget {
 
               ],
             ),
-            child: Container(
-              margin: EdgeInsets.only(bottom: 10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Image.asset(AppImages.belt, scale: 2,),
-                        const SizedBox(width: 20,),
-                ],
-              ),
               child: Container(
+                margin: EdgeInsets.only(bottom: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white
@@ -96,31 +80,15 @@ class CartList extends StatelessWidget {
                                 color: AppColors.colorDarkBlue
                               ),
                               child: Center(
-                                child: Image.asset(AppImages.plus, scale: 2,),
+                                child: Image.asset(AppImages.plusImg, scale: 2,),
                               ),
-                          Container(
-                            height: 20,width: 20,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              color: AppColors.colorDarkBlue
-                            ),
-                            child: Center(
-                              child: Image.asset(AppImages.plusImg),
-                            ),
-                          ),
+                            ),),
 
                         const SizedBox(width: 5,),
-
-                          Container(
-                            height: 20,width: 20,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                color: AppColors.colorDarkBlue
-                            ),
-                            child: Center(
-                              child: Image.asset(AppImages.minusImg),
                         Obx(()=> Text("${cartScreenController.count}", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400),)),
                         const SizedBox(width: 5,),
+
+
 
                            GestureDetector(
                             onTap: (){
@@ -135,7 +103,7 @@ class CartList extends StatelessWidget {
                                   color: AppColors.colorDarkBlue
                               ),
                               child: Center(
-                                child: Image.asset(AppImages.minus, scale: 2,),
+                                child: Image.asset(AppImages.minusImg, scale: 2,),
                               ),
                             ),
                           ),
@@ -160,7 +128,7 @@ class CartDetails extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(20),
         //border: Border.all(color: AppColors.colorDarkBlue1),
         boxShadow: [
           BoxShadow(
@@ -181,7 +149,7 @@ class CartDetails extends StatelessWidget {
               Text("\$70.00", style: TextStyle(fontSize: 18, color: AppColors.colorDarkBlue))
             ],
           ),
-          SizedBox(height: 5,),
+          const SizedBox(height: 5,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -189,7 +157,7 @@ class CartDetails extends StatelessWidget {
               Text("\$10.00", style: TextStyle(fontSize: 18, color: AppColors.colorDarkBlue))
             ],
           ),
-          SizedBox(height: 15,),
+          const SizedBox(height: 15,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

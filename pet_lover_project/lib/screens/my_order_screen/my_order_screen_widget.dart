@@ -26,7 +26,7 @@ class OrderList extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Image.asset(AppImages.belt, scale: 2,),
+                        Image.asset(AppImages.beltImg, scale: 2,),
                         const SizedBox(width: 20,),
 
                         Column(

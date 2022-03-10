@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/controllers/sign_in_screen_controller/sign_in_screen_controller.dart';
+import 'package:pet_lover_project/screens/Forgot_password_screen/forgot_password_screen.dart';
+import 'package:pet_lover_project/screens/sign_up_screen/sign_up_screen.dart';
 
 import '../../common/common_widgets.dart';
 import '../../common/constants/app_colors.dart';
@@ -83,7 +85,9 @@ class ForgotPassModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Get.to(() => ForgotPasswordScreen());
+      },
       child: Container(
         alignment: Alignment.centerRight,
         child: const Text(
@@ -107,7 +111,9 @@ class SignUpTextModule extends StatelessWidget {
       children: [
         const Text("Don't have an account? "),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Get.to(() => SignUpScreen());
+          },
           child: Text(
             "SIGNUP",
             style: TextStyle(

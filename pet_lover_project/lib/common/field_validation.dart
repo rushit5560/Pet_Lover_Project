@@ -1,13 +1,28 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pet_lover_project/controllers/sign_up_screen_controller/sign_up_screen_controller.dart';
+
 class FieldValidator {
+  //final signUpScreenController = Get.find<SignUpScreenController>();
+
   String? validateFullName(String value) {
     if (value.isEmpty) {
-      return 'Full name is Required';
+      return 'Name is Required';
     }
+    return null;
+  }
 
-    /*if (!RegExp(r"^[A-Z a-z-]{2,25}$").hasMatch(value)) {
-      return 'invalid first name';
-    }*/
+  String? validateAge(String value) {
+    if (value.isEmpty) {
+      return 'Age is Required';
+    }
+    return null;
+  }
 
+  String? validateLocation(String value) {
+    if (value.isEmpty) {
+      return 'Location is Required';
+    }
     return null;
   }
 
@@ -26,12 +41,22 @@ class FieldValidator {
   String ? validatePassword(String value) {
     if (value.isEmpty) {
       return "password is Required";
-    } else if (value.length < 6) {
-      return "Length should be 6 character";
     } else {
       return null;
     }
   }
+
+ /* String ? validateConfimrPassword(String value) {
+    if (value.isEmpty) {
+      return "password is Required";
+    } else if (value.length < 6) {
+      return "Length should be 6 character";
+    } else if (value != signUpScreenController.passwordTextFieldController.text){
+      return "Password and Confirm password should be same";
+    } else{
+      return null;
+    }
+  }*/
 
   String ? validateMobile(String value) {
 // Indian Mobile number are of 10 digit only
