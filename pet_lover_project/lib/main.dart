@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_lover_project/screens/cart_screen/cart_screen.dart';
+import 'package:pet_lover_project/screens/my_order_screen/my_order_screen.dart';
 
 import 'screens/sign_in_screen/sign_in_screen.dart';
 
@@ -15,7 +17,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: "Pet Lover Project",
       debugShowCheckedModeBanner: false,
-      home: SignInScreen(),
+      theme: ThemeData(
+        fontFamily: "Quicksand"
+      ),
+      home: CartScreen(),
     );
   }
 }

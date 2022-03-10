@@ -13,4 +13,9 @@ class AppImages {
   static const accessories4Img = imageMainPath + "accessories4.png";
   static const accessories5Img = imageMainPath + "accessories5.png";
   static const accessories6Img = imageMainPath + "accessories6.png";
+  static const backButton = imageMainPath + "back_button.png";
+  static const belt = imageMainPath + "belt.png";
+  static const plus = imageMainPath + "plus.png";
+  static const minus = imageMainPath + "minus.png";
+  static const arrow = imageMainPath + "arrow.png";
 }

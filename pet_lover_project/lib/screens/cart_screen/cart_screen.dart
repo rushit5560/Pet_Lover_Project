@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pet_lover_project/common/common_widgets.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
+import 'package:pet_lover_project/controllers/cart_screen_controller/cart_screen_controller.dart';
 import 'package:pet_lover_project/screens/cart_screen/cart_screen_widgets.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({Key? key}) : super(key: key);
+   CartScreen({Key? key}) : super(key: key);
+
+   final cartScreenController = Get.put(CartScreenController());
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +21,28 @@ class CartScreen extends StatelessWidget {
             children: [
               commonAppBarModule(title: 'Cart'),
 
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
 
-              const CartList()
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      CartList(),
+                      const SizedBox(height: 20,),
+
+                      CartDetails(),
+                      const SizedBox(height: 20,),
+
+                      CheckOutButton()
+                    ],
+                  ),
+                ),
+              )
+
+
+
+
+
             ],
           ),
         )
