@@ -139,14 +139,14 @@ class PetServicesModule extends StatelessWidget {
         Row(
           children: [
             GestureDetector(
-                onTap: () {screenController.petServicePreviousClick(pageController: screenController.servicePage);},
+                onTap: () {screenController.petServicePreviousClick(pageController: screenController.servicePageController);},
                 child: const LeftArrowButtonModule()),
             Expanded(
               child: SizedBox(
                 height: 180,
                 child: PageView.builder(
                   padEnds: false,
-                  controller: screenController.servicePage,
+                  controller: screenController.servicePageController,
                   onPageChanged: screenController.selectedPageIndex,
                   itemCount: screenController.serviceLists.length,
                   itemBuilder: (context, index) {
@@ -228,7 +228,7 @@ class PetServicesModule extends StatelessWidget {
               ),
             ),
             GestureDetector(
-                onTap: () {screenController.petServiceNextClick(pageController: screenController.servicePage);},
+                onTap: () {screenController.petServiceNextClick(pageController: screenController.servicePageController);},
                 child: const RightArrowButtonModule()),
           ],
         ),
@@ -350,14 +350,14 @@ class PetMatchModule extends StatelessWidget {
         Row(
           children: [
             GestureDetector(
-                onTap: () {screenController.petServicePreviousClick(pageController: screenController.matchPage);},
+                onTap: () {screenController.petServicePreviousClick(pageController: screenController.matchPageController);},
                 child: const LeftArrowButtonModule()),
             Expanded(
               child: SizedBox(
                 height: 140,
                 child: PageView.builder(
                   padEnds: false,
-                  controller: screenController.matchPage,
+                  controller: screenController.matchPageController,
                   onPageChanged: screenController.selectedPetMatchIndex,
                   itemCount: screenController.petMatchList.length,
                   itemBuilder: (context, index) {
@@ -444,7 +444,7 @@ class PetMatchModule extends StatelessWidget {
               ),
             ),
             GestureDetector(
-                onTap: () {screenController.petServiceNextClick(pageController: screenController.matchPage);},
+                onTap: () {screenController.petServiceNextClick(pageController: screenController.matchPageController);},
                 child: const RightArrowButtonModule()),
           ],
         ),

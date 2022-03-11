@@ -6,8 +6,8 @@ import '../../common/constants/app_images.dart';
 class HomeScreenController extends GetxController {
   final searchTextFieldController = TextEditingController();
 
-  var servicePage = PageController(initialPage: 0, viewportFraction: 0.50);
-  var matchPage = PageController(initialPage: 0, viewportFraction: 0.33);
+  var servicePageController = PageController(initialPage: 0, viewportFraction: 1);
+  var matchPageController = PageController(initialPage: 0, viewportFraction: 0.33);
   RxInt selectedPageIndex = 0.obs;
   RxInt selectedPetMatchIndex = 0.obs;
 

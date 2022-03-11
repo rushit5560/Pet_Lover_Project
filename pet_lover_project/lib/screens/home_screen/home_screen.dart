@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              commonAppBarModule(title: 'Pet Lover'),
+              commonAppBarModule(title: 'Pet Lover', index: 0),
               const SizedBox(height: 20),
               Expanded(
                 child: SingleChildScrollView(

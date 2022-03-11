@@ -33,4 +33,17 @@ class AppImages {
   static const dog1Img = imageMainPath + "dog1.png";
   static const dog2Img = imageMainPath + "dog2.png";
   static const dog3Img = imageMainPath + "dog3.png";
+  static const menuIconImg = imageMainPath + "menu_icon.png";
+  static const petLoverNameImg = imageMainPath + "pet_lover_name.png";
+  static const msgIconImg = imageMainPath + "msg_icon.png";
+  static const productImgListImg = imageMainPath + "product_img_list.png";
+  static const product1Img = imageMainPath + "product1.png";
+  static const product2Img = imageMainPath + "product2.png";
+  static const product3Img = imageMainPath + "product3.png";
+  static const plusDarkBlueImg = imageMainPath + "plus_dark_blue.png";
+  static const addImageImg = imageMainPath + "add_image.png";
+  static const addVideoImg = imageMainPath + "add_video.png";
+  static const debitCardImg = imageMainPath + "debit_card.png";
+  static const upiImg = imageMainPath + "upi_payment.png";
+  static const cashOnDeliveryImg = imageMainPath + "cash_on_delivery.png";
 }

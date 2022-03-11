@@ -78,7 +78,7 @@ class TextFieldElevationModule extends StatelessWidget {
   }
 }
 
-Widget commonAppBarModule({required title}) {
+Widget commonAppBarModule({required title, int? index}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
@@ -91,12 +91,14 @@ Widget commonAppBarModule({required title}) {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10), color: Colors.white),
           child: Image.asset(
-            AppImages.backButtonImg,
+            index == 0 ? AppImages.menuIconImg :AppImages.backButtonImg,
             scale: 2,
           ),
         ),
       ),
-      Text(
+      index == 0
+      ? Image.asset(AppImages.petLoverNameImg, scale: 3)
+      : Text(
         "$title",
         style: const TextStyle(
             color: Colors.black, fontWeight: FontWeight.bold, fontSize: 22),
