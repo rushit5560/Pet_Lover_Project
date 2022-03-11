@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../common/common_widgets.dart';
 import '../../common/constants/app_colors.dart';
 import '../../common/constants/app_images.dart';
 import '../../common/constants/field_decorations.dart';
@@ -134,95 +136,104 @@ class PetServicesModule extends StatelessWidget {
       children: [
         _petServiceHeading(),
         const SizedBox(height: 20),
-        SizedBox(
-          height: 210,
-          child: PageView.builder(
-            padEnds: false,
-            controller: screenController.servicePage,
-            onPageChanged: screenController.selectedPageIndex,
-            itemCount: screenController.serviceLists.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Stack(
-                    alignment: Alignment.bottomRight,
-                    children: [
-                      Container(
-                        child: Column(
-                          children: [
-                            Expanded(
-                              flex: 70,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15),
-                                  image: const DecorationImage(
-                                    image: AssetImage(AppImages.service1Img),
-                                    fit: BoxFit.cover,
-                                  )
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              flex: 30,
-                              child: Padding(
-                                padding: const EdgeInsets.all(3),
-                                child: Column(
-                                  children: [
-                                    const Text(
-                                      '1547, lorem Ipsum is simply dummy text of the printing and typesetting industry',
-                                      maxLines: 2,
-                                      style: TextStyle(fontSize: 12),
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                    Row(
-                                      children: const [
-                                        Text(
-                                          'Distance - ',
-                                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-                                        ),
-                                        Text('2.5 Km', style: TextStyle(fontSize: 12),),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: const [
-                                        Text(
-                                          'Time - ',
-                                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-                                        ),
-                                        Text('12min', style: TextStyle(fontSize: 12),),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Positioned(
-                        // bottom: 50,
-                        // right: 20,
+        Row(
+          children: [
+            GestureDetector(
+                onTap: () {screenController.petServicePreviousClick(pageController: screenController.servicePage);},
+                child: const LeftArrowButtonModule()),
+            Expanded(
+              child: SizedBox(
+                height: 180,
+                child: PageView.builder(
+                  padEnds: false,
+                  controller: screenController.servicePage,
+                  onPageChanged: screenController.selectedPageIndex,
+                  itemCount: screenController.serviceLists.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: Material(
+                        elevation: 10,
+                        borderRadius: BorderRadius.circular(15),
                         child: Container(
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(AppImages.rightDirectionArrowImg),
-                              scale: 2.5,
-                            )
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Stack(
+                            // alignment: Alignment.bottomRight,
+                            children: [
+                              Column(
+                                children: [
+                                  Expanded(
+                                    flex: 60,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(15),
+                                          image: const DecorationImage(
+                                            image: AssetImage(AppImages.service1Img),
+                                            fit: BoxFit.cover,
+                                          )
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    flex: 40,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(3),
+                                      child: Column(
+                                        children: [
+                                          const Text(
+                                            '1547, lorem Ipsum is simply dummy text of the printing and typesetting industry',
+                                            maxLines: 2,
+                                            style: TextStyle(fontSize: 12),
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                          Row(
+                                            children: const [
+                                              Text(
+                                                'Distance - ',
+                                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                                              ),
+                                              Text('2.5 Km', style: TextStyle(fontSize: 12),),
+                                            ],
+                                          ),
+                                          Row(
+                                            children: const [
+                                              Text(
+                                                'Time - ',
+                                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                                              ),
+                                              Text('12min', style: TextStyle(fontSize: 12),),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Positioned(
+                                bottom: 10,
+                                right: 10,
+                                child: Image.asset(AppImages.arrow, scale: 1.8),
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    );
+                  },
                 ),
-              );
-            },
-          ),
+              ),
+            ),
+            GestureDetector(
+                onTap: () {screenController.petServiceNextClick(pageController: screenController.servicePage);},
+                child: const RightArrowButtonModule()),
+          ],
         ),
+        const SizedBox(height: 15),
+        _seeMoreModule(),
       ],
     );
   }
@@ -237,4 +248,219 @@ class PetServicesModule extends StatelessWidget {
       ),
     );
   }
+
+  Widget _seeMoreModule() {
+    return Container(
+      alignment: Alignment.center,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: AppColors.colorDarkBlue1,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+          child: Text(
+            'See More',
+            style: TextStyle(color: AppColors.colorLightBlue),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ReminderContainerModule extends StatelessWidget {
+  const ReminderContainerModule({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: Container(
+        width: Get.width,
+        height: 110,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: Colors.white,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Image.asset(AppImages.reminderImg),
+                    ),
+                    const SizedBox(width: 5),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text(
+                            'Set Your Reminder',
+                            maxLines: 1,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ),
+                          // const SizedBox(height: 10),
+                          Text(
+                            'Lorem Ipsum is simply dummy text of the printing and type',
+                            maxLines: 2,
+                            style: TextStyle(fontSize: 11),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 10),
+              Container(
+                height: 50,
+                width: 50,
+                padding: const EdgeInsets.all(10),
+                child: Image.asset(AppImages.arrow),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class PetMatchModule extends StatelessWidget {
+  PetMatchModule({Key? key}) : super(key: key);
+  final screenController = Get.find<HomeScreenController>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _petMatchHeading(),
+        const SizedBox(height: 20),
+        Row(
+          children: [
+            GestureDetector(
+                onTap: () {screenController.petServicePreviousClick(pageController: screenController.matchPage);},
+                child: const LeftArrowButtonModule()),
+            Expanded(
+              child: SizedBox(
+                height: 140,
+                child: PageView.builder(
+                  padEnds: false,
+                  controller: screenController.matchPage,
+                  onPageChanged: screenController.selectedPetMatchIndex,
+                  itemCount: screenController.petMatchList.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Expanded(
+                            flex: 80,
+                            child: Stack(
+                              alignment: Alignment.bottomCenter,
+                              clipBehavior: Clip.none,
+                              children: [
+                                Material(
+                                  elevation: 10,
+                                  borderRadius: BorderRadius.circular(15),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        Expanded(
+                                          flex: 60,
+                                          child: Container(
+                                            width: Get.width,
+                                            height: Get.height,
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(15),
+                                              color: AppColors.colorDarkBlue1,
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(5),
+                                              child: Image.asset(screenController.petMatchList[index]),
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(height: 5),
+                                        const Expanded(
+                                          flex: 40,
+                                          child: Text(
+                                              'Lorem Ipsum',
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  bottom: -15,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(18),
+                                      color: AppColors.colorDarkBlue1,
+                                    ),
+                                    child: const Padding(
+                                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                                      child: Text(
+                                        'View',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                          fontSize: 12
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            flex: 20,
+                            child: Container(),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+            GestureDetector(
+                onTap: () {screenController.petServiceNextClick(pageController: screenController.matchPage);},
+                child: const RightArrowButtonModule()),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _petMatchHeading() {
+    return const Text(
+      'Find Near By Pet Match',
+      maxLines: 1,
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 20,
+      ),
+    );
+  }
+
 }

@@ -29,4 +29,8 @@ class AppImages {
   static const index2Img = imageMainPath + "index2.png";
   static const index3Img = imageMainPath + "index3.png";
   static const index4Img = imageMainPath + "index4.png";
+  static const reminderImg = imageMainPath + "reminder.png";
+  static const dog1Img = imageMainPath + "dog1.png";
+  static const dog2Img = imageMainPath + "dog2.png";
+  static const dog3Img = imageMainPath + "dog3.png";
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'constants/app_colors.dart';
 import 'constants/app_images.dart';
 
 class AuthScreenBackGroundModule extends StatelessWidget {
@@ -116,4 +117,42 @@ Widget commonAppBarModule({required title}) {
       ),
     ],
   );
+}
+
+
+class LeftArrowButtonModule extends StatelessWidget {
+  const LeftArrowButtonModule({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: AppColors.colorDarkBlue1
+      ),
+      child: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+        child: Icon(Icons.arrow_back_rounded, color: Colors.white),
+      ),
+    );
+  }
+}
+
+
+class RightArrowButtonModule extends StatelessWidget {
+  const RightArrowButtonModule({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: AppColors.colorDarkBlue1
+      ),
+      child: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+        child: Icon(Icons.arrow_forward_rounded, color: Colors.white),
+      ),
+    );
+  }
 }
