@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
+import 'package:pet_lover_project/common/custom_drawer/custom_drawer.dart';
 
 import '../../common/common_widgets.dart';
 import '../../controllers/home_screen_controller/home_screen_controller.dart';
@@ -14,12 +15,13 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.colorLightBlue,
+      drawer: CustomDrawer(),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              commonAppBarModule(title: 'Pet Lover', index: 0),
+              CommonAppBarModule(title: 'Pet Lover', index: 0),
               const SizedBox(height: 20),
               Expanded(
                 child: SingleChildScrollView(

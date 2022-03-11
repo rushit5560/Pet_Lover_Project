@@ -46,4 +46,13 @@ class AppImages {
   static const debitCardImg = imageMainPath + "debit_card.png";
   static const upiImg = imageMainPath + "upi_payment.png";
   static const cashOnDeliveryImg = imageMainPath + "cash_on_delivery.png";
+  static const profilePicImg = imageMainPath + "profile_pic.png";
+  static const editOptionImg = imageMainPath + "edit_option.png";
+  static const option1Img = imageMainPath + "option1.png";
+  static const option2Img = imageMainPath + "option2.png";
+  static const option3Img = imageMainPath + "option3.png";
+  static const option4Img = imageMainPath + "option4.png";
+  static const option5Img = imageMainPath + "option5.png";
+  static const option6Img = imageMainPath + "option6.png";
+  static const option7Img = imageMainPath + "option7.png";
 }

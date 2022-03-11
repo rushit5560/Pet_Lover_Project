@@ -19,7 +19,7 @@ class PetShopScreen extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              commonAppBarModule(title: 'Pet Shop'),
+              CommonAppBarModule(title: 'Pet Shop', index: 1),
               const SizedBox(height: 20),
               Expanded(
                 child: SingleChildScrollView(

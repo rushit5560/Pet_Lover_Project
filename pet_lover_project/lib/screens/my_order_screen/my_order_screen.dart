@@ -15,7 +15,7 @@ class MyOrderScreen extends StatelessWidget {
           padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
           child: Column(
             children: [
-              commonAppBarModule(title: 'My Order'),
+              CommonAppBarModule(title: 'My Order', index: 1),
 
               const SizedBox(height: 20,),
               Expanded(child: OrderList()),

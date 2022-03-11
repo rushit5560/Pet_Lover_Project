@@ -19,7 +19,7 @@ class CartScreen extends StatelessWidget {
           padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
           child: Column(
             children: [
-              commonAppBarModule(title: 'Cart'),
+              CommonAppBarModule(title: 'Cart', index: 1),
 
               const SizedBox(height: 20,),
 

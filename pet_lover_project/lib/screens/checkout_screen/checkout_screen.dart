@@ -21,7 +21,7 @@ class CheckoutScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              commonAppBarModule(title: 'Checkout'),
+              CommonAppBarModule(title: 'Checkout', index: 1),
               const SizedBox(height: 25,),
               
               Expanded(

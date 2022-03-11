@@ -78,49 +78,69 @@ class TextFieldElevationModule extends StatelessWidget {
   }
 }
 
-Widget commonAppBarModule({required title, int? index}) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Material(
-        elevation: 10,
-        borderRadius: BorderRadius.circular(10),
-        child: Container(
-          height: 52,
-          width: 52,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10), color: Colors.white),
-          child: Image.asset(
-            index == 0 ? AppImages.menuIconImg :AppImages.backButtonImg,
-            scale: 2,
-          ),
-        ),
-      ),
-      index == 0
-      ? Image.asset(AppImages.petLoverNameImg, scale: 3)
-      : Text(
-        "$title",
-        style: const TextStyle(
-            color: Colors.black, fontWeight: FontWeight.bold, fontSize: 22),
-      ),
-      Material(
-        elevation: 10,
-        borderRadius: BorderRadius.circular(10),
-        child: Container(
-          height: 52,
-          width: 52,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10), color: Colors.white),
-          child: Image.asset(
-            AppImages.cartImg,
-            scale: 2,
-          ),
-        ),
-      ),
-    ],
-  );
-}
+class CommonAppBarModule extends StatelessWidget {
+  final String title;
+  final int index;
 
+  CommonAppBarModule({Key? key, required this.title, required this.index})
+      : super(key: key);
+
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Material(
+          elevation: 10,
+          borderRadius: BorderRadius.circular(10),
+          child: GestureDetector(
+            onTap: () {
+              if (index == 0) {
+                // scaffoldKey.currentState!.openDrawer();
+                Scaffold.of(context).openDrawer();
+              }
+            },
+            child: Container(
+              height: 52,
+              width: 52,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10), color: Colors.white),
+              child: Image.asset(
+                index == 0 ? AppImages.menuIconImg : AppImages.backButtonImg,
+                scale: 2,
+              ),
+            ),
+          ),
+        ),
+        index == 0
+            ? Image.asset(AppImages.petLoverNameImg, scale: 3)
+            : Text(
+                title,
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22),
+              ),
+        Material(
+          elevation: 10,
+          borderRadius: BorderRadius.circular(10),
+          child: Container(
+            height: 52,
+            width: 52,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10), color: Colors.white),
+            child: Image.asset(
+              AppImages.cartImg,
+              scale: 2,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
 
 class LeftArrowButtonModule extends StatelessWidget {
   const LeftArrowButtonModule({Key? key}) : super(key: key);
@@ -130,8 +150,7 @@ class LeftArrowButtonModule extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: AppColors.colorDarkBlue1
-      ),
+          color: AppColors.colorDarkBlue1),
       child: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
         child: Icon(Icons.arrow_back_rounded, color: Colors.white),
@@ -139,7 +158,6 @@ class LeftArrowButtonModule extends StatelessWidget {
     );
   }
 }
-
 
 class RightArrowButtonModule extends StatelessWidget {
   const RightArrowButtonModule({Key? key}) : super(key: key);
@@ -149,8 +167,7 @@ class RightArrowButtonModule extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: AppColors.colorDarkBlue1
-      ),
+          color: AppColors.colorDarkBlue1),
       child: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
         child: Icon(Icons.arrow_forward_rounded, color: Colors.white),
