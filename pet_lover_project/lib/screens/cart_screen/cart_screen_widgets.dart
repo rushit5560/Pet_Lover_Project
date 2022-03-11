@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
 import 'package:pet_lover_project/common/constants/app_images.dart';
 import 'package:pet_lover_project/controllers/cart_screen_controller/cart_screen_controller.dart';
+import 'package:pet_lover_project/screens/checkout_screen/checkout_screen.dart';
 
 class CartList extends StatelessWidget {
   CartList({Key? key}) : super(key: key);
@@ -183,15 +184,20 @@ class CheckOutButton extends StatelessWidget {
             child: Container()),
         Expanded(
           flex: 3,
-          child: Container(
-            height: 50,
-            //width: Get.width/2,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: AppColors.colorDarkBlue
-            ),
-            child: const Center(
-              child: Text("Process to Checkout", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),),
+          child: GestureDetector(
+            onTap: (){
+              Get.to(() => CheckoutScreen());
+            },
+            child: Container(
+              height: 50,
+              //width: Get.width/2,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: AppColors.colorDarkBlue
+              ),
+              child: const Center(
+                child: Text("Process to Checkout", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),),
+              ),
             ),
           ),
         ),

@@ -12,6 +12,13 @@ class FieldValidator {
     return null;
   }
 
+  String? validateColor(String value) {
+    if (value.isEmpty) {
+      return 'Color is Required';
+    }
+    return null;
+  }
+
   String? validateAge(String value) {
     if (value.isEmpty) {
       return 'Age is Required';
