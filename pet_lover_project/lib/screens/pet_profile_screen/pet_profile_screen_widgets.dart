@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:pet_lover_project/common/common_widgets.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
 import 'package:pet_lover_project/common/constants/app_images.dart';
@@ -16,110 +20,135 @@ class ProfileForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       key: petProfileScreenController.profileFormKey,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const AddPhoto(),
-          SizedBox(height: 20,),
-          NameTextFieldModule(),
-          SizedBox(height: 20,),
-          Row(
-            children: [
-              Expanded(
-                child: DobPicker()
-              ),
-              SizedBox(width: 20,),
-              Expanded(
-                  child: GenderTextFieldModule()
-              )
-            ],
-          ),
-          SizedBox(height: 20,),
-          Row(
-            children: [
-              Expanded(
-                  child: BreedTextFieldModule()
-              ),
-              SizedBox(width: 20,),
-              Expanded(
-                  child: WeightTextFieldModule()
-              )
-            ],
-          ),
-          SizedBox(height: 20,),
-          ColorTextFieldModule(),
-          SizedBox(height: 20,),
-          VaccinatedRadio(),
-          SizedBox(height: 20,),
-          TemperamentRadio(),
-          SizedBox(height: 20,),
-          MicroChippedRadio(),
-          SizedBox(height: 20,),
-          NeuteredRadio(),
-          SizedBox(height: 20,),
-          SaveButtonModule()
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            AddPhoto(),
+            SizedBox(height: 20,),
+            NameTextFieldModule(),
+            SizedBox(height: 20,),
+            Row(
+              children: [
+                Expanded(
+                  child: DobPicker()
+                ),
+                SizedBox(width: 20,),
+                Expanded(
+                    child: GenderTextFieldModule()
+                )
+              ],
+            ),
+            SizedBox(height: 20,),
+            Row(
+              children: [
+                Expanded(
+                    child: BreedTextFieldModule()
+                ),
+                SizedBox(width: 20,),
+                Expanded(
+                    child: WeightTextFieldModule()
+                )
+              ],
+            ),
+            SizedBox(height: 20,),
+            ColorTextFieldModule(),
+            SizedBox(height: 20,),
+            VaccinatedRadio(),
+            SizedBox(height: 20,),
+            TemperamentRadio(),
+            SizedBox(height: 20,),
+            MicroChippedRadio(),
+            SizedBox(height: 20,),
+            NeuteredRadio(),
+            SizedBox(height: 20,),
+            SaveButtonModule()
+          ],
+        ),
       ),
     );
   }
 
 }
 
-class AddPhoto extends StatelessWidget {
-  const AddPhoto({Key? key}) : super(key: key);
+class AddPhoto extends StatefulWidget {
+  AddPhoto({Key? key}) : super(key: key);
+
+  @override
+  State<AddPhoto> createState() => _AddPhotoState();
+}
+
+class _AddPhotoState extends State<AddPhoto> {
+  final ImagePicker imagePicker = ImagePicker();
+  final petProfileScreenController = Get.find<PetProfileScreenController>();
+
+  XFile? file1;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
-            child: Container(
-              height: Get.height/8,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.grey,
-                    blurRadius: 10,
-                    spreadRadius: 5,
-                    blurStyle: BlurStyle.outer,
-                  ),
-                ],
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(AppImages.addImageImg, scale: 2,),
-                  SizedBox(height: 10,),
-                  Text("Add Photo", style: TextStyle(color: AppColors.colorDarkBlue1),)
-                ],
+            child: GestureDetector(
+              onTap: (){
+                openGallery();
+              },
+              child: Container(
+                height: Get.height/8,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 10,
+                      spreadRadius: 5,
+                      blurStyle: BlurStyle.outer,
+                    ),
+                  ],
+                ),
+                child: petProfileScreenController.file != null ? Image.file(petProfileScreenController.file!, fit: BoxFit.fill,) :
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(AppImages.addImageImg, scale: 2,),
+                        Text("Add Photo", style: TextStyle(color: AppColors.colorDarkBlue1))
+                      ],
+                    ),
+
               ),
             )
         ),
         SizedBox(width: 20,),
         Expanded(
-            child: Container(
-              height: Get.height/8,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.grey,
-                    blurRadius: 10,
-                    spreadRadius: 5,
-                    blurStyle: BlurStyle.outer,
-                  ),
-                ],
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(AppImages.addVideoImg, scale: 2,),
-                  SizedBox(height: 10,),
-                  Text("Add Video", style: TextStyle(color: AppColors.colorDarkBlue1))
-                ],
+            child: GestureDetector(
+              onTap: (){
+                pickVideoFromGallery();
+              },
+              child: Container(
+                height: Get.height/8,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 10,
+                      spreadRadius: 5,
+                      blurStyle: BlurStyle.outer,
+                    ),
+                  ],
+                ),
+                child:
+                  //file1 != null ? Image.file(File(file1!.path)) :
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(AppImages.addVideoImg, scale: 2,),
+                    SizedBox(height: 10,),
+                    Text("Add Video", style: TextStyle(color: AppColors.colorDarkBlue1))
+                  ],
+                ),
               ),
             )
         ),
@@ -128,6 +157,28 @@ class AddPhoto extends StatelessWidget {
 
       ],
     );
+  }
+
+  void openGallery() async {
+    final image = await imagePicker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      setState(() {
+        petProfileScreenController.file = File(image.path);
+        print('Camera File Path : ${petProfileScreenController.file}');
+        print('Camera Image Path : ${image.path}');
+        //Fluttertoast.showToast(msg: '${image.path}', toastLength: Toast.LENGTH_LONG);
+        //renameImage();
+      });
+    } else {}
+  }
+
+  void pickVideoFromGallery() async {
+    file1 = await imagePicker.pickVideo(source: ImageSource.gallery);
+    if (file1 != null) {
+      setState(() {
+
+      });
+    }
   }
 }
 
@@ -180,19 +231,60 @@ class GenderTextFieldModule extends StatelessWidget {
   final petProfileScreenController = Get.find<PetProfileScreenController>();
   final FieldValidator fieldValidator = FieldValidator();
 
+
+
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        const TextFieldElevationModule(),
-        TextFormField(
-          controller: petProfileScreenController.nameTextFieldController,
-          keyboardType: TextInputType.text,
-          cursorColor: AppColors.colorDarkBlue1,
-          decoration: signInFormFieldDecoration(hintText: 'Gender'),
-          validator: (value) => fieldValidator.validateFullName(value!),
+    return Obx(()=>
+        Container(
+        // padding: const EdgeInsets.only(left: 10),
+          height: 48,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.grey,
+                blurRadius: 10,
+                spreadRadius: 5,
+                blurStyle: BlurStyle.outer,
+              ),
+            ],
+          ),
+        child: Theme(
+          data: Theme.of(context).copyWith(
+              canvasColor: Colors.grey.shade100,
+              // background color for the dropdown items
+              buttonTheme: ButtonTheme.of(context).copyWith(
+                alignedDropdown: true, //If false (the default), then the dropdown's menu will be wider than its button.
+              )),
+          child: DropdownButtonHideUnderline(
+            child: DropdownButton<String>(
+              focusColor: Colors.white,
+              value: petProfileScreenController.gender.value,
+              //elevation: 5,
+              style: TextStyle(color: AppColors.colorDarkBlue1),
+              iconEnabledColor: Colors.black,
+              items: <String>[
+                'Female',
+                'Male',
+              ].
+              map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(
+                    value,
+                    style: TextStyle(color: AppColors.colorDarkBlue1),
+                  ),
+                );
+              }).toList(),
+              hint: Text("Gender", style: TextStyle(color: AppColors.colorDarkBlue1),),
+              onChanged: (newValue) {
+                petProfileScreenController.gender.value = newValue!;
+              },
+            ),
+          ),
         ),
-      ],
+      ),
     );
   }
 }
@@ -204,17 +296,57 @@ class BreedTextFieldModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        const TextFieldElevationModule(),
-        TextFormField(
-          controller: petProfileScreenController.nameTextFieldController,
-          keyboardType: TextInputType.text,
-          cursorColor: AppColors.colorDarkBlue1,
-          decoration: signInFormFieldDecoration(hintText: 'Breed'),
-          validator: (value) => fieldValidator.validateFullName(value!),
+    return Obx(()=>
+        Container(
+          // padding: const EdgeInsets.only(left: 10),
+          height: 48,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.grey,
+                blurRadius: 10,
+                spreadRadius: 5,
+                blurStyle: BlurStyle.outer,
+              ),
+            ],
+          ),
+          child: Theme(
+            data: Theme.of(context).copyWith(
+                canvasColor: Colors.grey.shade100,
+                // background color for the dropdown items
+                buttonTheme: ButtonTheme.of(context).copyWith(
+                  alignedDropdown: true, //If false (the default), then the dropdown's menu will be wider than its button.
+                )),
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton<String>(
+                focusColor: Colors.white,
+                value: petProfileScreenController.breed.value,
+                //elevation: 5,
+                style: TextStyle(color: AppColors.colorDarkBlue1),
+                iconEnabledColor: Colors.black,
+                items: <String>[
+                  '1',
+                  '2',
+                  '3'
+                ].
+                map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                      style: TextStyle(color: AppColors.colorDarkBlue1),
+                    ),
+                  );
+                }).toList(),
+                hint: Text("Breed", style: TextStyle(color: AppColors.colorDarkBlue1),),
+                onChanged: (newValue) {
+                  petProfileScreenController.breed.value = newValue!;
+                },
+              ),
+            ),
+          ),
         ),
-      ],
     );
   }
 }
@@ -226,17 +358,57 @@ class WeightTextFieldModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        const TextFieldElevationModule(),
-        TextFormField(
-          controller: petProfileScreenController.nameTextFieldController,
-          keyboardType: TextInputType.text,
-          cursorColor: AppColors.colorDarkBlue1,
-          decoration: signInFormFieldDecoration(hintText: 'Weight'),
-          validator: (value) => fieldValidator.validateFullName(value!),
+    return Obx(()=>
+        Container(
+          // padding: const EdgeInsets.only(left: 10),
+          height: 48,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.grey,
+                blurRadius: 10,
+                spreadRadius: 5,
+                blurStyle: BlurStyle.outer,
+              ),
+            ],
+          ),
+          child: Theme(
+            data: Theme.of(context).copyWith(
+                canvasColor: Colors.grey.shade100,
+                // background color for the dropdown items
+                buttonTheme: ButtonTheme.of(context).copyWith(
+                  alignedDropdown: true, //If false (the default), then the dropdown's menu will be wider than its button.
+                )),
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton<String>(
+                focusColor: Colors.white,
+                value: petProfileScreenController.weight.value,
+                //elevation: 5,
+                style: TextStyle(color: AppColors.colorDarkBlue1),
+                iconEnabledColor: Colors.black,
+                items: <String>[
+                  '31',
+                  '32',
+                  '33'
+                ].
+                map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                      style: TextStyle(color: AppColors.colorDarkBlue1),
+                    ),
+                  );
+                }).toList(),
+                hint: Text("Breed", style: TextStyle(color: AppColors.colorDarkBlue1),),
+                onChanged: (newValue) {
+                  petProfileScreenController.weight.value = newValue!;
+                },
+              ),
+            ),
+          ),
         ),
-      ],
     );
   }
 }
@@ -272,7 +444,9 @@ class SaveButtonModule extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if(petProfileScreenController.profileFormKey.currentState!.validate()){
-
+          if(petProfileScreenController.file == null){
+            Fluttertoast.showToast(msg: 'Profile Image required...!');
+          }
         }
       },
       child: Container(

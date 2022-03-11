@@ -6,13 +6,13 @@ import 'package:pet_lover_project/screens/pet_profile_screen/pet_profile_screen_
 
 class PetProfileScreen extends StatelessWidget {
   PetProfileScreen({Key? key}) : super(key: key);
-  final petProfileScreenController = Get.put(PetProfileScreenController());
-
+  final signUpScreenController = Get.put(PetProfileScreenController());
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      //resizeToAvoidBottomInset: false,
       body: Stack(
         alignment: Alignment.center,
         children: [
