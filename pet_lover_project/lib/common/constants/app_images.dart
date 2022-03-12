@@ -24,6 +24,7 @@ class AppImages {
   static const shop1Img = imageMainPath + "shop1.png";
   static const shop2Img = imageMainPath + "shop2.png";
   static const service1Img = imageMainPath + "service1.png";
+  static const service2Img = imageMainPath + "service2.png";
   static const rightDirectionArrowImg = imageMainPath + "right_direction_arrow.png";
   static const index1Img = imageMainPath + "index1.png";
   static const index2Img = imageMainPath + "index2.png";
@@ -55,4 +56,5 @@ class AppImages {
   static const option5Img = imageMainPath + "option5.png";
   static const option6Img = imageMainPath + "option6.png";
   static const option7Img = imageMainPath + "option7.png";
+  static const vectorImg = imageMainPath + "vector.png";
 }
