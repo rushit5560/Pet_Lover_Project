@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_lover_project/common/common_widgets.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
 import 'package:pet_lover_project/common/constants/enums.dart';
 import 'package:pet_lover_project/controllers/checkout_screen_controller/checkout_screen_controller.dart';
 import 'package:pet_lover_project/screens/checkout_screen/checkout_screen_widgets.dart';
+
+import '../../common/custom_appbar/custom_appbar.dart';
 
 class CheckoutScreen extends StatelessWidget {
   CheckoutScreen({Key? key}) : super(key: key);
