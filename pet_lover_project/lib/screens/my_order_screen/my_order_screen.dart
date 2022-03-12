@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pet_lover_project/common/common_widgets.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
+import 'package:pet_lover_project/common/constants/enums.dart';
 import 'package:pet_lover_project/screens/my_order_screen/my_order_screen_widget.dart';
 
 class MyOrderScreen extends StatelessWidget {
@@ -15,7 +16,7 @@ class MyOrderScreen extends StatelessWidget {
           padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
           child: Column(
             children: [
-              CommonAppBarModule(title: 'My Order', index: 1),
+              CommonAppBarModule(title: 'My Order', appBarOption: AppBarOption.backButtonScreenOption),
 
               const SizedBox(height: 20,),
               Expanded(child: OrderList()),

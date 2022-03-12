@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/common/common_widgets.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
+import 'package:pet_lover_project/common/constants/enums.dart';
 import 'package:pet_lover_project/controllers/checkout_screen_controller/checkout_screen_controller.dart';
 import 'package:pet_lover_project/screens/checkout_screen/checkout_screen_widgets.dart';
 
@@ -21,7 +22,7 @@ class CheckoutScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CommonAppBarModule(title: 'Checkout', index: 1),
+              CommonAppBarModule(title: 'Checkout', appBarOption: AppBarOption.backButtonScreenOption),
               const SizedBox(height: 25,),
               
               Expanded(

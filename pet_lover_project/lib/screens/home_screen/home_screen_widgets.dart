@@ -186,7 +186,7 @@ class PetServicesModule extends StatelessWidget {
                                           const Text(
                                             '1547, lorem Ipsum is simply dummy text of the printing and typesetting industry',
                                             maxLines: 2,
-                                            style: TextStyle(fontSize: 12),
+                                            style: TextStyle(fontSize: 11),
                                             overflow: TextOverflow.ellipsis,
                                           ),
                                           Row(

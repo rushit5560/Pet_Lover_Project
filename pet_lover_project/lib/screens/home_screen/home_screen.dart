@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
+import 'package:pet_lover_project/common/constants/enums.dart';
 import 'package:pet_lover_project/common/custom_drawer/custom_drawer.dart';
 
 import '../../common/common_widgets.dart';
@@ -21,7 +22,7 @@ class HomeScreen extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              CommonAppBarModule(title: 'Pet Lover', index: 0),
+              CommonAppBarModule(title: 'Pet Lover', appBarOption: AppBarOption.homeScreenOption),
               const SizedBox(height: 20),
               Expanded(
                 child: SingleChildScrollView(
