@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
 import 'package:pet_lover_project/common/constants/enums.dart';
-
-import '../../common/common_widgets.dart';
+import '../../common/custom_appbar/custom_appbar.dart';
 import '../../controllers/pet_shop_screen_controller/pet_shop_screen_controller.dart';
 import 'pet_shop_screen_widgets.dart';
 

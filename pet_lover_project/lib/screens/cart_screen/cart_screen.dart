@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_lover_project/common/common_widgets.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
 import 'package:pet_lover_project/common/constants/enums.dart';
 import 'package:pet_lover_project/controllers/cart_screen_controller/cart_screen_controller.dart';
 import 'package:pet_lover_project/screens/cart_screen/cart_screen_widgets.dart';
+
+import '../../common/custom_appbar/custom_appbar.dart';
 
 class CartScreen extends StatelessWidget {
    CartScreen({Key? key}) : super(key: key);

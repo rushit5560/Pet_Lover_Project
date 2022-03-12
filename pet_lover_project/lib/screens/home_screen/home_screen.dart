@@ -4,7 +4,7 @@ import 'package:pet_lover_project/common/constants/app_colors.dart';
 import 'package:pet_lover_project/common/constants/enums.dart';
 import 'package:pet_lover_project/common/custom_drawer/custom_drawer.dart';
 
-import '../../common/common_widgets.dart';
+import '../../common/custom_appbar/custom_appbar.dart';
 import '../../controllers/home_screen_controller/home_screen_controller.dart';
 import 'home_screen_widgets.dart';
 

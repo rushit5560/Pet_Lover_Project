@@ -10,7 +10,9 @@ class ServiceDetailsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.colorLightBlue,
       body: Column(
-        children: [],
+        children: [
+
+        ],
       ),
     );
   }
