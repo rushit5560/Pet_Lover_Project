@@ -57,4 +57,17 @@ class AppImages {
   static const option6Img = imageMainPath + "option6.png";
   static const option7Img = imageMainPath + "option7.png";
   static const vectorImg = imageMainPath + "vector.png";
+
+  static const orderConfrimImg = imageMainPath + "order_confirm.png";
+  static const orderDeliveredImg = imageMainPath + "order_delivered.png";
+  static const orderPackedImg = imageMainPath + "order_packed.png";
+  static const orderShippedImg = imageMainPath + "order_shipped.png";
+
+  static const vaccinationImg = imageMainPath + "vaccination.png";
+  static const bathingImg = imageMainPath + "bathing.png";
+  static const deWarmingImg = imageMainPath + "deworming.png";
+  static const walkingImg = imageMainPath + "walking.png";
+  static const feedingImg = imageMainPath + "feeding.png";
+  static const medicinesImg = imageMainPath + "medicines.png";
+
 }
