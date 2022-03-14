@@ -9,7 +9,7 @@ import 'package:pet_lover_project/screens/checkout_screen/checkout_screen.dart';
 class CartList extends StatelessWidget {
   CartList({Key? key}) : super(key: key);
 
-  CartScreenController cartScreenController = Get.find<CartScreenController>();
+  final cartScreenController = Get.find<CartScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class CartList extends StatelessWidget {
               ],
             ),
               child: Container(
-                margin: EdgeInsets.only(bottom: 10),
+                margin: const EdgeInsets.only(bottom: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white
@@ -51,7 +51,7 @@ class CartList extends StatelessWidget {
                       Row(
                         children: [
                           Image.asset(AppImages.beltImg, scale: 2,),
-                          SizedBox(width: 20,),
+                          const SizedBox(width: 20),
 
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,7 +86,7 @@ class CartList extends StatelessWidget {
                             ),),
 
                         const SizedBox(width: 5,),
-                        Obx(()=> Text("${cartScreenController.count}", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400),)),
+                        Obx(()=> Text("${cartScreenController.count}", style: const TextStyle(color: Colors.black, fontWeight: FontWeight.w400),)),
                         const SizedBox(width: 5,),
 
 
@@ -127,7 +127,7 @@ class CartDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         //border: Border.all(color: AppColors.colorDarkBlue1),
@@ -161,7 +161,7 @@ class CartDetails extends StatelessWidget {
           const SizedBox(height: 15,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            children: const [
               Text("Total", style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.w400)),
               Text("\$80.00", style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold))
             ],
