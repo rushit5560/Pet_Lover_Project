@@ -74,5 +74,11 @@ class AppImages {
   static const sendImg = imageMainPath + "send.png";
 
   static const petImg = imageMainPath + "pet.png";
+  static const chatProfile1Img = imageMainPath + "chat_profile1.png";
+  static const chatProfile2Img = imageMainPath + "chat_profile2.png";
+  static const chatProfile3Img = imageMainPath + "chat_profile3.png";
+  static const chatProfile4Img = imageMainPath + "chat_profile4.png";
+  static const chatProfile5Img = imageMainPath + "chat_profile5.png";
+
 
 }
