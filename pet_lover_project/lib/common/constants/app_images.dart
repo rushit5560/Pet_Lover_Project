@@ -73,4 +73,6 @@ class AppImages {
   static const micImg = imageMainPath + "mic.png";
   static const sendImg = imageMainPath + "send.png";
 
+  static const petImg = imageMainPath + "pet.png";
+
 }
