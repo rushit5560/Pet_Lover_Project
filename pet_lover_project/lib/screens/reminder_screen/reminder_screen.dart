@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
 import 'package:pet_lover_project/common/constants/enums.dart';
 import 'package:pet_lover_project/common/custom_appbar/custom_appbar.dart';
-import 'package:pet_lover_project/controllers/cart_screen_controller/cart_screen_controller.dart';
 import 'package:pet_lover_project/controllers/reminder_screen_controller/reminder_screen_controller.dart';
 import 'package:pet_lover_project/screens/reminder_screen/reminder_screen_widgets.dart';
 

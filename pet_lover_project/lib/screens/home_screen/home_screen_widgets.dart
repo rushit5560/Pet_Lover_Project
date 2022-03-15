@@ -180,31 +180,33 @@ class PetServicesModule extends StatelessWidget {
                                   Expanded(
                                     flex: 40,
                                     child: Padding(
-                                      padding: const EdgeInsets.all(3),
+                                      padding: const EdgeInsets.all(7),
                                       child: Column(
                                         children: [
                                           const Text(
                                             '1547, lorem Ipsum is simply dummy text of the printing and typesetting industry',
                                             maxLines: 2,
-                                            style: TextStyle(fontSize: 11),
+                                            style: TextStyle(fontSize: 10),
                                             overflow: TextOverflow.ellipsis,
                                           ),
+                                          const SizedBox(height: 3),
                                           Row(
                                             children: const [
                                               Text(
                                                 'Distance - ',
-                                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
                                               ),
-                                              Text('2.5 Km', style: TextStyle(fontSize: 12),),
+                                              Text('2.5 Km', style: TextStyle(fontSize: 10),),
                                             ],
                                           ),
+                                          const SizedBox(height: 3),
                                           Row(
                                             children: const [
                                               Text(
                                                 'Time - ',
-                                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
                                               ),
-                                              Text('12min', style: TextStyle(fontSize: 12),),
+                                              Text('12min', style: TextStyle(fontSize: 10),),
                                             ],
                                           ),
                                         ],
@@ -371,43 +373,44 @@ class PetMatchModule extends StatelessWidget {
                               alignment: Alignment.bottomCenter,
                               clipBehavior: Clip.none,
                               children: [
-                                Material(
-                                  elevation: 10,
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(15),
-                                    ),
-                                    child: Column(
-                                      children: [
-                                        Expanded(
-                                          flex: 60,
-                                          child: Container(
-                                            width: Get.width,
-                                            height: Get.height,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(15),
-                                              color: AppColors.colorDarkBlue1,
-                                            ),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(5),
-                                              child: Image.asset(screenController.petMatchList[index]),
-                                            ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(15),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: AppColors.colorDarkBlue.withOpacity(1.0),
+                                      ),
+                                    ]
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Expanded(
+                                        flex: 60,
+                                        child: Container(
+                                          width: Get.width,
+                                          height: Get.height,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(15),
+                                            color: AppColors.colorDarkBlue1,
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(5),
+                                            child: Image.asset(screenController.petMatchList[index]),
                                           ),
                                         ),
-                                        const SizedBox(height: 5),
-                                        const Expanded(
-                                          flex: 40,
-                                          child: Text(
-                                              'Lorem Ipsum',
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(fontSize: 10),
-                                          ),
+                                      ),
+                                      const SizedBox(height: 5),
+                                      const Expanded(
+                                        flex: 40,
+                                        child: Text(
+                                            'Lorem Ipsum',
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(fontSize: 10),
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                                 Positioned(
