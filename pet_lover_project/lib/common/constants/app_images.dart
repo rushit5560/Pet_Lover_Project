@@ -69,5 +69,8 @@ class AppImages {
   static const walkingImg = imageMainPath + "walking.png";
   static const feedingImg = imageMainPath + "feeding.png";
   static const medicinesImg = imageMainPath + "medicines.png";
+  static const emojiImg = imageMainPath + "emoji.png";
+  static const micImg = imageMainPath + "mic.png";
+  static const sendImg = imageMainPath + "send.png";
 
 }

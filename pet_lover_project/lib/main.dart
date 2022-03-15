@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/screens/index_screen/index_screen.dart';
 
+import 'screens/conversation_screen/conversation_screen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "Quicksand"
       ),
 
-      home: IndexScreen(),
+      home: ConversationScreen(),
 
     );
   }
