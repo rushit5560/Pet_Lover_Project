@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/common/constants/app_images.dart';
 import 'package:pet_lover_project/models/chat_model/chat_model.dart';
-import '../../common/common_functions.dart';
 import '../../common/constants/app_colors.dart';
 import '../../controllers/conversation_screen_controller/conversation_screen_controller.dart';
+
 
 class ChatListModule extends StatelessWidget {
   ChatListModule({Key? key}) : super(key: key);
@@ -18,88 +18,106 @@ class ChatListModule extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, i) {
         ChatModel singleChat = screenController.chatLists[i];
-        return Container(
-          margin: const EdgeInsets.all(5),
-          padding: singleChat.sendByMe
-              ? const EdgeInsets.only(left: 40)
-              : const EdgeInsets.only(right: 40),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Column(
-                mainAxisAlignment: singleChat.sendByMe
-                    ? MainAxisAlignment.end
-                    : MainAxisAlignment.start,
-                crossAxisAlignment: singleChat.sendByMe
-                    ? CrossAxisAlignment.end
-                    : CrossAxisAlignment.start,
-                children: [
-                  Material(
-                    elevation: 10,
-                    borderRadius: screenController.chatLists[i].sendByMe
-                        ? const BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                          )
-                        : const BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                            bottomRight: Radius.circular(10),
-                          ),
-                    child: Container(
-                      padding: const EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                        color: singleChat.sendByMe
-                            ? AppColors.colorDarkBlue
-                            : Colors.white,
-                        borderRadius: singleChat.sendByMe
-                            ? const BorderRadius.only(
-                                topLeft: Radius.circular(10),
-                                topRight: Radius.circular(10),
-                                bottomLeft: Radius.circular(10),
-                              )
-                            : const BorderRadius.only(
-                                topLeft: Radius.circular(10),
-                                topRight: Radius.circular(10),
-                                bottomRight: Radius.circular(10),
-                              ),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: singleChat.sendByMe
-                            ? CrossAxisAlignment.end
-                            : CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            singleChat.msg,
-                            textAlign: singleChat.sendByMe
-                                ? TextAlign.end
-                                : TextAlign.start,
-                            style: TextStyle(
-                              color: singleChat.sendByMe
-                                  ? Colors.white
-                                  : Colors.black,
-                              fontSize: 12,
-                            ),
-                          ),
-                          const SizedBox(height: 3),
-                          Text(
-                            '12:55 AM',
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                                fontSize: 11,
-                                color: screenController.chatLists[i].sendByMe
-                                    ? Colors.white
-                                    : Colors.grey),
-                          ),
-                        ],
+        return Row(
+          children: [
+            singleChat.sendByMe
+                ? Container()
+                : Container(
+                    height: 35,
+                    width: 35,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage(AppImages.profilePicImg),
                       ),
                     ),
                   ),
-                ],
+            Expanded(
+              child: Container(
+                margin: const EdgeInsets.all(5),
+                padding: singleChat.sendByMe
+                    ? const EdgeInsets.only(left: 40)
+                    : const EdgeInsets.only(right: 40),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Column(
+                      mainAxisAlignment: singleChat.sendByMe
+                          ? MainAxisAlignment.end
+                          : MainAxisAlignment.start,
+                      crossAxisAlignment: singleChat.sendByMe
+                          ? CrossAxisAlignment.end
+                          : CrossAxisAlignment.start,
+                      children: [
+                        Material(
+                          elevation: 10,
+                          borderRadius: screenController.chatLists[i].sendByMe
+                              ? const BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  topRight: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10),
+                                )
+                              : const BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  topRight: Radius.circular(10),
+                                  bottomRight: Radius.circular(10),
+                                ),
+                          child: Container(
+                            padding: const EdgeInsets.all(15),
+                            decoration: BoxDecoration(
+                              color: singleChat.sendByMe
+                                  ? AppColors.colorDarkBlue
+                                  : Colors.white,
+                              borderRadius: singleChat.sendByMe
+                                  ? const BorderRadius.only(
+                                      topLeft: Radius.circular(10),
+                                      topRight: Radius.circular(10),
+                                      bottomLeft: Radius.circular(10),
+                                    )
+                                  : const BorderRadius.only(
+                                      topLeft: Radius.circular(10),
+                                      topRight: Radius.circular(10),
+                                      bottomRight: Radius.circular(10),
+                                    ),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: singleChat.sendByMe
+                                  ? CrossAxisAlignment.end
+                                  : CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  singleChat.msg,
+                                  textAlign: singleChat.sendByMe
+                                      ? TextAlign.end
+                                      : TextAlign.start,
+                                  style: TextStyle(
+                                    color: singleChat.sendByMe
+                                        ? Colors.white
+                                        : Colors.black,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                const SizedBox(height: 3),
+                                Text(
+                                  '12:55 AM',
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      color: screenController.chatLists[i].sendByMe
+                                          ? Colors.white
+                                          : Colors.grey),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ],
-          ),
+            ),
+          ],
         );
       },
     );
