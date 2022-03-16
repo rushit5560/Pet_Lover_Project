@@ -131,7 +131,9 @@ class CommonAppBarModule extends StatelessWidget {
     return Container(
       height: 52,
       width: 52,
-      decoration: BoxDecoration(
+      decoration: appBarOption == AppBarOption.backButtonScreenOption
+          ? null
+          : BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
