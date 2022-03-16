@@ -81,4 +81,9 @@ class AppImages {
   static const chatProfile5Img = imageMainPath + "chat_profile5.png";
   static const threeDotImg = imageMainPath + "threedot.png";
 
+  static const likeImg = imageMainPath + "like.png";
+  static const commentImg = imageMainPath + "comment.png";
+  static const shareImg = imageMainPath + "share.png";
+  static const playArrowImg = imageMainPath + "play.png";
+
 }

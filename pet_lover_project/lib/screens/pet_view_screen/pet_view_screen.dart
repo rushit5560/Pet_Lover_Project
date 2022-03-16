@@ -21,7 +21,7 @@ class PetViewScreen extends StatelessWidget {
               CommonAppBarModule(title: 'Pet View', appBarOption: AppBarOption.petViewScreenOption),
               const SizedBox(height: 40,),
               AddPhoto(),
-              const SizedBox(height: 40,),
+              const SizedBox(height: 25,),
               Expanded(
                   child: PetPostList())
             ],
