@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/controllers/pet_match_screen_controller/pet_match_screen_controller.dart';
