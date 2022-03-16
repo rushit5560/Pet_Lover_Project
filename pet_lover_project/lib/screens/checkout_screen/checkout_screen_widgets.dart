@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/common/common_widgets.dart';
@@ -28,22 +29,25 @@ class PaymentDetails extends StatelessWidget {
           children: [
             Expanded(
               flex: 3,
-              child: Column(
-                children: [
-                  CardNumberTextField(),
-                  const SizedBox(height: 20,),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: DateTextField(),
-                      ),
-                      SizedBox(width: 20,),
-                      Expanded(
-                        child: CvvTextField(),
-                      )
-                    ],
-                  )
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(7.0),
+                child: Column(
+                  children: [
+                    CardNumberTextField(),
+                    const SizedBox(height: 20,),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: DateTextField(),
+                        ),
+                        SizedBox(width: 20,),
+                        Expanded(
+                          child: CvvTextField(),
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
             SizedBox(width: 15,),
@@ -163,7 +167,20 @@ class CardNumberTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const TextFieldElevationModule(),
+        Container(
+          height: 38,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.colorDarkBlue1.withOpacity(0.3),
+                blurRadius: 10,
+                spreadRadius: 5,
+                blurStyle: BlurStyle.outer,
+              ),
+            ],
+          ),
+        ),
         TextFormField(
           controller: checkoutScreenController.cardNumberTextFieldController,
           keyboardType: TextInputType.number,
@@ -171,10 +188,10 @@ class CardNumberTextField extends StatelessWidget {
           decoration: InputDecoration(
             hintText: "Card Number",
             hintStyle: TextStyle(color: AppColors.colorDarkBlue1),
-            isDense: true,
-            contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-            filled: true,
-            fillColor: AppColors.colorLightBlue,
+           // isDense: true,
+            contentPadding: const EdgeInsets.only(left: 15, bottom: 7),
+           // filled: true,
+           // fillColor: AppColors.colorLightBlue,
             border: InputBorder.none,
             // suffix: IconButton(
             //   onPressed: () {},
@@ -213,7 +230,20 @@ class DateTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const TextFieldElevationModule(),
+        Container(
+          height: 38,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.colorDarkBlue1.withOpacity(0.3),
+                blurRadius: 10,
+                spreadRadius: 5,
+                blurStyle: BlurStyle.outer,
+              ),
+            ],
+          ),
+        ),
         TextFormField(
           controller: checkoutScreenController.dateTextFieldController,
           keyboardType: TextInputType.number,
@@ -221,10 +251,10 @@ class DateTextField extends StatelessWidget {
           decoration: InputDecoration(
             hintText: "MM/YYYY",
             hintStyle: TextStyle(color: AppColors.colorDarkBlue1),
-            isDense: true,
-            contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-            filled: true,
-            fillColor: AppColors.colorLightBlue,
+            //isDense: true,
+            contentPadding: const EdgeInsets.only(left: 15, bottom: 7),
+            //filled: true,
+           // fillColor: AppColors.colorLightBlue,
             border: InputBorder.none,
             // suffix: IconButton(
             //   onPressed: () {},
@@ -263,7 +293,20 @@ class CvvTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const TextFieldElevationModule(),
+        Container(
+          height: 38,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.colorDarkBlue1.withOpacity(0.3),
+                blurRadius: 10,
+                spreadRadius: 5,
+                blurStyle: BlurStyle.outer,
+              ),
+            ],
+          ),
+        ),
         TextFormField(
           controller: checkoutScreenController.cvvTextFieldController,
           keyboardType: TextInputType.number,
@@ -271,10 +314,10 @@ class CvvTextField extends StatelessWidget {
           decoration: InputDecoration(
             hintText: "CVV",
             hintStyle: TextStyle(color: AppColors.colorDarkBlue1),
-            isDense: true,
-            contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-            filled: true,
-            fillColor: AppColors.colorLightBlue,
+            //isDense: true,
+            contentPadding: const EdgeInsets.only(left: 15, bottom: 7),
+            //filled: true,
+            //fillColor: AppColors.colorLightBlue,
             border: InputBorder.none,
             // suffix: IconButton(
             //   onPressed: () {},
@@ -325,7 +368,7 @@ class SaveButtonModule extends StatelessWidget {
             child: Text(
               'Save',
               style: TextStyle(
-                  color: Colors.white
+                  color: Colors.white, fontWeight: FontWeight.bold
               ),
             ),
           ),
@@ -344,7 +387,21 @@ class UpiTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const TextFieldElevationModule(),
+        Container(
+          height: 38,
+          margin: EdgeInsets.only(left: 7),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.colorDarkBlue1.withOpacity(0.3),
+                blurRadius: 10,
+                spreadRadius: 5,
+                blurStyle: BlurStyle.outer,
+              ),
+            ],
+          ),
+        ),
         TextFormField(
           controller: checkoutScreenController.cvvTextFieldController,
           keyboardType: TextInputType.number,
@@ -352,10 +409,10 @@ class UpiTextField extends StatelessWidget {
           decoration: InputDecoration(
             hintText: "Enter UPI ID",
             hintStyle: TextStyle(color: AppColors.colorDarkBlue1),
-            isDense: true,
-            contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-            filled: true,
-            fillColor: AppColors.colorLightBlue,
+            //isDense: true,
+            contentPadding: const EdgeInsets.only(left: 15, bottom: 7),
+            //filled: true,
+            //fillColor: AppColors.colorLightBlue,
             border: InputBorder.none,
             // suffix: IconButton(
             //   onPressed: () {},
@@ -505,12 +562,13 @@ class OrderSummaryModule extends StatelessWidget {
 
         Container(
           padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+          margin: EdgeInsets.only(left: 7, right: 7),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               //border: Border.all(color: AppColors.colorDarkBlue1),
               boxShadow: [
                 BoxShadow(
-                    color: Colors.grey.shade400,
+                    color: AppColors.colorDarkBlue1.withOpacity(0.3),
                     blurRadius: 5,
                     spreadRadius: 5,
                     blurStyle: BlurStyle.outer

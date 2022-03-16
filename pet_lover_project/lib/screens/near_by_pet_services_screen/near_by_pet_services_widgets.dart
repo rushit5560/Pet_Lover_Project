@@ -123,33 +123,35 @@ class PetServicesModule extends StatelessWidget {
                                       ),
                                     ),
                                     Expanded(
-                                      flex: 40,
+                                      flex: 42,
                                       child: Padding(
-                                        padding: const EdgeInsets.all(3),
+                                        padding: const EdgeInsets.all(7),
                                         child: Column(
                                           children: [
                                             const Text(
                                               '1547, lorem Ipsum is simply dummy text of the printing and typesetting industry',
                                               maxLines: 2,
-                                              style: TextStyle(fontSize: 11, color: Colors.black, fontWeight: FontWeight.w500),
+                                              style: TextStyle(fontSize: 10),
                                               overflow: TextOverflow.ellipsis,
                                             ),
+                                            const SizedBox(height: 3),
                                             Row(
                                               children: const [
                                                 Text(
                                                   'Distance - ',
                                                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
                                                 ),
-                                                Text('2.5 Km', style: TextStyle(fontSize: 12, color: Colors.black, fontWeight: FontWeight.w500),),
+                                                Text('2.5 Km', style: TextStyle(fontSize: 10),),
                                               ],
                                             ),
+                                            const SizedBox(height: 3),
                                             Row(
                                               children: const [
                                                 Text(
                                                   'Time - ',
-                                                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                                                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
                                                 ),
-                                                Text('12min', style: TextStyle(fontSize: 12, color: Colors.black, fontWeight: FontWeight.w500),),
+                                                Text('12min', style: TextStyle(fontSize: 10),),
                                               ],
                                             ),
                                           ],

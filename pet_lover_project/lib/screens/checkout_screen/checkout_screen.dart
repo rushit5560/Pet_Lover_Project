@@ -18,7 +18,7 @@ class CheckoutScreen extends StatelessWidget {
       backgroundColor: AppColors.colorLightBlue,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
+          padding: const EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

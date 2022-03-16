@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_lover_project/common/constants/app_colors.dart';
 import 'package:pet_lover_project/common/constants/app_images.dart';
 import 'package:pet_lover_project/controllers/chat_screen_controller/chat_screen_controller.dart';
 
@@ -40,7 +41,7 @@ class SearchChatTextField extends StatelessWidget {
             onTap: () {
               print(chatScreenController.searchTextFieldController.text);
             },
-            child: Icon(Icons.search_rounded, color: Colors.grey),
+            child: Icon(Icons.search_rounded, color: AppColors.colorDarkBlue1),
           ),
         ),
       ),
@@ -69,7 +70,7 @@ class PinnedChatList extends StatelessWidget {
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, index){
                 return Container(
-                  margin: EdgeInsets.only(bottom: 20),
+                  margin: EdgeInsets.only(bottom: 20, top: 7),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     color: Colors.white,
@@ -150,7 +151,7 @@ class RecentChatList extends StatelessWidget {
                 physics: AlwaysScrollableScrollPhysics(),
                 itemBuilder: (context, index){
                   return Container(
-                    margin: EdgeInsets.only(bottom: 20),
+                    margin: EdgeInsets.only(bottom: 20, left: 7, right: 7, top: 7),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.white,

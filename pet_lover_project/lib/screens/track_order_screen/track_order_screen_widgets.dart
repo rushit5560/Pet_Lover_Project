@@ -299,7 +299,7 @@ class OrderSummaryModule extends StatelessWidget {
             //border: Border.all(color: AppColors.colorDarkBlue1),
             boxShadow: [
               BoxShadow(
-                  color: Colors.grey.shade400,
+                  color: AppColors.colorDarkBlue1.withOpacity(0.3),
                   blurRadius: 5,
                   spreadRadius: 5,
                   blurStyle: BlurStyle.outer

@@ -24,40 +24,52 @@ class OrderList extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      children: [
-                        Image.asset(AppImages.beltImg, scale: 2,),
-                        const SizedBox(width: 20,),
+                    Expanded(
+                      flex: 2,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex:1,
+                              child: Image.asset(AppImages.accessories6Img, scale: 2,)),
+                          const SizedBox(width: 20,),
 
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text("Lorem Ipsum", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 16),),
-                            SizedBox(height: 5,),
-                            Text("\$15.00", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 19),)
-                          ],
-                        )
-                      ],
+                          Expanded(
+                            flex: 2,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text("Lorem Ipsum", maxLines: 1,
+                                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 16),),
+                                SizedBox(height: 5,),
+                                Text("\$15.00", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 19),)
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
 
-                   Row(
-                     children: [
-                        Container(
-                          height: 40, width: Get.width /4,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: AppColors.colorDarkBlue
+                   Expanded(
+                     flex: 1,
+                     child: Row(
+                       children: [
+                          Container(
+                            height: 35, width: Get.width /5,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: AppColors.colorDarkBlue
+                            ),
+                            child: const Center(
+                              child: Text("Shipped", style: TextStyle(
+                                color: Colors.white, fontSize: 13
+                              ),),
+                            ),
                           ),
-                          child: const Center(
-                            child: Text("Shipped", style: TextStyle(
-                              color: Colors.white
-                            ),),
-                          ),
-                        ),
-                        SizedBox(width: 10,),
-                        Image.asset(AppImages.arrow, scale: 1.5,)
+                          SizedBox(width: 10,),
+                          Image.asset(AppImages.arrow, scale: 2,)
 
-                     ],
+                       ],
+                     ),
                    )
                   ],
                 ),

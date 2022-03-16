@@ -13,7 +13,7 @@ class TrackOrderScreen extends StatelessWidget {
       backgroundColor: AppColors.colorLightBlue,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+          padding: const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

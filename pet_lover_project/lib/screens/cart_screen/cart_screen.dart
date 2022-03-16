@@ -18,7 +18,7 @@ class CartScreen extends StatelessWidget {
       backgroundColor: AppColors.colorLightBlue,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
+          padding: const EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
           child: Column(
             children: [
               CommonAppBarModule(title: 'Cart', appBarOption: AppBarOption.backButtonScreenOption),
@@ -33,7 +33,7 @@ class CartScreen extends StatelessWidget {
                       const SizedBox(height: 20,),
 
                       CartDetails(),
-                      const SizedBox(height: 20,),
+                      const SizedBox(height: 30,),
 
                       CheckOutButton()
                     ],

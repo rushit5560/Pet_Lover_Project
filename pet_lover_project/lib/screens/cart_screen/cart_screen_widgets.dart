@@ -14,7 +14,7 @@ class CartList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 5,
+      itemCount: cartScreenController.basketItemsList.length,
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index){
@@ -38,6 +38,7 @@ class CartList extends StatelessWidget {
               ],
             ),
               child: Container(
+                //height: Get.height/7,
                 margin: const EdgeInsets.only(bottom: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -48,67 +49,85 @@ class CartList extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: [
-                          Image.asset(AppImages.beltImg, scale: 2,),
-                          const SizedBox(width: 20),
+                      Expanded(
+                        flex: 2,
+                        child: Row(
+                          children: [
+                            Expanded(
+                              flex:1,
+                                child: Image.asset(cartScreenController.basketItemsList[index].img, scale: 2,)),
+                            const SizedBox(width: 20),
 
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text("Lorem Ipsum", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 16),),
-                            SizedBox(height: 5,),
-                            Text("\$15.00", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 19),)
-                          ],
-                        )
-                      ],
+                          Expanded(
+                            flex: 2,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(cartScreenController.basketItemsList[index].name,
+                                  maxLines: 1,
+                                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 16),),
+                                const SizedBox(height: 5,),
+                                Text(cartScreenController.basketItemsList[index].amount, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 19),)
+                              ],
+                            ),
+                          )
+                        ],
                     ),
+                      ),
 
-                    Row(
-                      children: [
-                        const Text("QTY:",style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400),),
-                        const SizedBox(width: 10,),
-
-
-                        GestureDetector(
-                            onTap: (){
-                              cartScreenController.count += 1;
-                            },
-                            child: Container(
-                              height: 20,width: 20,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                color: AppColors.colorDarkBlue
-                              ),
-                              child: Center(
-                                child: Image.asset(AppImages.plusImg, scale: 2,),
-                              ),
-                            ),),
-
-                        const SizedBox(width: 5,),
-                        Obx(()=> Text("${cartScreenController.count}", style: const TextStyle(color: Colors.black, fontWeight: FontWeight.w400),)),
-                        const SizedBox(width: 5,),
+                    Expanded(
+                      flex: 1,
+                      child: Row(
+                        children: [
+                          const Text("QTY:",style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400),),
+                          const SizedBox(width: 10,),
 
 
-
-                           GestureDetector(
-                            onTap: (){
-                              if (cartScreenController.count > 1) {
-                                cartScreenController.count -= 1;
-                              }
-                            },
-                            child: Container(
-                              height: 20,width: 20,
-                              decoration: BoxDecoration(
+                          GestureDetector(
+                              onTap: (){
+                                //cartScreenController.count += 1;
+                                cartScreenController.onClickedInc(index);
+                              },
+                              child: Container(
+                                height: 20,width: 20,
+                                decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5),
                                   color: AppColors.colorDarkBlue
-                              ),
-                              child: Center(
-                                child: Image.asset(AppImages.minusImg, scale: 2,),
+                                ),
+                                child: Center(
+                                  child: Image.asset(AppImages.plusImg, scale: 2,),
+                                ),
+                              ),),
+
+                          const SizedBox(width: 5,),
+                          Obx(()=> cartScreenController.isLoading.value ? Container() :
+                          Text("${cartScreenController.basketItemsList[index].qty}", style: const TextStyle(color: Colors.black, fontWeight: FontWeight.w400),)),
+                          const SizedBox(width: 5,),
+
+
+
+                             GestureDetector(
+                              onTap: (){
+                                // if (cartScreenController.count > 1) {
+                                //   cartScreenController.count -= 1;
+                                // }
+
+                                cartScreenController.onClickedDec(index);
+                              },
+                              child: Container(
+                                height: 20,width: 20,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    color: AppColors.colorDarkBlue
+                                ),
+                                child: Center(
+                                  child: Image.asset(AppImages.minusImg, scale: 2,),
+                                ),
                               ),
                             ),
-                          ),
-                      ],
+                        ],
+                      ),
                     )
                   ],
                 ),
@@ -127,7 +146,8 @@ class CartDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      margin: EdgeInsets.only(left: 7, right: 7),
+      padding: const EdgeInsets.all(13),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         //border: Border.all(color: AppColors.colorDarkBlue1),
@@ -162,7 +182,7 @@ class CartDetails extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
-              Text("Total", style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.w400)),
+              Text("Total", style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.w500)),
               Text("\$80.00", style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold))
             ],
           )
