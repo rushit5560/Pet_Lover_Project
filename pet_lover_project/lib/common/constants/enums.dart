@@ -1,3 +1,4 @@
 enum AppBarOption {
-  homeScreenOption, petShopScreenOption, backButtonScreenOption, userProfileScreenOption, petViewScreenOption
+  homeScreenOption, petShopScreenOption, backButtonScreenOption, userProfileScreenOption, petViewScreenOption,
+  createPostOption
 }

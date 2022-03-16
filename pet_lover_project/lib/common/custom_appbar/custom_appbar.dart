@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../constants/app_colors.dart';
 import '../constants/app_images.dart';
 import '../constants/enums.dart';
 
@@ -137,6 +138,17 @@ class CommonAppBarModule extends StatelessWidget {
         ? Image.asset(AppImages.threeDotImg, scale: 2)
         : appBarOption == AppBarOption.petViewScreenOption
         ? Image.asset(AppImages.msgIconImg, scale: 2)
+        : appBarOption == AppBarOption.createPostOption
+        ? Center(
+          child: Text(
+            'POST',
+            style: TextStyle(
+              color: AppColors.colorDarkBlue1,
+              fontSize: 13,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        )
         : null,
       ),
     );
