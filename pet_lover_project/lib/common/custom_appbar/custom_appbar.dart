@@ -148,7 +148,8 @@ class CommonAppBarModule extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-        )
+        ) : appBarOption == AppBarOption.adoptPetScreenOption
+        ? Image.asset(AppImages.msgIconImg, scale: 2)
         : null,
       ),
     );

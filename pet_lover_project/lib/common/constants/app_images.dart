@@ -86,4 +86,11 @@ class AppImages {
   static const shareImg = imageMainPath + "share.png";
   static const playArrowImg = imageMainPath + "play.png";
 
+  static const adoptPet1Img = imageMainPath + "adopt_pet1.png";
+  static const adoptPet2Img = imageMainPath + "adopt_pet2.png";
+  static const adoptPet3Img = imageMainPath + "adopt_pet3.png";
+  static const adoptPet4Img = imageMainPath + "adopt_pet4.png";
+  static const adoptPet5Img = imageMainPath + "adopt_pet5.png";
+  static const adoptPet6Img = imageMainPath + "adopt_pet6.png";
+
 }
