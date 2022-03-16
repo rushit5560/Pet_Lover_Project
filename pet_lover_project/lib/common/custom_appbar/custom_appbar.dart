@@ -110,7 +110,9 @@ class CommonAppBarModule extends StatelessWidget {
           child: Image.asset(
             appBarOption == AppBarOption.homeScreenOption
                 ? AppImages.menuIconImg
-                : AppImages.backButtonImg,
+                : appBarOption == AppBarOption.petViewScreenOption
+            ? AppImages.profilePicImg
+            : AppImages.backButtonImg,
             scale: 2,
           ),
         ),
@@ -134,7 +136,7 @@ class CommonAppBarModule extends StatelessWidget {
         : appBarOption == AppBarOption.userProfileScreenOption
         ? Image.asset(AppImages.threeDotImg, scale: 2)
         : appBarOption == AppBarOption.petViewScreenOption
-        ? Image.asset(AppImages.profilePicImg, scale: 2)
+        ? Image.asset(AppImages.msgIconImg, scale: 2)
         : null,
       ),
     );
