@@ -5,6 +5,7 @@ import 'package:pet_lover_project/common/constants/app_colors.dart';
 import 'package:pet_lover_project/screens/cart_screen/cart_screen.dart';
 import 'package:pet_lover_project/screens/home_screen/home_screen.dart';
 import 'package:pet_lover_project/screens/pet_shop_screen/pet_shop_screen.dart';
+import 'package:pet_lover_project/screens/pet_view_screen/pet_view_screen.dart';
 
 import '../../common/constants/app_images.dart';
 import '../../controllers/index_screen_controller/index_screen_controller.dart';
@@ -101,7 +102,7 @@ class IndexScreen extends StatelessWidget {
     if (indexScreenController.menuIndex.value == 0) {
       return HomeScreen();
     } else if (indexScreenController.menuIndex.value == 1) {
-      return CartScreen();
+      return PetViewScreen();
     } else if (indexScreenController.menuIndex.value == 2) {
       return PetShopScreen();
     } else {
