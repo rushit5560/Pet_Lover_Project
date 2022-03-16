@@ -79,6 +79,6 @@ class AppImages {
   static const chatProfile3Img = imageMainPath + "chat_profile3.png";
   static const chatProfile4Img = imageMainPath + "chat_profile4.png";
   static const chatProfile5Img = imageMainPath + "chat_profile5.png";
-
+  static const threeDotImg = imageMainPath + "threedot.png";
 
 }
