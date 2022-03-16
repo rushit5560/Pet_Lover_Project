@@ -94,64 +94,75 @@ class CommonAppBarModule extends StatelessWidget {
   }
 
   Widget _leftSideButton(BuildContext context) {
-    return Material(
-      elevation: 10,
-      borderRadius: BorderRadius.circular(10),
-      child: GestureDetector(
-        onTap: () {
-          if (appBarOption == AppBarOption.homeScreenOption) {
-            Scaffold.of(context).openDrawer();
-          }
-        },
-        child: Container(
-          height: 52,
-          width: 52,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10), color: Colors.white),
-          child: Image.asset(
-            appBarOption == AppBarOption.homeScreenOption
-                ? AppImages.menuIconImg
-                : appBarOption == AppBarOption.petViewScreenOption
-            ? AppImages.profilePicImg
-            : AppImages.backButtonImg,
-            scale: 2,
-          ),
+    return GestureDetector(
+      onTap: () {
+        if (appBarOption == AppBarOption.homeScreenOption) {
+          Scaffold.of(context).openDrawer();
+        }
+      },
+      child: Container(
+        height: 52,
+        width: 52,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                blurRadius: 8,
+                spreadRadius: 1,
+                blurStyle: BlurStyle.outer
+            ),
+          ],
+
+        ),
+        child: Image.asset(
+          appBarOption == AppBarOption.homeScreenOption
+              ? AppImages.menuIconImg
+              : appBarOption == AppBarOption.petViewScreenOption
+          ? AppImages.profilePicImg
+          : AppImages.backButtonImg,
+          scale: 2,
         ),
       ),
     );
   }
 
   Widget _rightSideButton() {
-    return Material(
-      elevation: 10,
-      borderRadius: BorderRadius.circular(10),
-      child: Container(
-        height: 52,
-        width: 52,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10), color: Colors.white),
-        child: appBarOption == AppBarOption.homeScreenOption
-          ? Image.asset(AppImages.msgIconImg, scale: 2)
-        : appBarOption == AppBarOption.petShopScreenOption
-        ? Image.asset(AppImages.cartImg, scale: 2)
-        : appBarOption == AppBarOption.userProfileScreenOption
-        ? Image.asset(AppImages.threeDotImg, scale: 2)
-        : appBarOption == AppBarOption.petViewScreenOption
-        ? Image.asset(AppImages.msgIconImg, scale: 2)
-        : appBarOption == AppBarOption.createPostOption
-        ? Center(
-          child: Text(
-            'POST',
-            style: TextStyle(
-              color: AppColors.colorDarkBlue1,
-              fontSize: 13,
-              fontWeight: FontWeight.bold,
-            ),
+    return Container(
+      height: 52,
+      width: 52,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+              color: AppColors.colorDarkBlue1.withOpacity(0.2),
+              blurRadius: 8,
+              spreadRadius: 1,
+              blurStyle: BlurStyle.outer,
           ),
-        ) : appBarOption == AppBarOption.adoptPetScreenOption
-        ? Image.asset(AppImages.msgIconImg, scale: 2)
-        : null,
+        ],
       ),
+      child: appBarOption == AppBarOption.homeScreenOption
+        ? Image.asset(AppImages.msgIconImg, scale: 2)
+      : appBarOption == AppBarOption.petShopScreenOption
+      ? Image.asset(AppImages.cartImg, scale: 2)
+      : appBarOption == AppBarOption.userProfileScreenOption
+      ? Image.asset(AppImages.threeDotImg, scale: 2)
+      : appBarOption == AppBarOption.petViewScreenOption
+      ? Image.asset(AppImages.msgIconImg, scale: 2)
+      : appBarOption == AppBarOption.createPostOption
+      ? Center(
+        child: Text(
+          'POST',
+          style: TextStyle(
+            color: AppColors.colorDarkBlue1,
+            fontSize: 13,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ) : appBarOption == AppBarOption.adoptPetScreenOption
+      ? Image.asset(AppImages.msgIconImg, scale: 2)
+      : null,
     );
   }
 }
