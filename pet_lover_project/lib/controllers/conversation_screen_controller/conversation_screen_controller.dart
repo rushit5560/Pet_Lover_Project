@@ -36,5 +36,9 @@ class ConversationScreenController extends GetxController {
       msg: "Okay....",
       sendByMe: true,
     ),
+    ChatModel(
+      msg: "Lorem Ipsum is simply dummy text of the printing and typesetting",
+      sendByMe: true,
+    ),
   ];
 }
