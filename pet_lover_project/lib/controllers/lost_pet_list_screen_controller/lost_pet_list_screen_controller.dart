@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../common/constants/app_images.dart';
 
-class PetLostListScreenController extends GetxController {
+class LostPetListScreenController extends GetxController {
   RxBool isLoading = false.obs;
   RxBool isSuccessStatus = false.obs;
 

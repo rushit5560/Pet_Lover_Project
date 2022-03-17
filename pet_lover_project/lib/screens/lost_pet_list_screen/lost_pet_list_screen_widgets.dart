@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/common/common_functions.dart';
 import '../../common/constants/app_colors.dart';
-import '../../controllers/pet_lost_list_screen_controller/pet_lost_list_screen_controller.dart';
+import '../../controllers/pet_lost_list_screen_controller/lost_pet_list_screen_controller.dart';
 
 class PetLostListSearchFieldModule extends StatelessWidget {
   PetLostListSearchFieldModule({Key? key}) : super(key: key);

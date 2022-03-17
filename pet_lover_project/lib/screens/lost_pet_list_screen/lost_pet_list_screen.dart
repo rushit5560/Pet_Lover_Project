@@ -4,13 +4,13 @@ import 'package:pet_lover_project/common/constants/app_colors.dart';
 import 'package:pet_lover_project/common/constants/enums.dart';
 import 'package:pet_lover_project/common/custom_appbar/custom_appbar.dart';
 import 'package:pet_lover_project/common/extension_methods/extension_methods.dart';
+import 'package:pet_lover_project/controllers/lost_pet_list_screen_controller/lost_pet_list_screen_controller.dart';
 
-import '../../controllers/pet_lost_list_screen_controller/pet_lost_list_screen_controller.dart';
-import 'pet_lost_list_screen_widgets.dart';
+import 'lost_pet_list_screen_widgets.dart';
 
-class PetLostListScreen extends StatelessWidget {
-  PetLostListScreen({Key? key}) : super(key: key);
-  final petLostListScreenController = Get.put(PetLostListScreenController());
+class LostPetListScreen extends StatelessWidget {
+  LostPetListScreen({Key? key}) : super(key: key);
+  final lostPetListScreenController = Get.put(LostPetListScreenController());
 
   @override
   Widget build(BuildContext context) {
