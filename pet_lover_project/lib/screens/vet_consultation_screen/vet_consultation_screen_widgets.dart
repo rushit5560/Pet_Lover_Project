@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
@@ -64,7 +65,7 @@ class VetConsultationList extends StatelessWidget {
           //padding: EdgeInsets.only(bottom: 10),
           margin: EdgeInsets.only(bottom: 25, left: 15, right: 15, top: 15),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(5),
             color: Colors.white,
             boxShadow: [
               BoxShadow(
@@ -86,13 +87,52 @@ class VetConsultationList extends StatelessWidget {
                     children: [
                       Expanded(
                           flex:1,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: AppColors.colorDarkBlue1
+                          // child: Container(
+                          //   decoration: BoxDecoration(
+                          //     borderRadius: BorderRadius.circular(15),
+                          //     color: AppColors.colorDarkBlue1
+                          //   ),
+                          //   child: Image.asset(vetConsultationScreenController.vetChat[index].image),
+                          // )
+                        child: Stack(
+                          alignment: Alignment.topCenter,
+                          children: [
+                            // Positioned(
+                            //   child: Container(
+                            //     height: 66, width:90,
+                            //     //margin: EdgeInsets.only(top: 15),
+                            //     decoration: BoxDecoration(
+                            //       borderRadius: BorderRadius.circular(15),
+                            //       color: AppColors.colorDarkBlue1
+                            //     ),
+                            //   ),
+                            // ),
+                            // Image.asset(vetConsultationScreenController.vetChat[index].image),
+                            SizedBox(
+                              height: 80, width: 80,
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    flex:15,
+                                      child: Container()),
+                                  Expanded(
+                                    flex: 85,
+                                    child: Container(
+                                          //height: 66, width:90,
+                                          //margin: EdgeInsets.only(top: 15),
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(15),
+                                            color: AppColors.colorDarkBlue1
+                                          ),
+                                        ),
+                                  ),
+                                ],
+                              ),
                             ),
-                            child: Image.asset(vetConsultationScreenController.vetChat[index].image),
-                          )),
+                            Image.asset(vetConsultationScreenController.vetChat[index].image),
+                          ],
+                        ),
+                      ),
                       const SizedBox(width: 10),
 
                       Expanded(
