@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/common/common_functions.dart';
+import 'package:pet_lover_project/controllers/lost_pet_list_screen_controller/lost_pet_list_screen_controller.dart';
 import '../../common/constants/app_colors.dart';
-import '../../controllers/pet_lost_list_screen_controller/lost_pet_list_screen_controller.dart';
 
 class PetLostListSearchFieldModule extends StatelessWidget {
   PetLostListSearchFieldModule({Key? key}) : super(key: key);
-  final screenController = Get.find<PetLostListScreenController>();
+  final screenController = Get.find<LostPetListScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class PetLostListSearchFieldModule extends StatelessWidget {
 
 class PetLostListsModule extends StatelessWidget {
   PetLostListsModule({Key? key}) : super(key: key);
-  final screenController = Get.find<PetLostListScreenController>();
+  final screenController = Get.find<LostPetListScreenController>();
 
   @override
   Widget build(BuildContext context) {
