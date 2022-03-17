@@ -49,66 +49,60 @@ class ChatListModule extends StatelessWidget {
                           ? CrossAxisAlignment.end
                           : CrossAxisAlignment.start,
                       children: [
-                        Material(
-                          elevation: 10,
-                          borderRadius: screenController.chatLists[i].sendByMe
-                              ? const BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10),
-                                  bottomLeft: Radius.circular(10),
-                                )
-                              : const BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10),
-                                  bottomRight: Radius.circular(10),
-                                ),
-                          child: Container(
-                            padding: const EdgeInsets.all(15),
-                            decoration: BoxDecoration(
-                              color: singleChat.sendByMe
-                                  ? AppColors.colorDarkBlue
-                                  : Colors.white,
-                              borderRadius: singleChat.sendByMe
-                                  ? const BorderRadius.only(
-                                      topLeft: Radius.circular(10),
-                                      topRight: Radius.circular(10),
-                                      bottomLeft: Radius.circular(10),
-                                    )
-                                  : const BorderRadius.only(
-                                      topLeft: Radius.circular(10),
-                                      topRight: Radius.circular(10),
-                                      bottomRight: Radius.circular(10),
-                                    ),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: singleChat.sendByMe
-                                  ? CrossAxisAlignment.end
-                                  : CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  singleChat.msg,
-                                  textAlign: singleChat.sendByMe
-                                      ? TextAlign.end
-                                      : TextAlign.start,
-                                  style: TextStyle(
-                                    color: singleChat.sendByMe
-                                        ? Colors.white
-                                        : Colors.black,
-                                    fontSize: 12,
+                        Container(
+                          padding: const EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            color: singleChat.sendByMe
+                                ? AppColors.colorDarkBlue
+                                : Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                  color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                                  blurRadius: 8,
+                                  spreadRadius: 1,
+                                  blurStyle: BlurStyle.outer
+                              ),
+                            ],
+                            borderRadius: singleChat.sendByMe
+                                ? const BorderRadius.only(
+                                    topLeft: Radius.circular(10),
+                                    topRight: Radius.circular(10),
+                                    bottomLeft: Radius.circular(10),
+                                  )
+                                : const BorderRadius.only(
+                                    topLeft: Radius.circular(10),
+                                    topRight: Radius.circular(10),
+                                    bottomRight: Radius.circular(10),
                                   ),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: singleChat.sendByMe
+                                ? CrossAxisAlignment.end
+                                : CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                singleChat.msg,
+                                textAlign: singleChat.sendByMe
+                                    ? TextAlign.end
+                                    : TextAlign.start,
+                                style: TextStyle(
+                                  color: singleChat.sendByMe
+                                      ? Colors.white
+                                      : Colors.black,
+                                  fontSize: 12,
                                 ),
-                                const SizedBox(height: 3),
-                                Text(
-                                  '12:55 AM',
-                                  textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                      fontSize: 11,
-                                      color: screenController.chatLists[i].sendByMe
-                                          ? Colors.white
-                                          : Colors.grey),
-                                ),
-                              ],
-                            ),
+                              ),
+                              const SizedBox(height: 3),
+                              Text(
+                                '12:55 AM',
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                    fontSize: 11,
+                                    color: screenController.chatLists[i].sendByMe
+                                        ? Colors.white
+                                        : Colors.grey),
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -134,14 +128,14 @@ class MessageFieldModule extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
           color: AppColors.colorLightBlue,
-          boxShadow: [
-            BoxShadow(
-                color: Colors.grey.shade400,
-                blurRadius: 5,
-                spreadRadius: 5,
-                blurStyle: BlurStyle.outer
-            )
-          ],
+        boxShadow: [
+          BoxShadow(
+              color: AppColors.colorDarkBlue1.withOpacity(0.2),
+              blurRadius: 8,
+              spreadRadius: 1,
+              blurStyle: BlurStyle.outer
+          ),
+        ],
       ),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),

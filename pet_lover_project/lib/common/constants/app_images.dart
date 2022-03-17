@@ -93,5 +93,11 @@ class AppImages {
   static const adoptPet5Img = imageMainPath + "adopt_pet5.png";
   static const adoptPet6Img = imageMainPath + "adopt_pet6.png";
   static const dropDownArrowImg = imageMainPath + "drop_down_arrow.png";
+  static const lostPet1Img = imageMainPath + "lost_pet_1.png";
+  static const lostPet2Img = imageMainPath + "lost_pet_2.png";
+  static const lostPet3Img = imageMainPath + "lost_pet_3.png";
+  static const lostPet4Img = imageMainPath + "lost_pet_4.png";
+  static const lostPet5Img = imageMainPath + "lost_pet_5.png";
+  static const lostPet6Img = imageMainPath + "lost_pet_6.png";
 
 }

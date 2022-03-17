@@ -14,6 +14,7 @@ class AdoptPetDetailsScreen extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
+
             SingleChildScrollView(
               child: Column(
                 children: [
@@ -26,7 +27,7 @@ class AdoptPetDetailsScreen extends StatelessWidget {
                       children: [
                         AdoptPetNamePriceAndDescriptionModule(),
                         const SizedBox(height: 15),
-                        AdoptPetDetailsModule(),
+                        const AdoptPetDetailsModule(),
                         const SizedBox(height: 10),
                         CallAndChatButtonsModule(),
 
@@ -42,6 +43,7 @@ class AdoptPetDetailsScreen extends StatelessWidget {
               left: 20,
               child: AdoptPetDetailsBackButtonModule(),
             ),
+
           ],
         ),
       ),

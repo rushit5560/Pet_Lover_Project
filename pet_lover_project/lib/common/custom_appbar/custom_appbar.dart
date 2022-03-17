@@ -105,7 +105,7 @@ class CommonAppBarModule extends StatelessWidget {
         width: 52,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.white,
+          color: AppColors.colorLightBlue,
           boxShadow: [
             BoxShadow(
                 color: AppColors.colorDarkBlue1.withOpacity(0.2),
@@ -165,6 +165,8 @@ class CommonAppBarModule extends StatelessWidget {
         ),
       ) : appBarOption == AppBarOption.adoptPetScreenOption
       ? Image.asset(AppImages.msgIconImg, scale: 2)
+      : appBarOption == AppBarOption.petLostListScreen
+      ? Image.asset(AppImages.plusDarkBlueImg, scale: 2)
       : null,
     );
   }
