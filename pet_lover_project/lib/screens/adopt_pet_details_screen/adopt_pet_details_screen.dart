@@ -14,25 +14,27 @@ class AdoptPetDetailsScreen extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
-            Column(
-              children: [
-                AdoptPetImageListModule(),
-                const SizedBox(height: 20),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      AdoptPetNamePriceAndDescriptionModule(),
-                      const SizedBox(height: 15),
-                      AdoptPetDetailsModule(),
-                      const SizedBox(height: 10),
-                      CallAndChatButtonsModule(),
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  AdoptPetImageListModule(),
+                  const SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AdoptPetNamePriceAndDescriptionModule(),
+                        const SizedBox(height: 15),
+                        AdoptPetDetailsModule(),
+                        const SizedBox(height: 10),
+                        CallAndChatButtonsModule(),
 
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
 
             const Positioned(

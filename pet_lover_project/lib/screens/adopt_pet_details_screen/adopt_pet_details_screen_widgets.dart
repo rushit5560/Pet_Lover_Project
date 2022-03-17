@@ -13,19 +13,25 @@ class AdoptPetDetailsBackButtonModule extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Get.back(),
-      child: Material(
-        elevation: 10,
-        borderRadius: BorderRadius.circular(10),
-        child: Container(
-          height: 52,
-          width: 52,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white),
-          child: Image.asset(
-            AppImages.backButton,
-            scale: 2,
-          ),
+      child: Container(
+        height: 52,
+        width: 52,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                blurRadius: 8,
+                spreadRadius: 1,
+                blurStyle: BlurStyle.outer
+            ),
+          ],
+        ),
+
+        child: Image.asset(
+          AppImages.backButton,
+          scale: 2,
         ),
       ),
     );
@@ -53,7 +59,7 @@ class AdoptPetImageListModule extends StatelessWidget {
             itemCount: screenController.petImageLists.length,
             options: CarouselOptions(
                 height: Get.height * 0.30,
-                autoPlay: true,
+                // autoPlay: true,
                 viewportFraction: 1,
                 onPageChanged: (index, reason) {
                   screenController.activeIndex.value = index;
@@ -219,13 +225,12 @@ class CallAndChatButtonsModule extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        // _callButtonModule(),
-        // const SizedBox(width: 5),
         _messageButtonModule(),
         const SizedBox(width: 5),
         Expanded(
           child: Container(
-            decoration: BoxDecoration(
+            height: 30,
+          decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               boxShadow: [
                 BoxShadow(
@@ -236,17 +241,20 @@ class CallAndChatButtonsModule extends StatelessWidget {
                 ),
               ],
             ),
-            child: TextFormField(
-              controller: screenController.makeOfferTextFieldController,
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: 'Make Offer',
-                isDense: true,
-                contentPadding: const EdgeInsets.all(5),
-                hintStyle: TextStyle(
-                  color: AppColors.colorDarkBlue1,
-                  fontSize: 10,
+            child: Center(
+              child: TextFormField(
+                keyboardType: TextInputType.emailAddress,
+                controller: screenController.makeOfferTextFieldController,
+                cursorColor: AppColors.colorDarkBlue1,
+                decoration: InputDecoration(
+                  hintText: 'Make Offer',
+                  hintStyle: TextStyle(
+                    color: AppColors.colorDarkBlue1, fontSize: 14),
+                  isDense: true,
+                  contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                  border: InputBorder.none,
                 ),
+                // decoration: _inputDecoration(hintText: 'Make Offer'),
               ),
             ),
           ),
@@ -257,35 +265,7 @@ class CallAndChatButtonsModule extends StatelessWidget {
     );
   }
 
-  /*Widget _callButtonModule() {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.colorDarkBlue1,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 9),
-        child: Row(
-          children: const [
-            Text(
-              'Call',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 10,
-                color: Colors.white,
-              ),
-            ),
-            SizedBox(width: 8),
-            Icon(
-              Icons.phone,
-              color: Colors.white,
-              size: 10,
-            ),
-          ],
-        ),
-      ),
-    );
-  }*/
+
 
   Widget _messageButtonModule() {
     return Container(
