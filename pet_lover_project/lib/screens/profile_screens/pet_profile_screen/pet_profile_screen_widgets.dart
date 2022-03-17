@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -213,19 +213,70 @@ class DobPicker extends StatelessWidget {
   final petProfileScreenController = Get.find<PetProfileScreenController>();
   final FieldValidator fieldValidator = FieldValidator();
 
+  //String _selectedDate = 'Lost Date';
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? d = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2015),
+      lastDate: DateTime(2025),
+    );
+    if (d != null) {
+      //setState(() {
+      petProfileScreenController.selectedDate.value = DateFormat.yMMMMd("en_US").format(d);
+      //});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        const TextFieldElevationModule(),
-        TextFormField(
-          controller: petProfileScreenController.nameTextFieldController,
-          keyboardType: TextInputType.text,
-          cursorColor: AppColors.colorDarkBlue1,
-          decoration: signInFormFieldDecoration(hintText: 'DOB'),
-          validator: (value) => fieldValidator.validateFullName(value!),
+    return Obx(()=>
+        Container(
+        height: 45,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.colorDarkBlue1.withOpacity(0.2),
+              blurRadius: 10,
+              spreadRadius: 5,
+              blurStyle: BlurStyle.outer,
+            ),
+          ],
         ),
-      ],
+        child: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: Row(
+            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                flex: 2,
+                child: InkWell(
+                  child: Text(
+                      petProfileScreenController.selectedDate.value,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: AppColors.colorDarkBlue1)
+                  ),
+                  onTap: (){
+                    _selectDate(context);
+                  },
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: IconButton(
+                  icon: Icon(Icons.calendar_today_outlined, color: AppColors.colorDarkBlue1, size: 20,),
+                  tooltip: 'DOB',
+                  onPressed: () {
+                    _selectDate(context);
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

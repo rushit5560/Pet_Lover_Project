@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -9,28 +9,43 @@ import 'package:pet_lover_project/common/constants/app_colors.dart';
 import 'package:pet_lover_project/common/constants/app_images.dart';
 import 'package:pet_lover_project/common/constants/field_decorations.dart';
 import 'package:pet_lover_project/common/field_validation.dart';
-import 'package:pet_lover_project/controllers/add_details_screen_controller/add_details_screen_controller.dart';
+import 'package:pet_lover_project/controllers/add_pet_lost_details_screen_controller/add_pet_lost_details_screen_controller.dart';
 
-class AddDetailsForm extends StatefulWidget {
-  AddDetailsForm({Key? key}) : super(key: key);
+class AddPetLostDetailsForm extends StatefulWidget {
+  AddPetLostDetailsForm({Key? key}) : super(key: key);
 
   @override
-  State<AddDetailsForm> createState() => _AddDetailsFormState();
+  State<AddPetLostDetailsForm> createState() => _AddPetLostDetailsFormState();
 }
 
-class _AddDetailsFormState extends State<AddDetailsForm> {
+class _AddPetLostDetailsFormState extends State<AddPetLostDetailsForm> {
   final ImagePicker imagePicker = ImagePicker();
   final FieldValidator fieldValidator = FieldValidator();
-  final addDetailsScreenController = Get.find<AddDetailsScreenController>();
+  final addPetLostDetailsScreenController = Get.find<AddPetLostDetailsScreenController>();
+  String _selectedDate = 'Lost Date';
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? d = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2015),
+      lastDate: DateTime(2025),
+    );
+    if (d != null) {
+      setState(() {
+        _selectedDate = DateFormat.yMMMMd("en_US").format(d);
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Form(
-        key: addDetailsScreenController.detailsFormKey,
+        key: addPetLostDetailsScreenController.detailsFormKey,
         child: Column(
           //crossAxisAlignment: CrossAxisAlignment.center,
-         // mainAxisAlignment: MainAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(height: 10,),
             addPhoto(),
@@ -38,8 +53,6 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
             selectAnimalDropDownButton(),
             SizedBox(height: 25,),
             addDescriptionTextFieldModule(),
-            SizedBox(height: 25,),
-            addPriceTextFieldModule(),
             SizedBox(height: 25,),
             Padding(
               padding: const EdgeInsets.only(left: 45, right: 45),
@@ -65,7 +78,11 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
             SizedBox(height: 25,),
             colorTextFieldModule(),
             SizedBox(height: 25,),
+            lostDateTextFieldModule(),
+            SizedBox(height: 25,),
             locationTextFieldModule(),
+            SizedBox(height: 25,),
+            statusDropDownModule(),
             SizedBox(height: 25,),
             postButtonModule()
           ],
@@ -94,7 +111,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
             ),
           ],
         ),
-        child: addDetailsScreenController.file != null ? Image.file(addDetailsScreenController.file!, fit: BoxFit.fill,) :
+        child: addPetLostDetailsScreenController.file != null ? Image.file(addPetLostDetailsScreenController.file!, fit: BoxFit.fill,) :
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -113,8 +130,8 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
     final image = await imagePicker.pickImage(source: ImageSource.gallery);
     if (image != null) {
       setState(() {
-        addDetailsScreenController.file = File(image.path);
-        print('Camera File Path : ${addDetailsScreenController.file}');
+        addPetLostDetailsScreenController.file = File(image.path);
+        print('Camera File Path : ${addPetLostDetailsScreenController.file}');
         print('Camera Image Path : ${image.path}');
         //Fluttertoast.showToast(msg: '${image.path}', toastLength: Toast.LENGTH_LONG);
         //renameImage();
@@ -127,7 +144,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
         Padding(
           padding: const EdgeInsets.only(left: 45, right: 45),
           child: Container(
-             padding: const EdgeInsets.only(right: 10),
+            padding: const EdgeInsets.only(right: 10),
             height: 45,
             width: Get.width/1.5,
             decoration: BoxDecoration(
@@ -143,7 +160,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
             ),
             child: Theme(
               data: Theme.of(context).copyWith(
-                  canvasColor: Colors.white,
+                  canvasColor:  Colors.white,
                   // background color for the dropdown items
                   buttonTheme: ButtonTheme.of(context).copyWith(
                     alignedDropdown: true, //If false (the default), then the dropdown's menu will be wider than its button.
@@ -153,7 +170,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                   icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                   isExpanded: true,
                   focusColor: Colors.white,
-                  value: addDetailsScreenController.selectAnimal.value,
+                  value: addPetLostDetailsScreenController.selectAnimal.value,
                   //elevation: 5,
                   style: TextStyle(color: AppColors.colorDarkBlue1),
                   iconEnabledColor: Colors.black,
@@ -175,7 +192,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                   }).toList(),
                   hint: Text("Select Animal", style: TextStyle(color: AppColors.colorDarkBlue1),),
                   onChanged: (newValue) {
-                    addDetailsScreenController.selectAnimal.value = newValue!;
+                    addPetLostDetailsScreenController.selectAnimal.value = newValue!;
                   },
                 ),
               ),
@@ -192,7 +209,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
         children: [
           const TextFieldElevationModule(),
           TextFormField(
-            controller: addDetailsScreenController.addDescriptionTextFieldController,
+            controller: addPetLostDetailsScreenController.addDescriptionTextFieldController,
             keyboardType: TextInputType.text,
             cursorColor: AppColors.colorDarkBlue1,
             decoration: signInFormFieldDecoration(hintText: 'Add Description'),
@@ -210,7 +227,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
         children: [
           const TextFieldElevationModule(),
           TextFormField(
-            controller: addDetailsScreenController.addPriceTextFieldController,
+            controller: addPetLostDetailsScreenController.addPriceTextFieldController,
             keyboardType: TextInputType.number,
             cursorColor: AppColors.colorDarkBlue1,
             decoration: signInFormFieldDecoration(hintText: 'Add Price'),
@@ -224,7 +241,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
   Widget ageDropDownButton(){
     return Obx(()=>
         Container(
-           padding: const EdgeInsets.only(right: 10),
+          padding: const EdgeInsets.only(right: 10),
           height: 45,
           width: Get.width/1.5,
           decoration: BoxDecoration(
@@ -250,7 +267,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                 icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                 isExpanded: true,
                 focusColor: Colors.white,
-                value: addDetailsScreenController.age.value,
+                value: addPetLostDetailsScreenController.age.value,
                 //elevation: 5,
                 style: TextStyle(color: AppColors.colorDarkBlue1),
                 iconEnabledColor: Colors.black,
@@ -272,7 +289,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                 }).toList(),
                 hint: Text("Age", style: TextStyle(color: AppColors.colorDarkBlue1),),
                 onChanged: (newValue) {
-                  addDetailsScreenController.age.value = newValue!;
+                  addPetLostDetailsScreenController.age.value = newValue!;
                 },
               ),
             ),
@@ -284,7 +301,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
   Widget genderDropDownButton(){
     return Obx(()=>
         Container(
-           padding: const EdgeInsets.only(right: 10),
+          padding: const EdgeInsets.only(right: 10),
           height: 45,
           width: Get.width/1.5,
           decoration: BoxDecoration(
@@ -310,7 +327,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                 icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                 isExpanded: true,
                 focusColor: Colors.white,
-                value: addDetailsScreenController.gender.value,
+                value: addPetLostDetailsScreenController.gender.value,
                 //elevation: 5,
                 style: TextStyle(color: AppColors.colorDarkBlue1),
                 iconEnabledColor: Colors.black,
@@ -329,7 +346,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                 }).toList(),
                 hint: Text("Gender", style: TextStyle(color: AppColors.colorDarkBlue1),),
                 onChanged: (newValue) {
-                  addDetailsScreenController.gender.value = newValue!;
+                  addPetLostDetailsScreenController.gender.value = newValue!;
                 },
               ),
             ),
@@ -341,7 +358,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
   Widget breedDropDownButton(){
     return Obx(()=>
         Container(
-           padding: const EdgeInsets.only(right: 10),
+          padding: const EdgeInsets.only(right: 10),
           height: 45,
           width: Get.width/1.5,
           decoration: BoxDecoration(
@@ -367,7 +384,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                 icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                 isExpanded: true,
                 focusColor: Colors.white,
-                value: addDetailsScreenController.breed.value,
+                value: addPetLostDetailsScreenController.breed.value,
                 //elevation: 5,
                 style: TextStyle(color: AppColors.colorDarkBlue1),
                 iconEnabledColor: Colors.black,
@@ -387,7 +404,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                 }).toList(),
                 hint: Text("Breed", style: TextStyle(color: AppColors.colorDarkBlue1),),
                 onChanged: (newValue) {
-                  addDetailsScreenController.breed.value = newValue!;
+                  addPetLostDetailsScreenController.breed.value = newValue!;
                 },
               ),
             ),
@@ -399,7 +416,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
   Widget weightDropDownButton(){
     return Obx(()=>
         Container(
-           padding: const EdgeInsets.only(right: 10),
+          padding: const EdgeInsets.only(right: 10),
           height: 45,
           width: Get.width/1.5,
           decoration: BoxDecoration(
@@ -425,7 +442,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                 icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                 isExpanded: true,
                 focusColor: Colors.white,
-                value: addDetailsScreenController.weight.value,
+                value: addPetLostDetailsScreenController.weight.value,
                 //elevation: 5,
                 style: TextStyle(color: AppColors.colorDarkBlue1),
                 iconEnabledColor: Colors.black,
@@ -447,7 +464,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                 }).toList(),
                 hint: Text("Weight", style: TextStyle(color: AppColors.colorDarkBlue1),),
                 onChanged: (newValue) {
-                  addDetailsScreenController.weight.value = newValue!;
+                  addPetLostDetailsScreenController.weight.value = newValue!;
                 },
               ),
             ),
@@ -463,7 +480,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
         children: [
           const TextFieldElevationModule(),
           TextFormField(
-            controller: addDetailsScreenController.colorTextFieldController,
+            controller: addPetLostDetailsScreenController.colorTextFieldController,
             keyboardType: TextInputType.text,
             cursorColor: AppColors.colorDarkBlue1,
             decoration: signInFormFieldDecoration(hintText: 'Color'),
@@ -474,6 +491,97 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
     );
   }
 
+  Widget lostDateTextFieldModule(){
+    return Padding(
+      padding: const EdgeInsets.only(left: 45, right: 45),
+      child: Container(
+        height: 45,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.colorDarkBlue1.withOpacity(0.2),
+              blurRadius: 10,
+              spreadRadius: 5,
+              blurStyle: BlurStyle.outer,
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              InkWell(
+                child: Text(
+                    _selectedDate,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: AppColors.colorDarkBlue1)
+                ),
+                onTap: (){
+                  _selectDate(context);
+                },
+              ),
+              IconButton(
+                icon: Icon(Icons.calendar_today_outlined, color: AppColors.colorDarkBlue1, size: 20,),
+                tooltip: 'Lost Date',
+                onPressed: () {
+                  _selectDate(context);
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+      // child: Stack(
+      //   children: [
+      //     const TextFieldElevationModule(),
+      //     TextFormField(
+      //       controller: addPetLostDetailsScreenController.colorTextFieldController,
+      //       keyboardType: TextInputType.text,
+      //       cursorColor: AppColors.colorDarkBlue1,
+      //       //decoration: signInFormFieldDecoration(hintText: 'Lost Date'),
+      //       decoration: InputDecoration(
+      //         hintText: "Lost Date",
+      //         hintStyle: TextStyle(color: AppColors.colorDarkBlue1),
+      //         suffixIcon: GestureDetector(
+      //           onTap: (){
+      //             _selectDate(context);
+      //           },
+      //             child: Icon(Icons.calendar_today)),
+      //         isDense: true,
+      //         contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+      //         filled: true,
+      //         fillColor: Colors.white,
+      //         border: InputBorder.none,
+      //         // suffix: IconButton(
+      //         //   onPressed: () {},
+      //         //   iconSize: 15,
+      //         //   icon: Icon(Icons.visibility_off_rounded),
+      //         // ),
+      //         // suffix: Container(
+      //         //   child: index == 0
+      //         //       ? null
+      //         //       : GestureDetector(
+      //         //     onTap: () {
+      //         //       signInScreenController.isPassVisible.value = !signInScreenController.isPassVisible.value;
+      //         //       print('isPassVisible : ${signInScreenController.isPassVisible.value}');
+      //         //     },
+      //         //     child: Obx(
+      //         //       ()=> Icon(signInScreenController.isPassVisible.value
+      //         //           ? Icons.visibility_rounded
+      //         //           : Icons.visibility_off_rounded),
+      //         //     ),
+      //         //   ),
+      //         // ),
+      //       ),
+      //       //validator: (value) => fieldValidator.validateColor(value!),
+      //     ),
+      //   ],
+      // ),
+    );
+  }
+
   Widget locationTextFieldModule(){
     /*return Padding(
       padding: const EdgeInsets.only(left: 45, right: 45),
@@ -481,7 +589,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
         children: [
           const TextFieldElevationModule(),
           TextFormField(
-            controller: addDetailsScreenController.colorTextFieldController,
+            controller: addPetLostDetailsScreenController.colorTextFieldController,
             keyboardType: TextInputType.text,
             cursorColor: AppColors.colorDarkBlue1,
             decoration: signInFormFieldDecoration(hintText: 'Location'),
@@ -490,7 +598,6 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
         ],
       ),
     );*/
-
     return Padding(
       padding: const EdgeInsets.only(left: 45, right: 45),
       child: Container(
@@ -573,11 +680,68 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
     );
   }
 
+  Widget statusDropDownModule(){
+    return Obx(()=>
+        Container(
+          padding: const EdgeInsets.only(right: 10),
+          height: 45,
+          width: Get.width/1.5,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                blurRadius: 10,
+                spreadRadius: 5,
+                blurStyle: BlurStyle.outer,
+              ),
+            ],
+          ),
+          child: Theme(
+            data: Theme.of(context).copyWith(
+                canvasColor: Colors.white,
+                // background color for the dropdown items
+                buttonTheme: ButtonTheme.of(context).copyWith(
+                  alignedDropdown: true, //If false (the default), then the dropdown's menu will be wider than its button.
+                )),
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton<String>(
+                icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
+                isExpanded: true,
+                focusColor: Colors.white,
+                value: addPetLostDetailsScreenController.status.value,
+                //elevation: 5,
+                style: TextStyle(color: AppColors.colorDarkBlue1),
+                iconEnabledColor: Colors.black,
+                items: <String>[
+                  'Lost',
+                  'Found',
+                ].
+                map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                      style: TextStyle(color: AppColors.colorDarkBlue1),
+                    ),
+                  );
+                }).toList(),
+                hint: Text("Status", style: TextStyle(color: AppColors.colorDarkBlue1),),
+                onChanged: (newValue) {
+                  addPetLostDetailsScreenController.status.value = newValue!;
+                },
+              ),
+            ),
+          ),
+        ),
+    );
+  }
+
   Widget postButtonModule(){
     return GestureDetector(
       onTap: () {
-        if(addDetailsScreenController.detailsFormKey.currentState!.validate()){
-          if(addDetailsScreenController.file == null){
+        if(addPetLostDetailsScreenController.detailsFormKey.currentState!.validate()){
+          if(addPetLostDetailsScreenController.file == null){
             Fluttertoast.showToast(msg: 'Profile Image required...!');
           }
         }

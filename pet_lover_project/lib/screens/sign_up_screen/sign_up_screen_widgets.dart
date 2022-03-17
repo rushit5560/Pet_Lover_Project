@@ -172,7 +172,7 @@ class GenderTextFieldModule extends StatelessWidget {
           ),
           child: Theme(
             data: Theme.of(context).copyWith(
-                canvasColor: AppColors.colorDarkBlue1.withOpacity(0.2),
+                canvasColor: Colors.white,
                 // background color for the dropdown items
                 buttonTheme: ButtonTheme.of(context).copyWith(
                   alignedDropdown: true, //If false (the default), then the dropdown's menu will be wider than its button.
@@ -218,7 +218,7 @@ class LocationTextFieldModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    /*return Stack(
       children: [
         const TextFieldElevationModule(),
         TextFormField(
@@ -229,6 +229,38 @@ class LocationTextFieldModule extends StatelessWidget {
           validator: (value) => fieldValidator.validateLocation(value!),
         ),
       ],
+    );*/
+
+    return Container(
+      height: 45,
+      padding: const EdgeInsets.only(right: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.colorDarkBlue1.withOpacity(0.2),
+            blurRadius: 10,
+            spreadRadius: 5,
+            blurStyle: BlurStyle.outer,
+          ),
+        ],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            InkWell(
+              child: Text(
+                  "Location",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: AppColors.colorDarkBlue1)
+              ),
+            ),
+            Image.asset(AppImages.locationImg, scale: 1.5,)
+          ],
+        ),
+      ),
     );
   }
 }
