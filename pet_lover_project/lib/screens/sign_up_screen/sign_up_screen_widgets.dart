@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/common/common_widgets.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
+import 'package:pet_lover_project/common/constants/app_images.dart';
 import 'package:pet_lover_project/common/constants/field_decorations.dart';
 import 'package:pet_lover_project/common/field_validation.dart';
 import 'package:pet_lover_project/controllers/sign_up_screen_controller/sign_up_screen_controller.dart';
@@ -16,39 +17,42 @@ class SignUpForm extends StatelessWidget {
     return Form(
       key: signUpScreenController.signUpFormKey,
       child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            NameTextFieldModule(),
-            const SizedBox(height: 30),
-            EmailTextFieldModule(),
-            const SizedBox(height: 25),
-            PhoneTextFieldModule(),
-            const SizedBox(height: 25),
-            Row(
-              children: [
-                Expanded(
-                  child: AgeTextFieldModule(),
-                ),
-                SizedBox(width: 20,),
-                Expanded(
-                  child: GenderTextFieldModule(),
-                )
-              ],
-            ),
-            const SizedBox(height: 25),
-            LocationTextFieldModule(),
-            const SizedBox(height: 25),
-            AddressTextFieldModule(),
-            const SizedBox(height: 25),
-            PasswordTextFieldModule(),
-            const SizedBox(height: 25),
-            ConfirmPasswordTextFieldModule(),
-            const SizedBox(height: 25),
-            SignUpButtonModule(),
-            const SizedBox(height: 20),
-            const AlreadyTextModule(),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.only(left: 45, right: 45),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              NameTextFieldModule(),
+              const SizedBox(height: 30),
+              EmailTextFieldModule(),
+              const SizedBox(height: 25),
+              PhoneTextFieldModule(),
+              const SizedBox(height: 25),
+              Row(
+                children: [
+                  Expanded(
+                    child: AgeTextFieldModule(),
+                  ),
+                  SizedBox(width: 20,),
+                  Expanded(
+                    child: GenderTextFieldModule(),
+                  )
+                ],
+              ),
+              const SizedBox(height: 25),
+              LocationTextFieldModule(),
+              const SizedBox(height: 25),
+              AddressTextFieldModule(),
+              const SizedBox(height: 25),
+              PasswordTextFieldModule(),
+              const SizedBox(height: 25),
+              ConfirmPasswordTextFieldModule(),
+              const SizedBox(height: 25),
+              SignUpButtonModule(),
+              const SizedBox(height: 20),
+              const AlreadyTextModule(),
+            ],
+          ),
         ),
       ),
     );
@@ -147,21 +151,62 @@ class AgeTextFieldModule extends StatelessWidget {
 class GenderTextFieldModule extends StatelessWidget {
   GenderTextFieldModule({Key? key}) : super(key: key);
   final signUpScreenController = Get.find<SignUpScreenController>();
-  final FieldValidator fieldValidator = FieldValidator();
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        const TextFieldElevationModule(),
-        TextFormField(
-          controller: signUpScreenController.genderTextFieldController,
-          keyboardType: TextInputType.text,
-          cursorColor: AppColors.colorDarkBlue1,
-          decoration: signInFormFieldDecoration(hintText: 'Gender'),
-          //validator: (value) => fieldValidator.validateMobile(value!),
+    return Obx(()=>
+        Container(
+          padding: const EdgeInsets.only(right: 10),
+          height: 48,
+          width: Get.width/1.5,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                blurRadius: 10,
+                spreadRadius: 5,
+                blurStyle: BlurStyle.outer,
+              ),
+            ],
+          ),
+          child: Theme(
+            data: Theme.of(context).copyWith(
+                canvasColor: AppColors.colorDarkBlue1.withOpacity(0.2),
+                // background color for the dropdown items
+                buttonTheme: ButtonTheme.of(context).copyWith(
+                  alignedDropdown: true, //If false (the default), then the dropdown's menu will be wider than its button.
+                )),
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton<String>(
+                icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
+                isExpanded: true,
+                focusColor: Colors.white,
+                value: signUpScreenController.gender.value,
+                //elevation: 5,
+                style: TextStyle(color: AppColors.colorDarkBlue1),
+                iconEnabledColor: Colors.black,
+                items: <String>[
+                  'Female',
+                  'Male',
+                ].
+                map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                      style: TextStyle(color: AppColors.colorDarkBlue1),
+                    ),
+                  );
+                }).toList(),
+                hint: Text("Gender", style: TextStyle(color: AppColors.colorDarkBlue1),),
+                onChanged: (newValue) {
+                  signUpScreenController.gender.value = newValue!;
+                },
+              ),
+            ),
+          ),
         ),
-      ],
     );
   }
 }

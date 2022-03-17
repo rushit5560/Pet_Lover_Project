@@ -21,49 +21,52 @@ class ProfileForm extends StatelessWidget {
     return Form(
       key: petProfileScreenController.profileFormKey,
       child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AddPhoto(),
-            SizedBox(height: 20,),
-            NameTextFieldModule(),
-            SizedBox(height: 20,),
-            Row(
-              children: [
-                Expanded(
-                  child: DobPicker()
-                ),
-                SizedBox(width: 20,),
-                Expanded(
-                    child: GenderTextFieldModule()
-                )
-              ],
-            ),
-            SizedBox(height: 20,),
-            Row(
-              children: [
-                Expanded(
-                    child: BreedTextFieldModule()
-                ),
-                SizedBox(width: 20,),
-                Expanded(
-                    child: WeightTextFieldModule()
-                )
-              ],
-            ),
-            SizedBox(height: 20,),
-            ColorTextFieldModule(),
-            SizedBox(height: 20,),
-            VaccinatedRadio(),
-            SizedBox(height: 20,),
-            TemperamentRadio(),
-            SizedBox(height: 20,),
-            MicroChippedRadio(),
-            SizedBox(height: 20,),
-            NeuteredRadio(),
-            SizedBox(height: 20,),
-            SaveButtonModule()
-          ],
+        child: Padding(
+          padding: const EdgeInsets.only(left: 60, right: 60, top: 100, bottom: 10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AddPhoto(),
+              SizedBox(height: 25,),
+              NameTextFieldModule(),
+              SizedBox(height: 25,),
+              Row(
+                children: [
+                  Expanded(
+                    child: DobPicker()
+                  ),
+                  SizedBox(width: 20,),
+                  Expanded(
+                      child: GenderTextFieldModule()
+                  )
+                ],
+              ),
+              SizedBox(height: 25,),
+              Row(
+                children: [
+                  Expanded(
+                      child: BreedTextFieldModule()
+                  ),
+                  SizedBox(width: 20,),
+                  Expanded(
+                      child: WeightTextFieldModule()
+                  )
+                ],
+              ),
+              SizedBox(height: 25,),
+              ColorTextFieldModule(),
+              SizedBox(height: 25,),
+              VaccinatedRadio(),
+              SizedBox(height: 25,),
+              TemperamentRadio(),
+              SizedBox(height: 25,),
+              MicroChippedRadio(),
+              SizedBox(height: 25,),
+              NeuteredRadio(),
+              SizedBox(height: 25,),
+              SaveButtonModule()
+            ],
+          ),
         ),
       ),
     );
@@ -94,13 +97,13 @@ class _AddPhotoState extends State<AddPhoto> {
                 openGallery();
               },
               child: Container(
-                height: Get.height/8,
+                height: Get.height/6.7,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
-                  boxShadow: const [
+                  boxShadow:  [
                     BoxShadow(
-                      color: Colors.grey,
+                      color: AppColors.colorDarkBlue1.withOpacity(0.2),
                       blurRadius: 10,
                       spreadRadius: 5,
                       blurStyle: BlurStyle.outer,
@@ -111,7 +114,8 @@ class _AddPhotoState extends State<AddPhoto> {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset(AppImages.addImageImg, scale: 2,),
+                        Image.asset(AppImages.addImageImg, scale: 2.5,),
+                        SizedBox(height: 10,),
                         Text("Add Photo", style: TextStyle(color: AppColors.colorDarkBlue1))
                       ],
                     ),
@@ -126,13 +130,13 @@ class _AddPhotoState extends State<AddPhoto> {
                 pickVideoFromGallery();
               },
               child: Container(
-                height: Get.height/8,
+                height: Get.height/6.7,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
-                  boxShadow: const [
+                  boxShadow: [
                     BoxShadow(
-                      color: Colors.grey,
+                      color: AppColors.colorDarkBlue1.withOpacity(0.2),
                       blurRadius: 10,
                       spreadRadius: 5,
                       blurStyle: BlurStyle.outer,
@@ -237,13 +241,13 @@ class GenderTextFieldModule extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(()=>
         Container(
-        // padding: const EdgeInsets.only(left: 10),
-          height: 48,
+         padding: const EdgeInsets.only(right: 10),
+          height: 45,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            boxShadow: const [
+            boxShadow: [
               BoxShadow(
-                color: Colors.grey,
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
                 blurRadius: 10,
                 spreadRadius: 5,
                 blurStyle: BlurStyle.outer,
@@ -259,6 +263,8 @@ class GenderTextFieldModule extends StatelessWidget {
               )),
           child: DropdownButtonHideUnderline(
             child: DropdownButton<String>(
+              icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
+              isExpanded: true,
               focusColor: Colors.white,
               value: petProfileScreenController.gender.value,
               //elevation: 5,
@@ -298,13 +304,13 @@ class BreedTextFieldModule extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(()=>
         Container(
-          // padding: const EdgeInsets.only(left: 10),
-          height: 48,
+           padding: const EdgeInsets.only(right: 10),
+          height: 45,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            boxShadow: const [
+            boxShadow: [
               BoxShadow(
-                color: Colors.grey,
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
                 blurRadius: 10,
                 spreadRadius: 5,
                 blurStyle: BlurStyle.outer,
@@ -320,6 +326,8 @@ class BreedTextFieldModule extends StatelessWidget {
                 )),
             child: DropdownButtonHideUnderline(
               child: DropdownButton<String>(
+                icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
+                isExpanded: true,
                 focusColor: Colors.white,
                 value: petProfileScreenController.breed.value,
                 //elevation: 5,
@@ -360,13 +368,13 @@ class WeightTextFieldModule extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(()=>
         Container(
-          // padding: const EdgeInsets.only(left: 10),
-          height: 48,
+           padding: const EdgeInsets.only(right: 10),
+          height: 45,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            boxShadow: const [
+            boxShadow: [
               BoxShadow(
-                color: Colors.grey,
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
                 blurRadius: 10,
                 spreadRadius: 5,
                 blurStyle: BlurStyle.outer,
@@ -382,6 +390,8 @@ class WeightTextFieldModule extends StatelessWidget {
                 )),
             child: DropdownButtonHideUnderline(
               child: DropdownButton<String>(
+                icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
+                isExpanded: true,
                 focusColor: Colors.white,
                 value: petProfileScreenController.weight.value,
                 //elevation: 5,
@@ -452,10 +462,10 @@ class SaveButtonModule extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: AppColors.colorDarkBlue1,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(12),
         ),
         child: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+          padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
           child: Text(
             'SAVE',
             style: TextStyle(
@@ -477,12 +487,12 @@ class VaccinatedRadio extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(()=>
         Container(
-          height: 48,
+          height: 45,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            boxShadow: const [
+            boxShadow: [
               BoxShadow(
-                color: Colors.grey,
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
                 blurRadius: 10,
                 spreadRadius: 5,
                 blurStyle: BlurStyle.outer,
@@ -516,12 +526,12 @@ class TemperamentRadio extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(()=>
         Container(
-          height: 48,
+          height: 45,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            boxShadow: const [
+            boxShadow: [
               BoxShadow(
-                color: Colors.grey,
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
                 blurRadius: 10,
                 spreadRadius: 5,
                 blurStyle: BlurStyle.outer,
@@ -555,12 +565,12 @@ class MicroChippedRadio extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(()=>
         Container(
-          height: 48,
+          height: 45,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            boxShadow: const [
+            boxShadow: [
               BoxShadow(
-                color: Colors.grey,
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
                 blurRadius: 10,
                 spreadRadius: 5,
                 blurStyle: BlurStyle.outer,
@@ -594,12 +604,12 @@ class NeuteredRadio extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(()=>
         Container(
-          height: 48,
+          height: 45,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            boxShadow: const [
+            boxShadow: [
               BoxShadow(
-                color: Colors.grey,
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
                 blurRadius: 10,
                 spreadRadius: 5,
                 blurStyle: BlurStyle.outer,

@@ -5,6 +5,7 @@ class SignUpScreenController extends GetxController{
   RxBool isLoading = false.obs;
   RxBool isSuccessStatus = false.obs;
   RxBool isPassVisible = false.obs;
+  RxString gender = 'Female'.obs;
 
   final GlobalKey<FormState> signUpFormKey = GlobalKey<FormState>();
   final nameTextFieldController = TextEditingController();

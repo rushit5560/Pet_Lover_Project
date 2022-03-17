@@ -173,7 +173,7 @@ class CardNumberTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             boxShadow: [
               BoxShadow(
-                color: AppColors.colorDarkBlue1.withOpacity(0.3),
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
                 blurRadius: 10,
                 spreadRadius: 5,
                 blurStyle: BlurStyle.outer,
@@ -236,7 +236,7 @@ class DateTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             boxShadow: [
               BoxShadow(
-                color: AppColors.colorDarkBlue1.withOpacity(0.3),
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
                 blurRadius: 10,
                 spreadRadius: 5,
                 blurStyle: BlurStyle.outer,
@@ -299,7 +299,7 @@ class CvvTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             boxShadow: [
               BoxShadow(
-                color: AppColors.colorDarkBlue1.withOpacity(0.3),
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
                 blurRadius: 10,
                 spreadRadius: 5,
                 blurStyle: BlurStyle.outer,
@@ -394,7 +394,7 @@ class UpiTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             boxShadow: [
               BoxShadow(
-                color: AppColors.colorDarkBlue1.withOpacity(0.3),
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
                 blurRadius: 10,
                 spreadRadius: 5,
                 blurStyle: BlurStyle.outer,
@@ -463,7 +463,7 @@ class UPISaveButtonModule extends StatelessWidget {
             child: Text(
               'Save',
               style: TextStyle(
-                  color: Colors.white
+                  color: Colors.white, fontWeight: FontWeight.bold
               ),
             ),
           ),
@@ -634,7 +634,7 @@ class PlaceOrderButton extends StatelessWidget {
               //Get.to(() => CheckoutScreen());
             },
             child: Container(
-              height: 50,
+              height: 42,
               //width: Get.width/2,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),

@@ -92,5 +92,6 @@ class AppImages {
   static const adoptPet4Img = imageMainPath + "adopt_pet4.png";
   static const adoptPet5Img = imageMainPath + "adopt_pet5.png";
   static const adoptPet6Img = imageMainPath + "adopt_pet6.png";
+  static const dropDownArrowImg = imageMainPath + "drop_down_arrow.png";
 
 }

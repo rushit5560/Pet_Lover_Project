@@ -19,7 +19,7 @@ class SignUpScreen extends StatelessWidget {
           const AuthScreenBackGroundModule(heading: 'SIGN UP'),
 
           Padding(
-            padding: const EdgeInsets.only(left: 35, right: 35, top: 100),
+            padding: const EdgeInsets.only(left: 35, right: 35, top: 100, bottom: 10),
             child: SignUpForm(),
           ),
         ],

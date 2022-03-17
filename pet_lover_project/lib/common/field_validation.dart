@@ -19,9 +19,16 @@ class FieldValidator {
     return null;
   }
 
-  String? validateAge(String value) {
+  String? validateDescription(String value) {
     if (value.isEmpty) {
-      return 'Age is Required';
+      return 'Description is Required';
+    }
+    return null;
+  }
+
+  String? validatePrice(String value) {
+    if (value.isEmpty) {
+      return 'Price is Required';
     }
     return null;
   }
@@ -29,6 +36,14 @@ class FieldValidator {
   String? validateLocation(String value) {
     if (value.isEmpty) {
       return 'Location is Required';
+    }
+    return null;
+  }
+
+
+  String? validateAge(String value) {
+    if (value.isEmpty) {
+      return 'Age is Required';
     }
     return null;
   }

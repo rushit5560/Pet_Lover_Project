@@ -18,10 +18,7 @@ class PetProfileScreen extends StatelessWidget {
         children: [
           const AuthScreenBackGroundModule(heading: 'PROFILE'),
 
-          Padding(
-            padding: const EdgeInsets.only(left: 35, right: 35, top: 100),
-            child: ProfileForm(),
-          ),
+          ProfileForm(),
         ],
       ),
     );
