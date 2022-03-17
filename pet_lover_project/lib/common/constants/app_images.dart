@@ -101,4 +101,10 @@ class AppImages {
   static const lostPet6Img = imageMainPath + "lost_pet_6.png";
   static const locationImg = imageMainPath + "location.png";
 
+  static const vetConsultation1Img = imageMainPath + "vet_consultation1.png";
+  static const vetConsultation2Img = imageMainPath + "vet_consultation2.png";
+  static const vetConsultation3Img = imageMainPath + "vet_consultation3.png";
+  static const vetConsultation4Img = imageMainPath + "vet_consultation4.png";
+  static const vetConsultation5Img = imageMainPath + "vet_consultation5.png";
+
 }

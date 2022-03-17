@@ -105,7 +105,7 @@ class CommonAppBarModule extends StatelessWidget {
         width: 52,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: AppColors.colorLightBlue,
+          color: Colors.white,
           boxShadow: [
             BoxShadow(
                 color: AppColors.colorDarkBlue1.withOpacity(0.2),
