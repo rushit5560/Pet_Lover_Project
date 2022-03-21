@@ -108,5 +108,6 @@ class AppImages {
   static const vetConsultation5Img = imageMainPath + "vet_consultation5.png";
 
   static const referEarnImg = imageMainPath + "refer&earn.png";
+  static const profileImg = imageMainPath + "profile.png";
 
 }

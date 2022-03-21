@@ -120,7 +120,7 @@ class CommonAppBarModule extends StatelessWidget {
           appBarOption == AppBarOption.homeScreenOption
               ? AppImages.menuIconImg
               : appBarOption == AppBarOption.petViewScreenOption
-          ? AppImages.profilePicImg
+          ? AppImages.profileImg
           : AppImages.backButtonImg,
           scale: 2,
         ),
