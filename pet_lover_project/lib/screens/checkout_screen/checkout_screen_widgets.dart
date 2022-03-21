@@ -519,38 +519,62 @@ class PlaceOrderButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-            flex: 3,
-            child: Container()),
-        Expanded(
-          flex: 2,
-          child: GestureDetector(
-            onTap: (){
-              //Get.to(() => CheckoutScreen());
-            },
-            child: Container(
-              height: 42,
-              //width: Get.width/2,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: AppColors.colorDarkBlue
-              ),
-              child: const Center(
-                child: Text(
-                  "Place Order",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+    // return Row(
+    //   children: [
+    //     Expanded(
+    //         flex: 3,
+    //         child: Container()),
+    //     Expanded(
+    //       flex: 2,
+    //       child: GestureDetector(
+    //         onTap: (){
+    //           //Get.to(() => CheckoutScreen());
+    //         },
+    //         child: Container(
+    //           height: 42,
+    //           //width: Get.width/2,
+    //           decoration: BoxDecoration(
+    //               borderRadius: BorderRadius.circular(15),
+    //               color: AppColors.colorDarkBlue
+    //           ),
+    //           child: const Center(
+    //             child: Text(
+    //               "Place Order",
+    //               style: TextStyle(
+    //                   color: Colors.white,
+    //                   fontSize: 18,
+    //                   fontWeight: FontWeight.bold,
+    //               ),
+    //             ),
+    //           ),
+    //         ),
+    //       ),
+    //     ),
+    //   ],
+    // );
+
+    return Container(
+      alignment: Alignment.centerRight,
+      child: Container(
+        height: 42,
+        //width: Get.width/2,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: AppColors.colorDarkBlue
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
+          child: Text(
+            "Place Order",
+           // textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),
-      ],
+      ),
     );
   }
 }
