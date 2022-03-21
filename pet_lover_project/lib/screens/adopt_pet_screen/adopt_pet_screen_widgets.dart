@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
 import 'package:pet_lover_project/common/constants/app_images.dart';
 import 'package:pet_lover_project/controllers/adopt_pet_screen_controller/adopt_pet_screen_controller.dart';
+import 'package:pet_lover_project/screens/adopt_pet_details_screen/adopt_pet_details_screen.dart';
 
 class SearchChatTextField extends StatelessWidget {
   SearchChatTextField({Key? key}) : super(key: key);
@@ -120,16 +121,22 @@ class AdoptPetGridList extends StatelessWidget {
                   ),
                   Expanded(
                     flex: 1,
-                    child: Container(
-                      height: 40, width: 70,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: AppColors.colorDarkBlue1
-                      ),
-                      child: Center(
-                        child: Text("View", style: TextStyle(
-                          color: Colors.white
-                        ),),
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.back();
+                        Get.to(()=> AdoptPetDetailsScreen(), transition: Transition.zoom);
+                      },
+                      child: Container(
+                        height: 40, width: 70,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: AppColors.colorDarkBlue1
+                        ),
+                        child: const Center(
+                          child: Text("View", style: TextStyle(
+                            color: Colors.white
+                          ),),
+                        ),
                       ),
                     ),
                   )

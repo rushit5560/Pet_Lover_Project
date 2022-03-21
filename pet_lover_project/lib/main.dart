@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_lover_project/screens/index_screen/index_screen.dart';
+import 'package:pet_lover_project/screens/sign_in_screen/sign_in_screen.dart';
 
 
 void main() {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "Quicksand"
       ),
 
-      home: IndexScreen(),
+      home: SignInScreen(),
 
     );
   }

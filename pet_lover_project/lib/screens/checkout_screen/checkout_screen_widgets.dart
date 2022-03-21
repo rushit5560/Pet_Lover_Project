@@ -6,22 +6,27 @@ import 'package:pet_lover_project/common/field_validation.dart';
 import 'package:pet_lover_project/controllers/checkout_screen_controller/checkout_screen_controller.dart';
 
 
-Widget paymentText(){
-  return const Text("Payment", style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18, color: Colors.black),);
+Widget paymentText() {
+  return const Text(
+    "Payment",
+    style: TextStyle(
+        fontWeight: FontWeight.w700, fontSize: 18, color: Colors.black),
+  );
 }
 
 class PaymentDetails extends StatelessWidget {
   PaymentDetails({Key? key}) : super(key: key);
 
   final checkoutScreenController = Get.find<CheckoutScreenController>();
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         debitCardRadio(),
-
-        const SizedBox(height: 20,),
-
+        const SizedBox(
+          height: 20,
+        ),
         Row(
           children: [
             Expanded(
@@ -31,7 +36,9 @@ class PaymentDetails extends StatelessWidget {
                 child: Column(
                   children: [
                     CardNumberTextField(),
-                    const SizedBox(height: 20,),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     Row(
                       children: [
                         Expanded(
@@ -54,11 +61,13 @@ class PaymentDetails extends StatelessWidget {
             )
           ],
         ),
-        const SizedBox(height: 20,),
+        const SizedBox(
+          height: 20,
+        ),
         upiPayment(),
-
-        const SizedBox(height: 20,),
-
+        const SizedBox(
+          height: 20,
+        ),
         Row(
           children: [
             Expanded(
@@ -72,86 +81,90 @@ class PaymentDetails extends StatelessWidget {
             )
           ],
         ),
-        const SizedBox(height: 20,),
-
+        const SizedBox(
+          height: 20,
+        ),
         cashOnDelivery()
       ],
     );
   }
 
-  Widget debitCardRadio(){
-    return Obx(()=>
-        Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white
+  Widget debitCardRadio() {
+    return Obx(
+      () => Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10), color: Colors.white),
+        child: ListTile(
+          trailing: Radio<String>(
+            value: 'CREDIT/DEBIT CARD',
+            activeColor: AppColors.colorDarkBlue1,
+            groupValue: checkoutScreenController.payment.value,
+            onChanged: (value) {
+              checkoutScreenController.payment.value = value!;
+            },
           ),
-          child: ListTile(
-            trailing: Radio<String>(
-              value: 'CREDIT/DEBIT CARD',
-              activeColor: AppColors.colorDarkBlue1,
-              groupValue: checkoutScreenController.payment.value,
-              onChanged: (value) {
-                checkoutScreenController.payment.value = value!;
-              },
-            ),
-            leading: Image.asset(AppImages.debitCardImg, scale: 2,),
-            title: const Text('CREDIT/DEBIT CARD'),
+          leading: Image.asset(
+            AppImages.debitCardImg,
+            scale: 2,
           ),
+          title: const Text('CREDIT/DEBIT CARD'),
         ),
+      ),
     );
   }
 
   Widget upiPayment() {
-    return Obx(()=>
-        Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white
+    return Obx(
+      () => Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10), color: Colors.white),
+        child: ListTile(
+          trailing: Radio<String>(
+            value: 'UPI PAYMENT',
+            activeColor: AppColors.colorDarkBlue1,
+            groupValue: checkoutScreenController.payment.value,
+            onChanged: (value) {
+              checkoutScreenController.payment.value = value!;
+            },
           ),
-          child: ListTile(
-            trailing: Radio<String>(
-              value: 'UPI PAYMENT',
-              activeColor: AppColors.colorDarkBlue1,
-              groupValue: checkoutScreenController.payment.value,
-              onChanged: (value) {
-                checkoutScreenController.payment.value = value!;
-              },
-            ),
-            leading: Image.asset(AppImages.upiImg, scale: 2,),
-            title: const Text('UPI PAYMENT'),
+          leading: Image.asset(
+            AppImages.upiImg,
+            scale: 2,
           ),
+          title: const Text('UPI PAYMENT'),
         ),
+      ),
     );
   }
 
   Widget cashOnDelivery() {
-    return Obx(()=>
-        Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white
+    return Obx(
+      () => Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10), color: Colors.white),
+        child: ListTile(
+          trailing: Radio<String>(
+            value: 'CASH ON DELIVERY',
+            activeColor: AppColors.colorDarkBlue1,
+            groupValue: checkoutScreenController.payment.value,
+            onChanged: (value) {
+              checkoutScreenController.payment.value = value!;
+            },
           ),
-          child: ListTile(
-            trailing: Radio<String>(
-              value: 'CASH ON DELIVERY',
-              activeColor: AppColors.colorDarkBlue1,
-              groupValue: checkoutScreenController.payment.value,
-              onChanged: (value) {
-                checkoutScreenController.payment.value = value!;
-              },
-            ),
-            leading: Image.asset(AppImages.cashOnDeliveryImg, scale: 2,),
-            title: const Text('CASH ON DELIVERY'),
+          leading: Image.asset(
+            AppImages.cashOnDeliveryImg,
+            scale: 2,
           ),
+          title: const Text('CASH ON DELIVERY'),
         ),
+      ),
     );
   }
 }
 
 class CardNumberTextField extends StatelessWidget {
   CardNumberTextField({Key? key}) : super(key: key);
-  CheckoutScreenController checkoutScreenController = Get.find<CheckoutScreenController>();
+  final checkoutScreenController = Get.find<CheckoutScreenController>();
   final FieldValidator fieldValidator = FieldValidator();
 
   @override
@@ -277,7 +290,7 @@ class SaveButtonModule extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if(checkoutScreenController.formKey.currentState!.validate()){}
+        if (checkoutScreenController.formKey.currentState!.validate()) {}
       },
       child: Container(
         decoration: BoxDecoration(
@@ -289,9 +302,8 @@ class SaveButtonModule extends StatelessWidget {
           child: Center(
             child: Text(
               'Save',
-              style: TextStyle(
-                  color: Colors.white, fontWeight: FontWeight.bold
-              ),
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
           ),
         ),
@@ -311,7 +323,7 @@ class UpiTextField extends StatelessWidget {
       children: [
         Container(
           height: 38,
-          margin: EdgeInsets.only(left: 7),
+          margin: const EdgeInsets.only(left: 7),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             boxShadow: [
@@ -349,7 +361,7 @@ class UPISaveButtonModule extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if(checkoutScreenController.formKey.currentState!.validate()){}
+        if (checkoutScreenController.formKey.currentState!.validate()) {}
       },
       child: Container(
         decoration: BoxDecoration(
@@ -361,9 +373,8 @@ class UPISaveButtonModule extends StatelessWidget {
           child: Center(
             child: Text(
               'Save',
-              style: TextStyle(
-                  color: Colors.white, fontWeight: FontWeight.bold
-              ),
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
           ),
         ),
@@ -384,63 +395,68 @@ class DeliveryAddressModule extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-              const Text("Delivery Address", style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18, color: Colors.black),),
-
-              Image.asset(AppImages.plusDarkBlueImg, scale: 2,)
+            const Text(
+              "Delivery Address",
+              style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 18,
+                  color: Colors.black),
+            ),
+            Image.asset(
+              AppImages.plusDarkBlueImg,
+              scale: 2,
+            )
           ],
         ),
         const SizedBox(height: 15),
         address1Radio(),
         const SizedBox(height: 15),
         address2Radio()
-
       ],
     );
   }
 
-  Widget address1Radio(){
-    return Obx(()=>
-        Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white
+  Widget address1Radio() {
+    return Obx(
+      () => Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10), color: Colors.white),
+        child: ListTile(
+          trailing: Radio<String>(
+            value: 'address1',
+            activeColor: AppColors.colorDarkBlue1,
+            groupValue: checkoutScreenController.deliveryAddress.value,
+            onChanged: (value) {
+              checkoutScreenController.deliveryAddress.value = value!;
+            },
           ),
-          child: ListTile(
-            trailing: Radio<String>(
-              value: 'address1',
-              activeColor: AppColors.colorDarkBlue1,
-              groupValue: checkoutScreenController.deliveryAddress.value,
-              onChanged: (value) {
-                checkoutScreenController.deliveryAddress.value = value!;
-              },
-            ),
-            title: const Text('3254, Lorem Ipsum is simply dummy text of the printing'),
-          ),
+          title: const Text(
+              '3254, Lorem Ipsum is simply dummy text of the printing'),
         ),
+      ),
     );
   }
 
-  Widget address2Radio(){
-    return Obx(()=>
-        Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white
+  Widget address2Radio() {
+    return Obx(
+      () => Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10), color: Colors.white),
+        child: ListTile(
+          trailing: Radio<String>(
+            value: 'address2',
+            activeColor: AppColors.colorDarkBlue1,
+            groupValue: checkoutScreenController.deliveryAddress.value,
+            onChanged: (value) {
+              //setState(() {
+              checkoutScreenController.deliveryAddress.value = value!;
+              // });
+            },
           ),
-          child: ListTile(
-            trailing: Radio<String>(
-              value: 'address2',
-              activeColor: AppColors.colorDarkBlue1,
-              groupValue: checkoutScreenController.deliveryAddress.value,
-              onChanged: (value) {
-                //setState(() {
-                checkoutScreenController.deliveryAddress.value = value!;
-                // });
-              },
-            ),
-            title: const Text('3254, Lorem Ipsum is simply dummy text of the printing'),
-          ),
+          title: const Text(
+              '3254, Lorem Ipsum is simply dummy text of the printing'),
         ),
+      ),
     );
   }
 }
@@ -453,57 +469,86 @@ class OrderSummaryModule extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text("Order Summary", style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18, color: Colors.black),),
-
-        const SizedBox(height: 20,),
-
+        const Text(
+          "Order Summary",
+          style: TextStyle(
+              fontWeight: FontWeight.w700, fontSize: 18, color: Colors.black),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
         Container(
-          padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+          padding:
+              const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
           margin: const EdgeInsets.only(left: 7, right: 7),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
               //border: Border.all(color: AppColors.colorDarkBlue1),
               boxShadow: [
                 BoxShadow(
                     color: AppColors.colorDarkBlue1.withOpacity(0.3),
                     blurRadius: 5,
                     spreadRadius: 5,
-                    blurStyle: BlurStyle.outer
-                )
-              ]
-          ),
-
+                    blurStyle: BlurStyle.outer)
+              ]),
           child: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Sub Total", style: TextStyle(fontSize: 18, color: AppColors.colorDarkBlue),),
-                  Text("\$70.00", style: TextStyle(fontSize: 18, color: AppColors.colorDarkBlue))
+                  Text(
+                    "Sub Total",
+                    style:
+                        TextStyle(fontSize: 18, color: AppColors.colorDarkBlue),
+                  ),
+                  Text("\$70.00",
+                      style: TextStyle(
+                          fontSize: 18, color: AppColors.colorDarkBlue))
                 ],
               ),
-              const SizedBox(height: 5,),
+              const SizedBox(
+                height: 5,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Tax", style: TextStyle(fontSize: 18, color: AppColors.colorDarkBlue)),
-                  Text("\$10.00", style: TextStyle(fontSize: 18, color: AppColors.colorDarkBlue))
+                  Text("Tax",
+                      style: TextStyle(
+                          fontSize: 18, color: AppColors.colorDarkBlue)),
+                  Text("\$10.00",
+                      style: TextStyle(
+                          fontSize: 18, color: AppColors.colorDarkBlue))
                 ],
               ),
-              const SizedBox(height: 5,),
+              const SizedBox(
+                height: 5,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Delivery", style: TextStyle(fontSize: 18, color: AppColors.colorDarkBlue)),
-                  Text("\$20.00", style: TextStyle(fontSize: 18, color: AppColors.colorDarkBlue))
+                  Text("Delivery",
+                      style: TextStyle(
+                          fontSize: 18, color: AppColors.colorDarkBlue)),
+                  Text("\$20.00",
+                      style: TextStyle(
+                          fontSize: 18, color: AppColors.colorDarkBlue))
                 ],
               ),
-              const SizedBox(height: 15,),
+              const SizedBox(
+                height: 15,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
-                  Text("Total", style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.w400)),
-                  Text("\$100.00", style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold))
+                  Text("Total",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400)),
+                  Text("\$100.00",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold))
                 ],
               )
             ],
@@ -519,40 +564,6 @@ class PlaceOrderButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return Row(
-    //   children: [
-    //     Expanded(
-    //         flex: 3,
-    //         child: Container()),
-    //     Expanded(
-    //       flex: 2,
-    //       child: GestureDetector(
-    //         onTap: (){
-    //           //Get.to(() => CheckoutScreen());
-    //         },
-    //         child: Container(
-    //           height: 42,
-    //           //width: Get.width/2,
-    //           decoration: BoxDecoration(
-    //               borderRadius: BorderRadius.circular(15),
-    //               color: AppColors.colorDarkBlue
-    //           ),
-    //           child: const Center(
-    //             child: Text(
-    //               "Place Order",
-    //               style: TextStyle(
-    //                   color: Colors.white,
-    //                   fontSize: 18,
-    //                   fontWeight: FontWeight.bold,
-    //               ),
-    //             ),
-    //           ),
-    //         ),
-    //       ),
-    //     ),
-    //   ],
-    // );
-
     return Container(
       alignment: Alignment.centerRight,
       child: Container(
@@ -560,13 +571,12 @@ class PlaceOrderButton extends StatelessWidget {
         //width: Get.width/2,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            color: AppColors.colorDarkBlue
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
+            color: AppColors.colorDarkBlue),
+        child: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 12),
           child: Text(
             "Place Order",
-           // textAlign: TextAlign.center,
+            // textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.white,
               fontSize: 18,

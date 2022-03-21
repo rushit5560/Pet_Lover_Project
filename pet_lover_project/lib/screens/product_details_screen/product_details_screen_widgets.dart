@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
+import 'package:pet_lover_project/screens/cart_screen/cart_screen.dart';
 
 import '../../common/common_widgets.dart';
 import '../../common/constants/app_images.dart';
@@ -400,20 +401,23 @@ class AddToCartButtonModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.centerRight,
+    return GestureDetector(
+      onTap: () => Get.to(()=> CartScreen(), transition: Transition.zoom),
       child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: AppColors.colorDarkBlue1
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-          child: Text(
-            'ADD TO CART',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+        alignment: Alignment.centerRight,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: AppColors.colorDarkBlue1
+          ),
+          child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            child: Text(
+              'ADD TO CART',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
           ),
         ),

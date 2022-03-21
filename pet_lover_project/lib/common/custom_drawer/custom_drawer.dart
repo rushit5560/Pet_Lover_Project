@@ -38,25 +38,37 @@ class CustomDrawer extends StatelessWidget {
                     const UserDetailsModule(),
                     const SizedBox(height: 20),
 
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Column(
-                        children: const [
-                           PetProfileModule(),
-                          SizedBox(height: 10),
-                          NotificationModule(),
-                          SizedBox(height: 10),
-                          LoyaltyPointModule(),
-                          SizedBox(height: 10),
-                          OnlineVetConsultationModule(),
-                          SizedBox(height: 10),
-                          CostManagerModule(),
-                          SizedBox(height: 10),
-                          BlogModule(),
-                          SizedBox(height: 10),
-                          SignOutModule(),
-                          SizedBox(height: 10),
-                        ],
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: const [
+                               PetProfileModule(),
+                              SizedBox(height: 10),
+                              NotificationModule(),
+                              SizedBox(height: 10),
+                              LoyaltyPointModule(),
+                              SizedBox(height: 10),
+                              OnlineVetConsultationModule(),
+                              SizedBox(height: 10),
+                              CostManagerModule(),
+                              SizedBox(height: 10),
+                              BlogModule(),
+                              SizedBox(height: 10),
+                              SignOutModule(),
+                              SizedBox(height: 10),
+                              AdoptPetModule(),
+                              SizedBox(height: 10),
+                              LostPetListModule(),
+                              SizedBox(height: 10),
+                              MyOrdersModule(),
+                              SizedBox(height: 10),
+                              SizedBox(height: 10),
+                              SizedBox(height: 10),
+                            ],
+                          ),
+                        ),
                       ),
                     )
                     // const SizedBox(height: 10),

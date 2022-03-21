@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/common/constants/app_images.dart';
+import 'package:pet_lover_project/screens/product_details_screen/product_details_screen.dart';
 
 import '../../common/constants/app_colors.dart';
 import '../../common/constants/field_decorations.dart';
@@ -65,13 +66,20 @@ class PetAccessoriesModule extends StatelessWidget {
   }
 
   Widget _petAccessoriesGridTile() {
-    return Material(
-      elevation: 5,
-      borderRadius: BorderRadius.circular(15),
+    return GestureDetector(
+      onTap: () => Get.to(()=> ProductDetailsScreen(), transition: Transition.zoom),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                blurRadius: 8,
+                spreadRadius: 1,
+                blurStyle: BlurStyle.outer
+            ),
+          ],
         ),
         child: Stack(
           children: [

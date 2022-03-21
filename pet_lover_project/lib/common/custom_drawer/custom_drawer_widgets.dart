@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/common/constants/app_images.dart';
+import 'package:pet_lover_project/screens/adopt_pet_screen/adopt_pet_screen.dart';
+import 'package:pet_lover_project/screens/my_order_screen/my_order_screen.dart';
 import 'package:pet_lover_project/screens/sign_in_screen/sign_in_screen.dart';
 import 'package:pet_lover_project/screens/vet_consultation_screen/vet_consultation_screen.dart';
 
+import '../../screens/lost_pet_list_screen/lost_pet_list_screen.dart';
 import '../../screens/profile_screens/pet_profile_screen/pet_profile_screen.dart';
 import '../constants/app_colors.dart';
 
@@ -476,3 +479,182 @@ class SignOutModule extends StatelessWidget {
     );
   }
 }
+
+
+class AdoptPetModule extends StatelessWidget {
+  const AdoptPetModule({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+       Get.back();
+       Get.to(()=> AdoptPetScreen(), transition: Transition.leftToRight);
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                blurRadius: 8,
+                spreadRadius: 1,
+                blurStyle: BlurStyle.outer
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    height: 25,
+                    width: 25,
+                    child: Image.asset(AppImages.option5Img),
+                  ),
+                  const SizedBox(width: 20),
+                  Expanded(
+                    child: Text(
+                      'Adopt Pet',
+                      maxLines: 1,
+                      style: TextStyle(
+                        color: AppColors.colorDarkBlue1,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class LostPetListModule extends StatelessWidget {
+  const LostPetListModule({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Get.back();
+        Get.to(()=> LostPetListScreen(), transition: Transition.leftToRight);
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                blurRadius: 8,
+                spreadRadius: 1,
+                blurStyle: BlurStyle.outer
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    height: 25,
+                    width: 25,
+                    child: Image.asset(AppImages.option5Img),
+                  ),
+                  const SizedBox(width: 20),
+                  Expanded(
+                    child: Text(
+                      'Lost Pet',
+                      maxLines: 1,
+                      style: TextStyle(
+                        color: AppColors.colorDarkBlue1,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class MyOrdersModule extends StatelessWidget {
+  const MyOrdersModule({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Get.back();
+        Get.to(()=> const MyOrderScreen(), transition: Transition.leftToRight);
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                blurRadius: 8,
+                spreadRadius: 1,
+                blurStyle: BlurStyle.outer
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    height: 25,
+                    width: 25,
+                    child: Image.asset(AppImages.option5Img),
+                  ),
+                  const SizedBox(width: 20),
+                  Expanded(
+                    child: Text(
+                      'My Orders',
+                      maxLines: 1,
+                      style: TextStyle(
+                        color: AppColors.colorDarkBlue1,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+

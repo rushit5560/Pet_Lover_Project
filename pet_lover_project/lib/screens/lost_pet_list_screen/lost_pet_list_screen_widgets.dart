@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:pet_lover_project/common/common_functions.dart';
 import 'package:pet_lover_project/controllers/lost_pet_list_screen_controller/lost_pet_list_screen_controller.dart';
 import '../../common/constants/app_colors.dart';
+import '../lost_pet_details_screen/lost_pet_details_screen.dart';
 
 class PetLostListSearchFieldModule extends StatelessWidget {
   PetLostListSearchFieldModule({Key? key}) : super(key: key);
@@ -162,7 +163,7 @@ class PetLostListsModule extends StatelessWidget {
                   Positioned(
                     bottom: -15,
                     child: GestureDetector(
-                      onTap: () => print('View'),
+                      onTap: () => Get.to(()=> LostPetDetailsScreen(), transition: Transition.zoom),
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),

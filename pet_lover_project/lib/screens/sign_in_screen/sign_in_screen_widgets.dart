@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/controllers/sign_in_screen_controller/sign_in_screen_controller.dart';
 import 'package:pet_lover_project/screens/Forgot_password_screen/forgot_password_screen.dart';
+import 'package:pet_lover_project/screens/index_screen/index_screen.dart';
 import 'package:pet_lover_project/screens/sign_up_screen/sign_up_screen.dart';
 import '../../common/common_widgets.dart';
 import '../../common/constants/app_colors.dart';
@@ -136,7 +137,9 @@ class SignInButtonModule extends StatelessWidget {
     return GestureDetector(
       onTap: () {
 
-        if(screenController.signInFormKey.currentState!.validate()){}
+        if(screenController.signInFormKey.currentState!.validate()){
+          Get.offAll(()=> IndexScreen(), transition: Transition.zoom);
+        }
 
       },
       child: Container(
