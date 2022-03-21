@@ -12,13 +12,16 @@ class PetProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: false,
       body: Stack(
         alignment: Alignment.center,
         children: [
           const AuthScreenBackGroundModule(heading: 'PROFILE'),
 
-          ProfileForm(),
+          Padding(
+            padding: const EdgeInsets.only(left: 35, right: 35, top: 260, bottom: 10),
+            child: ProfileForm(),
+          ),
         ],
       ),
     );

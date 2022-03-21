@@ -19,7 +19,8 @@ class SignInScreen extends StatelessWidget {
           const AuthScreenBackGroundModule(heading: 'SIGN IN'),
 
           Padding(
-            padding: const EdgeInsets.all(35),
+            //padding: const EdgeInsets.all(35),
+            padding: const EdgeInsets.only(left: 35, right: 35, top: 100, bottom: 10),
             child: SignInForm(),
           ),
         ],

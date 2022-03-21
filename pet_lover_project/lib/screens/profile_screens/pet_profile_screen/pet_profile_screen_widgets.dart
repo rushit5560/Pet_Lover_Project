@@ -22,10 +22,11 @@ class ProfileForm extends StatelessWidget {
       key: petProfileScreenController.profileFormKey,
       child: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(left: 60, right: 60, top: 100, bottom: 10),
+          padding: const EdgeInsets.only(left: 45, right: 45),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(height: 10,),
               AddPhoto(),
               SizedBox(height: 25,),
               NameTextFieldModule(),
@@ -97,7 +98,8 @@ class _AddPhotoState extends State<AddPhoto> {
                 openGallery();
               },
               child: Container(
-                height: Get.height/6.7,
+                //height: Get.height/7,
+                padding: EdgeInsets.all(15),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
@@ -130,7 +132,8 @@ class _AddPhotoState extends State<AddPhoto> {
                 pickVideoFromGallery();
               },
               child: Container(
-                height: Get.height/6.7,
+                //height: Get.height/6.7,
+                padding: EdgeInsets.all(15),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15),

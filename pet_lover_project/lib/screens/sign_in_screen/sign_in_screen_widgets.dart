@@ -16,7 +16,7 @@ class SignInForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: screenController.formKey,
+      key: screenController.signInFormKey,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -135,7 +135,7 @@ class SignInButtonModule extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if(screenController.formKey.currentState!.validate()){}
+        if(screenController.signInFormKey.currentState!.validate()){}
       },
       child: Container(
         decoration: BoxDecoration(

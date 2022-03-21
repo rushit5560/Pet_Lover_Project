@@ -12,14 +12,14 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: false,
       body: Stack(
         alignment: Alignment.center,
         children: [
           const AuthScreenBackGroundModule(heading: 'SIGN UP'),
 
           Padding(
-            padding: const EdgeInsets.only(left: 35, right: 35, top: 100, bottom: 10),
+            padding: const EdgeInsets.only(left: 35, right: 35, top: 260, bottom: 10),
             child: SignUpForm(),
           ),
         ],
