@@ -8,13 +8,13 @@ class SignUpScreenController extends GetxController{
   RxString gender = 'Female'.obs;
 
   GlobalKey<FormState> signUpFormKey = GlobalKey<FormState>();
-  final nameTextFieldController = TextEditingController();
-  final emailTextFieldController = TextEditingController();
-  final phoneTextFieldController = TextEditingController();
-  final ageTextFieldController = TextEditingController();
-  final genderTextFieldController = TextEditingController();
+  final nameTextFieldController = TextEditingController(text: "Demo");
+  final emailTextFieldController = TextEditingController(text: "demo@gmail.com");
+  final phoneTextFieldController = TextEditingController(text: "1234567890");
+  final ageTextFieldController = TextEditingController(text: "24");
+  final genderTextFieldController = TextEditingController(text: "Male");
   final locationTextFieldController = TextEditingController();
-  final addressTextFieldController = TextEditingController();
-  final passwordTextFieldController = TextEditingController();
-  final confirmPasswordTextFieldController = TextEditingController();
+  final addressTextFieldController = TextEditingController(text: "313, RTC");
+  final passwordTextFieldController = TextEditingController(text: "12345678");
+  final confirmPasswordTextFieldController = TextEditingController(text: "12345678");
 }

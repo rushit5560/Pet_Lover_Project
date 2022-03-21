@@ -3,11 +3,11 @@ import 'package:get/get.dart';
 import 'package:pet_lover_project/controllers/sign_in_screen_controller/sign_in_screen_controller.dart';
 import 'package:pet_lover_project/screens/Forgot_password_screen/forgot_password_screen.dart';
 import 'package:pet_lover_project/screens/sign_up_screen/sign_up_screen.dart';
-
 import '../../common/common_widgets.dart';
 import '../../common/constants/app_colors.dart';
 import '../../common/constants/field_decorations.dart';
 import '../../common/field_validation.dart';
+
 
 class SignInForm extends StatelessWidget {
   SignInForm({Key? key}) : super(key: key);
@@ -86,7 +86,7 @@ class ForgotPassModule extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(() => ForgotPasswordScreen());
+        Get.to(() => ForgotPasswordScreen(), transition: Transition.zoom);
       },
       child: Container(
         alignment: Alignment.centerRight,
@@ -112,7 +112,7 @@ class SignUpTextModule extends StatelessWidget {
         const Text("Don't have an account? "),
         GestureDetector(
           onTap: () {
-            Get.to(() => SignUpScreen());
+            Get.to(() => SignUpScreen(), transition: Transition.zoom);
           },
           child: Text(
             "SIGNUP",
@@ -135,7 +135,9 @@ class SignInButtonModule extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+
         if(screenController.signInFormKey.currentState!.validate()){}
+
       },
       child: Container(
         decoration: BoxDecoration(

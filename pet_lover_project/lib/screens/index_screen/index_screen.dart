@@ -124,10 +124,12 @@ class IndexScreen extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: AppColors.colorLightBlue,
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
-            color: Colors.black38,
-            blurRadius: 5,
+              color: AppColors.colorDarkBlue1.withOpacity(0.2),
+              blurRadius: 8,
+              spreadRadius: 1,
+              blurStyle: BlurStyle.outer,
           ),
         ],
       ),

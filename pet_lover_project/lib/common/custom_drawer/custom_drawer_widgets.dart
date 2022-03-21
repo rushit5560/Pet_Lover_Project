@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pet_lover_project/common/constants/app_images.dart';
+import 'package:pet_lover_project/screens/sign_in_screen/sign_in_screen.dart';
+import 'package:pet_lover_project/screens/vet_consultation_screen/vet_consultation_screen.dart';
 
+import '../../screens/profile_screens/pet_profile_screen/pet_profile_screen.dart';
 import '../constants/app_colors.dart';
 
 class UserDetailsModule extends StatelessWidget {
@@ -77,11 +81,23 @@ class PetProfileModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 12),
-      child: Material(
-        elevation: 2,
-        borderRadius: BorderRadius.circular(15),
+    return GestureDetector(
+      onTap: () {
+        Get.back();
+        Get.to(()=> PetProfileScreen(), transition: Transition.leftToRight);
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                blurRadius: 8,
+                spreadRadius: 1,
+                blurStyle: BlurStyle.outer
+            ),
+          ],
+        ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
           child: Container(
@@ -124,37 +140,52 @@ class NotificationModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 2,
-      borderRadius: BorderRadius.circular(15),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
-              children: [
-                SizedBox(
-                  height: 25,
-                  width: 25,
-                  child: Image.asset(AppImages.option2Img),
-                ),
-                const SizedBox(width: 20),
-                Expanded(
-                  child: Text(
-                    'Notification',
-                    maxLines: 1,
-                    style: TextStyle(
-                      color: AppColors.colorDarkBlue1,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
+    return GestureDetector(
+      onTap: () {
+        Get.back();
+        // Get.to(()=> PetProfileScreen(), transition: Transition.leftToRight);
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                blurRadius: 8,
+                spreadRadius: 1,
+                blurStyle: BlurStyle.outer
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    height: 25,
+                    width: 25,
+                    child: Image.asset(AppImages.option2Img),
+                  ),
+                  const SizedBox(width: 20),
+                  Expanded(
+                    child: Text(
+                      'Notification',
+                      maxLines: 1,
+                      style: TextStyle(
+                        color: AppColors.colorDarkBlue1,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -168,37 +199,52 @@ class LoyaltyPointModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 2,
-      borderRadius: BorderRadius.circular(15),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
-              children: [
-                SizedBox(
-                  height: 25,
-                  width: 25,
-                  child: Image.asset(AppImages.option3Img),
-                ),
-                const SizedBox(width: 20),
-                Expanded(
-                  child: Text(
-                    'Loyalty Point',
-                    maxLines: 1,
-                    style: TextStyle(
-                      color: AppColors.colorDarkBlue1,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
+    return GestureDetector(
+      onTap: () {
+        Get.back();
+        // Get.to(()=> PetProfileScreen(), transition: Transition.leftToRight);
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                blurRadius: 8,
+                spreadRadius: 1,
+                blurStyle: BlurStyle.outer
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    height: 25,
+                    width: 25,
+                    child: Image.asset(AppImages.option3Img),
+                  ),
+                  const SizedBox(width: 20),
+                  Expanded(
+                    child: Text(
+                      'Loyalty Point',
+                      maxLines: 1,
+                      style: TextStyle(
+                        color: AppColors.colorDarkBlue1,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -212,37 +258,52 @@ class OnlineVetConsultationModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 2,
-      borderRadius: BorderRadius.circular(15),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
-              children: [
-                SizedBox(
-                  height: 25,
-                  width: 25,
-                  child: Image.asset(AppImages.option4Img),
-                ),
-                const SizedBox(width: 20),
-                Expanded(
-                  child: Text(
-                    'Online Vet Consultation',
-                    maxLines: 1,
-                    style: TextStyle(
-                      color: AppColors.colorDarkBlue1,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
+    return GestureDetector(
+      onTap: () {
+        Get.back();
+        Get.to(()=> VetConsultationScreen(), transition: Transition.leftToRight);
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                blurRadius: 8,
+                spreadRadius: 1,
+                blurStyle: BlurStyle.outer
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    height: 25,
+                    width: 25,
+                    child: Image.asset(AppImages.option4Img),
+                  ),
+                  const SizedBox(width: 20),
+                  Expanded(
+                    child: Text(
+                      'Online Vet Consultation',
+                      maxLines: 1,
+                      style: TextStyle(
+                        color: AppColors.colorDarkBlue1,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -256,9 +317,18 @@ class BlogModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 2,
-      borderRadius: BorderRadius.circular(15),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+              color: AppColors.colorDarkBlue1.withOpacity(0.2),
+              blurRadius: 8,
+              spreadRadius: 1,
+              blurStyle: BlurStyle.outer
+          ),
+        ],
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
         child: Container(
@@ -300,9 +370,18 @@ class CostManagerModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 2,
-      borderRadius: BorderRadius.circular(15),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+              color: AppColors.colorDarkBlue1.withOpacity(0.2),
+              blurRadius: 8,
+              spreadRadius: 1,
+              blurStyle: BlurStyle.outer
+          ),
+        ],
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
         child: Container(
@@ -344,37 +423,52 @@ class SignOutModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 2,
-      borderRadius: BorderRadius.circular(15),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
-              children: [
-                SizedBox(
-                  height: 25,
-                  width: 25,
-                  child: Image.asset(AppImages.option7Img),
-                ),
-                const SizedBox(width: 20),
-                Expanded(
-                  child: Text(
-                    'Sign Out',
-                    maxLines: 1,
-                    style: TextStyle(
-                      color: AppColors.colorDarkBlue1,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
+    return GestureDetector(
+      onTap: () {
+        Get.back();
+        Get.offAll(()=> SignInScreen(), transition: Transition.leftToRight);
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+                color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                blurRadius: 8,
+                spreadRadius: 1,
+                blurStyle: BlurStyle.outer
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    height: 25,
+                    width: 25,
+                    child: Image.asset(AppImages.option7Img),
+                  ),
+                  const SizedBox(width: 20),
+                  Expanded(
+                    child: Text(
+                      'Sign Out',
+                      maxLines: 1,
+                      style: TextStyle(
+                        color: AppColors.colorDarkBlue1,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

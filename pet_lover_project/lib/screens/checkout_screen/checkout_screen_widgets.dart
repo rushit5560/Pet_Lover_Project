@@ -1,12 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_lover_project/common/common_widgets.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
 import 'package:pet_lover_project/common/constants/app_images.dart';
-import 'package:pet_lover_project/common/constants/field_decorations.dart';
 import 'package:pet_lover_project/common/field_validation.dart';
 import 'package:pet_lover_project/controllers/checkout_screen_controller/checkout_screen_controller.dart';
+
 
 Widget paymentText(){
   return const Text("Payment", style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18, color: Colors.black),);
@@ -15,8 +13,7 @@ Widget paymentText(){
 class PaymentDetails extends StatelessWidget {
   PaymentDetails({Key? key}) : super(key: key);
 
-  CheckoutScreenController checkoutScreenController = Get.find<CheckoutScreenController>();
-  //BestTutorSite site = BestTutorSite.Cash_On_Delivery;
+  final checkoutScreenController = Get.find<CheckoutScreenController>();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -40,7 +37,7 @@ class PaymentDetails extends StatelessWidget {
                         Expanded(
                           child: DateTextField(),
                         ),
-                        SizedBox(width: 20,),
+                        const SizedBox(width: 20),
                         Expanded(
                           child: CvvTextField(),
                         )
@@ -50,7 +47,7 @@ class PaymentDetails extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(width: 15,),
+            const SizedBox(width: 15),
             Expanded(
               flex: 1,
               child: SaveButtonModule(),
@@ -68,7 +65,7 @@ class PaymentDetails extends StatelessWidget {
               flex: 3,
               child: UpiTextField(),
             ),
-            SizedBox(width: 15,),
+            const SizedBox(width: 15),
             Expanded(
               flex: 1,
               child: UPISaveButtonModule(),
@@ -95,9 +92,7 @@ class PaymentDetails extends StatelessWidget {
               activeColor: AppColors.colorDarkBlue1,
               groupValue: checkoutScreenController.payment.value,
               onChanged: (value) {
-                //setState(() {
                 checkoutScreenController.payment.value = value!;
-                // });
               },
             ),
             leading: Image.asset(AppImages.debitCardImg, scale: 2,),
@@ -107,7 +102,7 @@ class PaymentDetails extends StatelessWidget {
     );
   }
 
-  Widget upiPayment(){
+  Widget upiPayment() {
     return Obx(()=>
         Container(
           decoration: BoxDecoration(
@@ -120,9 +115,7 @@ class PaymentDetails extends StatelessWidget {
               activeColor: AppColors.colorDarkBlue1,
               groupValue: checkoutScreenController.payment.value,
               onChanged: (value) {
-                //setState(() {
                 checkoutScreenController.payment.value = value!;
-                // });
               },
             ),
             leading: Image.asset(AppImages.upiImg, scale: 2,),
@@ -132,7 +125,7 @@ class PaymentDetails extends StatelessWidget {
     );
   }
 
-  Widget cashOnDelivery(){
+  Widget cashOnDelivery() {
     return Obx(()=>
         Container(
           decoration: BoxDecoration(
@@ -145,9 +138,7 @@ class PaymentDetails extends StatelessWidget {
               activeColor: AppColors.colorDarkBlue1,
               groupValue: checkoutScreenController.payment.value,
               onChanged: (value) {
-                //setState(() {
                 checkoutScreenController.payment.value = value!;
-                // });
               },
             ),
             leading: Image.asset(AppImages.cashOnDeliveryImg, scale: 2,),
@@ -188,31 +179,8 @@ class CardNumberTextField extends StatelessWidget {
           decoration: InputDecoration(
             hintText: "Card Number",
             hintStyle: TextStyle(color: AppColors.colorDarkBlue1),
-           // isDense: true,
             contentPadding: const EdgeInsets.only(left: 15, bottom: 7),
-           // filled: true,
-           // fillColor: AppColors.colorLightBlue,
             border: InputBorder.none,
-            // suffix: IconButton(
-            //   onPressed: () {},
-            //   iconSize: 15,
-            //   icon: Icon(Icons.visibility_off_rounded),
-            // ),
-            // suffix: Container(
-            //   child: index == 0
-            //       ? null
-            //       : GestureDetector(
-            //     onTap: () {
-            //       signInScreenController.isPassVisible.value = !signInScreenController.isPassVisible.value;
-            //       print('isPassVisible : ${signInScreenController.isPassVisible.value}');
-            //     },
-            //     child: Obx(
-            //       ()=> Icon(signInScreenController.isPassVisible.value
-            //           ? Icons.visibility_rounded
-            //           : Icons.visibility_off_rounded),
-            //     ),
-            //   ),
-            // ),
           ),
           validator: (value) => fieldValidator.validateEmail(value!),
         ),
@@ -223,7 +191,7 @@ class CardNumberTextField extends StatelessWidget {
 
 class DateTextField extends StatelessWidget {
   DateTextField({Key? key}) : super(key: key);
-  CheckoutScreenController checkoutScreenController = Get.find<CheckoutScreenController>();
+  final checkoutScreenController = Get.find<CheckoutScreenController>();
   final FieldValidator fieldValidator = FieldValidator();
 
   @override
@@ -251,31 +219,8 @@ class DateTextField extends StatelessWidget {
           decoration: InputDecoration(
             hintText: "MM/YYYY",
             hintStyle: TextStyle(color: AppColors.colorDarkBlue1),
-            //isDense: true,
             contentPadding: const EdgeInsets.only(left: 15, bottom: 7),
-            //filled: true,
-           // fillColor: AppColors.colorLightBlue,
             border: InputBorder.none,
-            // suffix: IconButton(
-            //   onPressed: () {},
-            //   iconSize: 15,
-            //   icon: Icon(Icons.visibility_off_rounded),
-            // ),
-            // suffix: Container(
-            //   child: index == 0
-            //       ? null
-            //       : GestureDetector(
-            //     onTap: () {
-            //       signInScreenController.isPassVisible.value = !signInScreenController.isPassVisible.value;
-            //       print('isPassVisible : ${signInScreenController.isPassVisible.value}');
-            //     },
-            //     child: Obx(
-            //       ()=> Icon(signInScreenController.isPassVisible.value
-            //           ? Icons.visibility_rounded
-            //           : Icons.visibility_off_rounded),
-            //     ),
-            //   ),
-            // ),
           ),
           validator: (value) => fieldValidator.validateEmail(value!),
         ),
@@ -286,7 +231,7 @@ class DateTextField extends StatelessWidget {
 
 class CvvTextField extends StatelessWidget {
   CvvTextField({Key? key}) : super(key: key);
-  CheckoutScreenController checkoutScreenController = Get.find<CheckoutScreenController>();
+  final checkoutScreenController = Get.find<CheckoutScreenController>();
   final FieldValidator fieldValidator = FieldValidator();
 
   @override
@@ -314,31 +259,8 @@ class CvvTextField extends StatelessWidget {
           decoration: InputDecoration(
             hintText: "CVV",
             hintStyle: TextStyle(color: AppColors.colorDarkBlue1),
-            //isDense: true,
             contentPadding: const EdgeInsets.only(left: 15, bottom: 7),
-            //filled: true,
-            //fillColor: AppColors.colorLightBlue,
             border: InputBorder.none,
-            // suffix: IconButton(
-            //   onPressed: () {},
-            //   iconSize: 15,
-            //   icon: Icon(Icons.visibility_off_rounded),
-            // ),
-            // suffix: Container(
-            //   child: index == 0
-            //       ? null
-            //       : GestureDetector(
-            //     onTap: () {
-            //       signInScreenController.isPassVisible.value = !signInScreenController.isPassVisible.value;
-            //       print('isPassVisible : ${signInScreenController.isPassVisible.value}');
-            //     },
-            //     child: Obx(
-            //       ()=> Icon(signInScreenController.isPassVisible.value
-            //           ? Icons.visibility_rounded
-            //           : Icons.visibility_off_rounded),
-            //     ),
-            //   ),
-            // ),
           ),
           validator: (value) => fieldValidator.validateEmail(value!),
         ),
@@ -349,7 +271,7 @@ class CvvTextField extends StatelessWidget {
 
 class SaveButtonModule extends StatelessWidget {
   SaveButtonModule({Key? key}) : super(key: key);
-  CheckoutScreenController checkoutScreenController = Get.find<CheckoutScreenController>();
+  final checkoutScreenController = Get.find<CheckoutScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -380,7 +302,7 @@ class SaveButtonModule extends StatelessWidget {
 
 class UpiTextField extends StatelessWidget {
   UpiTextField({Key? key}) : super(key: key);
-  CheckoutScreenController checkoutScreenController = Get.find<CheckoutScreenController>();
+  final checkoutScreenController = Get.find<CheckoutScreenController>();
   final FieldValidator fieldValidator = FieldValidator();
 
   @override
@@ -409,31 +331,8 @@ class UpiTextField extends StatelessWidget {
           decoration: InputDecoration(
             hintText: "Enter UPI ID",
             hintStyle: TextStyle(color: AppColors.colorDarkBlue1),
-            //isDense: true,
             contentPadding: const EdgeInsets.only(left: 15, bottom: 7),
-            //filled: true,
-            //fillColor: AppColors.colorLightBlue,
             border: InputBorder.none,
-            // suffix: IconButton(
-            //   onPressed: () {},
-            //   iconSize: 15,
-            //   icon: Icon(Icons.visibility_off_rounded),
-            // ),
-            // suffix: Container(
-            //   child: index == 0
-            //       ? null
-            //       : GestureDetector(
-            //     onTap: () {
-            //       signInScreenController.isPassVisible.value = !signInScreenController.isPassVisible.value;
-            //       print('isPassVisible : ${signInScreenController.isPassVisible.value}');
-            //     },
-            //     child: Obx(
-            //       ()=> Icon(signInScreenController.isPassVisible.value
-            //           ? Icons.visibility_rounded
-            //           : Icons.visibility_off_rounded),
-            //     ),
-            //   ),
-            // ),
           ),
           validator: (value) => fieldValidator.validateEmail(value!),
         ),
@@ -444,7 +343,7 @@ class UpiTextField extends StatelessWidget {
 
 class UPISaveButtonModule extends StatelessWidget {
   UPISaveButtonModule({Key? key}) : super(key: key);
-  CheckoutScreenController checkoutScreenController = Get.find<CheckoutScreenController>();
+  final checkoutScreenController = Get.find<CheckoutScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -476,7 +375,7 @@ class UPISaveButtonModule extends StatelessWidget {
 class DeliveryAddressModule extends StatelessWidget {
   DeliveryAddressModule({Key? key}) : super(key: key);
 
-  CheckoutScreenController checkoutScreenController = Get.find<CheckoutScreenController>();
+  final checkoutScreenController = Get.find<CheckoutScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -485,14 +384,14 @@ class DeliveryAddressModule extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-              Text("Delivery Address", style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18, color: Colors.black),),
+              const Text("Delivery Address", style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18, color: Colors.black),),
 
               Image.asset(AppImages.plusDarkBlueImg, scale: 2,)
           ],
         ),
-        SizedBox(height: 15,),
+        const SizedBox(height: 15),
         address1Radio(),
-        SizedBox(height: 15,),
+        const SizedBox(height: 15),
         address2Radio()
 
       ],
@@ -512,9 +411,7 @@ class DeliveryAddressModule extends StatelessWidget {
               activeColor: AppColors.colorDarkBlue1,
               groupValue: checkoutScreenController.deliveryAddress.value,
               onChanged: (value) {
-                //setState(() {
                 checkoutScreenController.deliveryAddress.value = value!;
-                // });
               },
             ),
             title: const Text('3254, Lorem Ipsum is simply dummy text of the printing'),
@@ -561,8 +458,8 @@ class OrderSummaryModule extends StatelessWidget {
         const SizedBox(height: 20,),
 
         Container(
-          padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
-          margin: EdgeInsets.only(left: 7, right: 7),
+          padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+          margin: const EdgeInsets.only(left: 7, right: 7),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               //border: Border.all(color: AppColors.colorDarkBlue1),
@@ -641,7 +538,14 @@ class PlaceOrderButton extends StatelessWidget {
                   color: AppColors.colorDarkBlue
               ),
               child: const Center(
-                child: Text("Place Order", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),),
+                child: Text(
+                  "Place Order",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ),
           ),

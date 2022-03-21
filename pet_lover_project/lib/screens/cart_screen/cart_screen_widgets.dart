@@ -206,7 +206,7 @@ class CheckOutButton extends StatelessWidget {
           flex: 3,
           child: GestureDetector(
             onTap: (){
-              Get.to(() => CheckoutScreen());
+              Get.to(() => CheckoutScreen(), transition: Transition.rightToLeft);
             },
             child: Container(
               height: 50,

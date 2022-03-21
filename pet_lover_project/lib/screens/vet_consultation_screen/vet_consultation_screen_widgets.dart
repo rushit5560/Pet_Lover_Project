@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
 import 'package:pet_lover_project/common/constants/app_images.dart';
 import 'package:pet_lover_project/controllers/vet_consultation_screen_controller/vet_consultation_screen_controller.dart';
+import 'package:pet_lover_project/screens/vet_details_screen/vet_details_screen.dart';
 
 class SearchVetConsultationTextField extends StatelessWidget {
   SearchVetConsultationTextField({Key? key}) : super(key: key);
@@ -87,27 +88,9 @@ class VetConsultationList extends StatelessWidget {
                     children: [
                       Expanded(
                           flex:1,
-                          // child: Container(
-                          //   decoration: BoxDecoration(
-                          //     borderRadius: BorderRadius.circular(15),
-                          //     color: AppColors.colorDarkBlue1
-                          //   ),
-                          //   child: Image.asset(vetConsultationScreenController.vetChat[index].image),
-                          // )
                         child: Stack(
                           alignment: Alignment.topCenter,
                           children: [
-                            // Positioned(
-                            //   child: Container(
-                            //     height: 66, width:90,
-                            //     //margin: EdgeInsets.only(top: 15),
-                            //     decoration: BoxDecoration(
-                            //       borderRadius: BorderRadius.circular(15),
-                            //       color: AppColors.colorDarkBlue1
-                            //     ),
-                            //   ),
-                            // ),
-                            // Image.asset(vetConsultationScreenController.vetChat[index].image),
                             SizedBox(
                               height: 80, width: 80,
                               child: Column(
@@ -118,8 +101,6 @@ class VetConsultationList extends StatelessWidget {
                                   Expanded(
                                     flex: 85,
                                     child: Container(
-                                          //height: 66, width:90,
-                                          //margin: EdgeInsets.only(top: 15),
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(15),
                                             color: AppColors.colorDarkBlue1
@@ -143,11 +124,11 @@ class VetConsultationList extends StatelessWidget {
                             Text(vetConsultationScreenController.vetChat[index].name, maxLines:1, style: const TextStyle(
                               color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16
                             ),),
-                            const SizedBox(height: 5,),
+                            const SizedBox(height: 5),
                             Text(vetConsultationScreenController.vetChat[index].specialist, maxLines:1, style: const TextStyle(
                                 color: Colors.black, fontWeight: FontWeight.w700, fontSize: 14
                             ),),
-                            SizedBox(height: 5,),
+                            const SizedBox(height: 5),
                             Text(vetConsultationScreenController.vetChat[index].experience, maxLines:1,style: const TextStyle(
                                 color: Colors.black,fontWeight: FontWeight.w600 ,fontSize: 12
                             ),)
@@ -160,16 +141,19 @@ class VetConsultationList extends StatelessWidget {
 
                 Expanded(
                   flex: 1,
-                  child: Container(
-                    height: 35,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: AppColors.colorDarkBlue1
-                    ),
-                    child: Center(
-                      child: Text("View", style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold
-                      ),),
+                  child: GestureDetector(
+                    onTap: () => Get.to(()=> const VetDetailsScreen(), transition: Transition.zoom),
+                    child: Container(
+                      height: 35,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: AppColors.colorDarkBlue1
+                      ),
+                      child: const Center(
+                        child: Text("View", style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold
+                        ),),
+                      ),
                     ),
                   ),
                 )

@@ -6,6 +6,7 @@ import 'package:pet_lover_project/common/constants/app_images.dart';
 import 'package:pet_lover_project/common/constants/field_decorations.dart';
 import 'package:pet_lover_project/common/field_validation.dart';
 import 'package:pet_lover_project/controllers/sign_up_screen_controller/sign_up_screen_controller.dart';
+import 'package:pet_lover_project/screens/index_screen/index_screen.dart';
 import 'package:pet_lover_project/screens/sign_in_screen/sign_in_screen.dart';
 
 class SignUpForm extends StatelessWidget {
@@ -22,6 +23,7 @@ class SignUpForm extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBox(height: 10),
               NameTextFieldModule(),
               const SizedBox(height: 30),
               EmailTextFieldModule(),
@@ -347,7 +349,9 @@ class SignUpButtonModule extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if(signUpScreenController.signUpFormKey.currentState!.validate()){}
+        if(signUpScreenController.signUpFormKey.currentState!.validate()){
+          Get.offAll(()=> IndexScreen(), transition: Transition.zoom);
+        }
       },
       child: Container(
         decoration: BoxDecoration(
@@ -379,7 +383,7 @@ class AlreadyTextModule extends StatelessWidget {
         const Text("Already have an account? "),
         GestureDetector(
           onTap: () {
-            Get.to(() => SignInScreen());
+            Get.off(() => SignInScreen(), transition: Transition.zoom);
           },
           child: Text(
             "SIGNIN",
