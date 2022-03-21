@@ -14,6 +14,7 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
@@ -21,14 +22,23 @@ class ChatScreen extends StatelessWidget {
             CommonAppBarModule(title: 'Chats', appBarOption: AppBarOption.backButtonScreenOption),
 
             SizedBox(height: 35,),
-
             SearchChatTextField(),
             SizedBox(height: 20,),
-            PinnedChatList(),
 
-            SizedBox(height: 20,),
             Expanded(
-                child: RecentChatList())
+              child: Column(
+                children: [
+
+                  PinnedChatList(),
+
+                  SizedBox(height: 20,),
+                  Expanded(
+                      child: RecentChatList())
+                ],
+              ),
+            )
+
+
 
           ],
         ).commonPadding()
