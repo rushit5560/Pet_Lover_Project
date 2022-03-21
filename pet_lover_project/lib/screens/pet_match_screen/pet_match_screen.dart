@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_lover_project/common/extension_methods/extension_methods.dart';
 import 'package:pet_lover_project/controllers/pet_match_screen_controller/pet_match_screen_controller.dart';
 import 'package:pet_lover_project/screens/pet_match_screen/pet_match_screen_widgets.dart';
 
@@ -22,21 +23,18 @@ class PetMatchScreen extends StatelessWidget {
                 children: [
                   PetImageListModule(),
                   const SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        PetTitleModule(),
-                        const SizedBox(height: 10),
-                        PetDescriptionModule(),
-                        const SizedBox(height: 10),
-                        const PetDetailsModule(),
-                        const SizedBox(height: 20),
-                        const DirectionAndMessageButtonModule()
-                      ]
-                    ),
-                  ),
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      PetTitleModule(),
+                      const SizedBox(height: 10),
+                      PetDescriptionModule(),
+                      const SizedBox(height: 10),
+                      const PetDetailsModule(),
+                      const SizedBox(height: 20),
+                      const DirectionAndMessageButtonModule()
+                    ]
+                  ).commonPadding(),
 
                 ],
               ),

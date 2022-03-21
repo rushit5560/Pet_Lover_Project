@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_lover_project/common/common_functions.dart';
 import 'package:pet_lover_project/common/constants/enums.dart';
+import 'package:pet_lover_project/common/extension_methods/extension_methods.dart';
 
 import '../../common/constants/app_colors.dart';
 import '../../common/custom_appbar/custom_appbar.dart';
@@ -19,21 +20,18 @@ class ConversationScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColors.colorLightBlue,
         body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                CommonAppBarModule(title: "John Doe", appBarOption: AppBarOption.backButtonScreenOption),
-                const SizedBox(height: 20),
-                Expanded(child: ChatListModule()),
-                Padding(
-                  padding: const EdgeInsets.only(top: 8, bottom: 12, right: 22, left: 22),
-                  child: MessageFieldModule(),
-                ),
-                // const SizedBox(height: 10),
-              ],
-            ),
-          ),
+          child: Column(
+            children: [
+              CommonAppBarModule(title: "John Doe", appBarOption: AppBarOption.backButtonScreenOption),
+              const SizedBox(height: 20),
+              Expanded(child: ChatListModule()),
+              Padding(
+                padding: const EdgeInsets.only(top: 8, bottom: 12, right: 22, left: 22),
+                child: MessageFieldModule(),
+              ),
+              // const SizedBox(height: 10),
+            ],
+          ).commonPadding(),
         ),
       ),
     );

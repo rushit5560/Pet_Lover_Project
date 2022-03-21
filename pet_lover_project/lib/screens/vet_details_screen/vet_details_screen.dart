@@ -20,7 +20,7 @@ class VetDetailsScreen extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      VetImageModule(),
+                      const VetImageModule(),
                       // const SizedBox(height: 20),
 
                       Column(

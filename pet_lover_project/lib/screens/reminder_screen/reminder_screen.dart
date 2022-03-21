@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
 import 'package:pet_lover_project/common/constants/enums.dart';
 import 'package:pet_lover_project/common/custom_appbar/custom_appbar.dart';
+import 'package:pet_lover_project/common/extension_methods/extension_methods.dart';
 import 'package:pet_lover_project/controllers/reminder_screen_controller/reminder_screen_controller.dart';
 import 'package:pet_lover_project/screens/reminder_screen/reminder_screen_widgets.dart';
 
@@ -16,22 +17,19 @@ class ReminderScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.colorLightBlue,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CommonAppBarModule(title: 'Reminder', appBarOption: AppBarOption.backButtonScreenOption),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CommonAppBarModule(title: 'Reminder', appBarOption: AppBarOption.backButtonScreenOption),
 
-              SizedBox(height: 20,),
+            SizedBox(height: 20,),
 
-              Text("Choose Pet Keeping Reminders", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19)),
-              SizedBox(height: 20,),
+            Text("Choose Pet Keeping Reminders", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19)),
+            SizedBox(height: 20,),
 
-              Expanded(child: ReminderGridList())
-            ],
-          ),
-        ),
+            Expanded(child: ReminderGridList())
+          ],
+        ).commonPadding(),
       ),
     );
   }

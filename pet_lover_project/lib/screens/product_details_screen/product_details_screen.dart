@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_lover_project/common/extension_methods/extension_methods.dart';
 import '../../controllers/product_details_screen_controller/product_details_screen_controller.dart';
 import 'product_details_screen_widgets.dart';
 
@@ -20,23 +21,20 @@ class ProductDetailsScreen extends StatelessWidget {
                 children: [
                   ProductImageListModule(),
                   const SizedBox(height: 10),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Column(
-                      children: [
-                        ProductTitleAndPriceModule(),
-                        const SizedBox(height: 10),
-                        ProductQtyModule(),
-                        const SizedBox(height: 10),
-                        ProductDescriptionModule(),
-                        const SizedBox(height: 10),
-                        RelatedProductsModule(),
-                        const SizedBox(height: 10),
-                        const AddToCartButtonModule(),
-                        const SizedBox(height: 10),
-                      ],
-                    ),
-                  ),
+                  Column(
+                    children: [
+                      ProductTitleAndPriceModule(),
+                      const SizedBox(height: 10),
+                      ProductQtyModule(),
+                      const SizedBox(height: 10),
+                      ProductDescriptionModule(),
+                      const SizedBox(height: 10),
+                      RelatedProductsModule(),
+                      const SizedBox(height: 10),
+                      const AddToCartButtonModule(),
+                      const SizedBox(height: 10),
+                    ],
+                  ).commonPadding(),
                 ],
               ),
             ),
