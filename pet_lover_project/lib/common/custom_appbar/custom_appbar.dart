@@ -170,6 +170,8 @@ class CommonAppBarModule extends StatelessWidget {
         ? Image.asset(AppImages.msgIconImg, scale: 2)
         : appBarOption == AppBarOption.petLostListScreen
         ? Image.asset(AppImages.plusDarkBlueImg, scale: 2)
+        : appBarOption == AppBarOption.blogDetailScreenOption
+        ? Image.asset(AppImages.threeDotImg, scale: 2)
         : null,
       ),
     );

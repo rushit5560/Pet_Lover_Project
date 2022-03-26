@@ -109,5 +109,5 @@ class AppImages {
 
   static const referEarnImg = imageMainPath + "refer&earn.png";
   static const profileImg = imageMainPath + "profile.png";
-
+  static const redeemImg = imageMainPath + "redeem.png";
 }
