@@ -31,7 +31,7 @@ class WalletScreen extends StatelessWidget {
                 const RedeemPointsModule() :  const WalletTransactionModule(),
                 ),)
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }

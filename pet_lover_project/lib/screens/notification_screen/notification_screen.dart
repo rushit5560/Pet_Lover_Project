@@ -21,7 +21,7 @@ class NotificationScreen extends StatelessWidget {
               child: NotificationList(),
             )
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }

@@ -172,6 +172,8 @@ class CommonAppBarModule extends StatelessWidget {
         ? Image.asset(AppImages.plusDarkBlueImg, scale: 2)
         : appBarOption == AppBarOption.blogDetailScreenOption
         ? Image.asset(AppImages.threeDotImg, scale: 2)
+        : appBarOption == AppBarOption.blogScreenOption
+        ? Image.asset(AppImages.plusDarkBlueImg, scale: 2)
         : null,
       ),
     );
