@@ -112,4 +112,5 @@ class AppImages {
   static const redeemImg = imageMainPath + "redeem.png";
 
   static const blogCropImageContainerImg = imageMainPath + "blog_crop_image_container.png";
+  static const blogDetailImg = imageMainPath + "blog_detail.png";
 }

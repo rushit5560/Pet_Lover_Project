@@ -150,14 +150,19 @@ class AgeTextFieldModule extends StatelessWidget {
   }
 }
 
-class GenderTextFieldModule extends StatelessWidget {
+class GenderTextFieldModule extends StatefulWidget {
   GenderTextFieldModule({Key? key}) : super(key: key);
+
+  @override
+  State<GenderTextFieldModule> createState() => _GenderTextFieldModuleState();
+}
+
+class _GenderTextFieldModuleState extends State<GenderTextFieldModule> {
   final signUpScreenController = Get.find<SignUpScreenController>();
 
   @override
   Widget build(BuildContext context) {
-    return Obx(()=>
-        Container(
+    return Container(
           padding: const EdgeInsets.only(right: 10),
           height: 48,
           width: Get.width/1.5,
@@ -184,7 +189,7 @@ class GenderTextFieldModule extends StatelessWidget {
                 icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                 isExpanded: true,
                 focusColor: Colors.white,
-                value: signUpScreenController.gender.value,
+                value: signUpScreenController.gender,
                 //elevation: 5,
                 style: TextStyle(color: AppColors.colorDarkBlue1),
                 iconEnabledColor: Colors.black,
@@ -203,12 +208,14 @@ class GenderTextFieldModule extends StatelessWidget {
                 }).toList(),
                 hint: Text("Gender", style: TextStyle(color: AppColors.colorDarkBlue1),),
                 onChanged: (newValue) {
-                  signUpScreenController.gender.value = newValue!;
+                  setState(() {
+                    signUpScreenController.gender = newValue!;
+                  });
+
                 },
               ),
             ),
           ),
-        ),
     );
   }
 }

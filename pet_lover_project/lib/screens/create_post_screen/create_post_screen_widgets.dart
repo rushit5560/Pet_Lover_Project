@@ -1,14 +1,24 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:pet_lover_project/common/constants/app_colors.dart';
 import 'package:pet_lover_project/controllers/create_post_screen_controller/create_post_screen_controller.dart';
 
 import '../../common/constants/app_images.dart';
 
-class CreatePostFormModule extends StatelessWidget {
+class CreatePostFormModule extends StatefulWidget {
   CreatePostFormModule({Key? key}) : super(key: key);
+
+  @override
+  State<CreatePostFormModule> createState() => _CreatePostFormModuleState();
+}
+
+class _CreatePostFormModuleState extends State<CreatePostFormModule> {
   final screenController = Get.find<CreatePostScreenController>();
+  final ImagePicker imagePicker = ImagePicker();
 
   @override
   Widget build(BuildContext context) {
@@ -21,36 +31,42 @@ class CreatePostFormModule extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          //border: Border.all(color: AppColors.colorDarkBlue1),
-                          boxShadow: [
-                            BoxShadow(
-                                color: AppColors.colorDarkBlue1.withOpacity(0.2),
-                                blurRadius: 8,
-                                spreadRadius: 5,
-                                blurStyle: BlurStyle.outer
-                            ),
-                          ],
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(AppImages.addImageImg, scale: 2),
-                            const SizedBox(height: 12),
-                            Text(
-                              'Add Photo',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: AppColors.colorDarkBlue
+                  child: GestureDetector(
+                    onTap: (){
+                      openGallery();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            //border: Border.all(color: AppColors.colorDarkBlue1),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                                  blurRadius: 8,
+                                  spreadRadius: 5,
+                                  blurStyle: BlurStyle.outer
                               ),
-                            ),
-                          ],
+                            ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: screenController.file != null ? Image.file(screenController.file!, fit: BoxFit.fill,) :
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(AppImages.addImageImg, scale: 2),
+                              const SizedBox(height: 12),
+                              Text(
+                                'Add Photo',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: AppColors.colorDarkBlue
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -111,6 +127,19 @@ class CreatePostFormModule extends StatelessWidget {
         _radioButtonOnlyMeModule(context),
       ],
     );
+  }
+
+  void openGallery() async {
+    final image = await imagePicker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      setState(() {
+        screenController.file = File(image.path);
+        print('Camera File Path : ${screenController.file}');
+        print('Camera Image Path : ${image.path}');
+        //Fluttertoast.showToast(msg: '${image.path}', toastLength: Toast.LENGTH_LONG);
+        //renameImage();
+      });
+    } else {}
   }
 
   Widget _writeCaptionModule() {
@@ -349,5 +378,4 @@ class CreatePostFormModule extends StatelessWidget {
       ),
     );
   }
-
 }

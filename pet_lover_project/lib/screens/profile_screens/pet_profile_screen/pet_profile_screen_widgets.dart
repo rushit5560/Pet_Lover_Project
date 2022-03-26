@@ -90,79 +90,39 @@ class _AddPhotoState extends State<AddPhoto> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-            child: GestureDetector(
-              onTap: (){
-                openGallery();
-              },
-              child: Container(
-                //height: Get.height/7,
-                padding: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow:  [
-                    BoxShadow(
-                      color: AppColors.colorDarkBlue1.withOpacity(0.2),
-                      blurRadius: 10,
-                      spreadRadius: 5,
-                      blurStyle: BlurStyle.outer,
-                    ),
-                  ],
-                ),
-                child: petProfileScreenController.file != null ? Image.file(petProfileScreenController.file!, fit: BoxFit.fill,) :
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(AppImages.addImageImg, scale: 2.5,),
-                        SizedBox(height: 10,),
-                        Text("Add Photo", style: TextStyle(color: AppColors.colorDarkBlue1))
-                      ],
-                    ),
-
-              ),
-            )
+    return GestureDetector(
+      onTap: (){
+        openGallery();
+      },
+      child: Container(
+        height: Get.height/6.7,
+        width: Get.width/3.2,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.colorDarkBlue1.withOpacity(0.2),
+              blurRadius: 10,
+              spreadRadius: 5,
+              blurStyle: BlurStyle.outer,
+            ),
+          ],
         ),
-        SizedBox(width: 20,),
-        Expanded(
-            child: GestureDetector(
-              onTap: (){
-                pickVideoFromGallery();
-              },
-              child: Container(
-                //height: Get.height/6.7,
-                padding: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColors.colorDarkBlue1.withOpacity(0.2),
-                      blurRadius: 10,
-                      spreadRadius: 5,
-                      blurStyle: BlurStyle.outer,
-                    ),
-                  ],
-                ),
-                child:
-                  //file1 != null ? Image.file(File(file1!.path)) :
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(AppImages.addVideoImg, scale: 2,),
-                    SizedBox(height: 10,),
-                    Text("Add Video", style: TextStyle(color: AppColors.colorDarkBlue1))
-                  ],
-                ),
-              ),
-            )
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(15),
+          child: petProfileScreenController.file != null ? Image.file(petProfileScreenController.file!, fit: BoxFit.fill,) :
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(AppImages.addImageImg, scale: 2.5,),
+              const SizedBox(height: 10,),
+              Text("Add Photo", style: TextStyle(color: AppColors.colorDarkBlue1))
+            ],
+          ),
         ),
-
-
-
-      ],
+      ),
     );
   }
 
@@ -284,17 +244,21 @@ class DobPicker extends StatelessWidget {
   }
 }
 
-class GenderTextFieldModule extends StatelessWidget {
+class GenderTextFieldModule extends StatefulWidget {
   GenderTextFieldModule({Key? key}) : super(key: key);
+
+  @override
+  State<GenderTextFieldModule> createState() => _GenderTextFieldModuleState();
+}
+
+class _GenderTextFieldModuleState extends State<GenderTextFieldModule> {
   final petProfileScreenController = Get.find<PetProfileScreenController>();
+
   final FieldValidator fieldValidator = FieldValidator();
-
-
 
   @override
   Widget build(BuildContext context) {
-    return Obx(()=>
-        Container(
+    return Container(
          padding: const EdgeInsets.only(right: 10),
           height: 45,
           decoration: BoxDecoration(
@@ -320,7 +284,7 @@ class GenderTextFieldModule extends StatelessWidget {
               icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
               isExpanded: true,
               focusColor: Colors.white,
-              value: petProfileScreenController.gender.value,
+              value: petProfileScreenController.gender,
               //elevation: 5,
               style: TextStyle(color: AppColors.colorDarkBlue1),
               iconEnabledColor: Colors.black,
@@ -339,25 +303,32 @@ class GenderTextFieldModule extends StatelessWidget {
               }).toList(),
               hint: Text("Gender", style: TextStyle(color: AppColors.colorDarkBlue1),),
               onChanged: (newValue) {
-                petProfileScreenController.gender.value = newValue!;
-              },
+                setState(() {
+                  petProfileScreenController.gender = newValue!;
+                });
+                },
             ),
           ),
         ),
-      ),
     );
   }
 }
 
-class BreedTextFieldModule extends StatelessWidget {
+class BreedTextFieldModule extends StatefulWidget {
   BreedTextFieldModule({Key? key}) : super(key: key);
+
+  @override
+  State<BreedTextFieldModule> createState() => _BreedTextFieldModuleState();
+}
+
+class _BreedTextFieldModuleState extends State<BreedTextFieldModule> {
   final petProfileScreenController = Get.find<PetProfileScreenController>();
+
   final FieldValidator fieldValidator = FieldValidator();
 
   @override
   Widget build(BuildContext context) {
-    return Obx(()=>
-        Container(
+    return Container(
            padding: const EdgeInsets.only(right: 10),
           height: 45,
           decoration: BoxDecoration(
@@ -383,7 +354,7 @@ class BreedTextFieldModule extends StatelessWidget {
                 icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                 isExpanded: true,
                 focusColor: Colors.white,
-                value: petProfileScreenController.breed.value,
+                value: petProfileScreenController.breed,
                 //elevation: 5,
                 style: TextStyle(color: AppColors.colorDarkBlue1),
                 iconEnabledColor: Colors.black,
@@ -403,25 +374,30 @@ class BreedTextFieldModule extends StatelessWidget {
                 }).toList(),
                 hint: Text("Breed", style: TextStyle(color: AppColors.colorDarkBlue1),),
                 onChanged: (newValue) {
-                  petProfileScreenController.breed.value = newValue!;
+                  petProfileScreenController.breed = newValue!;
                 },
               ),
             ),
           ),
-        ),
     );
   }
 }
 
-class WeightTextFieldModule extends StatelessWidget {
+class WeightTextFieldModule extends StatefulWidget {
   WeightTextFieldModule({Key? key}) : super(key: key);
+
+  @override
+  State<WeightTextFieldModule> createState() => _WeightTextFieldModuleState();
+}
+
+class _WeightTextFieldModuleState extends State<WeightTextFieldModule> {
   final petProfileScreenController = Get.find<PetProfileScreenController>();
+
   final FieldValidator fieldValidator = FieldValidator();
 
   @override
   Widget build(BuildContext context) {
-    return Obx(()=>
-        Container(
+    return Container(
            padding: const EdgeInsets.only(right: 10),
           height: 45,
           decoration: BoxDecoration(
@@ -447,7 +423,7 @@ class WeightTextFieldModule extends StatelessWidget {
                 icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                 isExpanded: true,
                 focusColor: Colors.white,
-                value: petProfileScreenController.weight.value,
+                value: petProfileScreenController.weight,
                 //elevation: 5,
                 style: TextStyle(color: AppColors.colorDarkBlue1),
                 iconEnabledColor: Colors.black,
@@ -467,12 +443,14 @@ class WeightTextFieldModule extends StatelessWidget {
                 }).toList(),
                 hint: Text("Breed", style: TextStyle(color: AppColors.colorDarkBlue1),),
                 onChanged: (newValue) {
-                  petProfileScreenController.weight.value = newValue!;
+                  setState(() {
+                    petProfileScreenController.weight = newValue!;
+                  });
+
                 },
               ),
             ),
           ),
-        ),
     );
   }
 }

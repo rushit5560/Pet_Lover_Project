@@ -111,15 +111,18 @@ class _AddPetLostDetailsFormState extends State<AddPetLostDetailsForm> {
             ),
           ],
         ),
-        child: addPetLostDetailsScreenController.file != null ? Image.file(addPetLostDetailsScreenController.file!, fit: BoxFit.fill,) :
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(AppImages.addImageImg, scale: 2.5,),
-            SizedBox(height: 10,),
-            Text("Add Photo", style: TextStyle(color: AppColors.colorDarkBlue1))
-          ],
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(15),
+          child: addPetLostDetailsScreenController.file != null ? Image.file(addPetLostDetailsScreenController.file!, fit: BoxFit.fill,) :
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(AppImages.addImageImg, scale: 2.5,),
+              SizedBox(height: 10,),
+              Text("Add Photo", style: TextStyle(color: AppColors.colorDarkBlue1))
+            ],
+          ),
         ),
 
       ),
@@ -140,8 +143,7 @@ class _AddPetLostDetailsFormState extends State<AddPetLostDetailsForm> {
   }
 
   Widget selectAnimalDropDownButton(){
-    return Obx(()=>
-        Padding(
+    return Padding(
           padding: const EdgeInsets.only(left: 45, right: 45),
           child: Container(
             padding: const EdgeInsets.only(right: 10),
@@ -170,7 +172,7 @@ class _AddPetLostDetailsFormState extends State<AddPetLostDetailsForm> {
                   icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                   isExpanded: true,
                   focusColor: Colors.white,
-                  value: addPetLostDetailsScreenController.selectAnimal.value,
+                  value: addPetLostDetailsScreenController.selectAnimal,
                   //elevation: 5,
                   style: TextStyle(color: AppColors.colorDarkBlue1),
                   iconEnabledColor: Colors.black,
@@ -192,13 +194,15 @@ class _AddPetLostDetailsFormState extends State<AddPetLostDetailsForm> {
                   }).toList(),
                   hint: Text("Select Animal", style: TextStyle(color: AppColors.colorDarkBlue1),),
                   onChanged: (newValue) {
-                    addPetLostDetailsScreenController.selectAnimal.value = newValue!;
+                    setState(() {
+                      addPetLostDetailsScreenController.selectAnimal = newValue!;
+                    });
+
                   },
                 ),
               ),
             ),
           ),
-        ),
     );
   }
 
@@ -239,8 +243,7 @@ class _AddPetLostDetailsFormState extends State<AddPetLostDetailsForm> {
   }
 
   Widget ageDropDownButton(){
-    return Obx(()=>
-        Container(
+    return Container(
           padding: const EdgeInsets.only(right: 10),
           height: 45,
           width: Get.width/1.5,
@@ -267,7 +270,7 @@ class _AddPetLostDetailsFormState extends State<AddPetLostDetailsForm> {
                 icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                 isExpanded: true,
                 focusColor: Colors.white,
-                value: addPetLostDetailsScreenController.age.value,
+                value: addPetLostDetailsScreenController.age,
                 //elevation: 5,
                 style: TextStyle(color: AppColors.colorDarkBlue1),
                 iconEnabledColor: Colors.black,
@@ -289,18 +292,19 @@ class _AddPetLostDetailsFormState extends State<AddPetLostDetailsForm> {
                 }).toList(),
                 hint: Text("Age", style: TextStyle(color: AppColors.colorDarkBlue1),),
                 onChanged: (newValue) {
-                  addPetLostDetailsScreenController.age.value = newValue!;
+                  setState(() {
+                    addPetLostDetailsScreenController.age = newValue!;
+                  });
+
                 },
               ),
             ),
           ),
-        ),
     );
   }
 
   Widget genderDropDownButton(){
-    return Obx(()=>
-        Container(
+    return Container(
           padding: const EdgeInsets.only(right: 10),
           height: 45,
           width: Get.width/1.5,
@@ -327,7 +331,7 @@ class _AddPetLostDetailsFormState extends State<AddPetLostDetailsForm> {
                 icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                 isExpanded: true,
                 focusColor: Colors.white,
-                value: addPetLostDetailsScreenController.gender.value,
+                value: addPetLostDetailsScreenController.gender,
                 //elevation: 5,
                 style: TextStyle(color: AppColors.colorDarkBlue1),
                 iconEnabledColor: Colors.black,
@@ -346,18 +350,19 @@ class _AddPetLostDetailsFormState extends State<AddPetLostDetailsForm> {
                 }).toList(),
                 hint: Text("Gender", style: TextStyle(color: AppColors.colorDarkBlue1),),
                 onChanged: (newValue) {
-                  addPetLostDetailsScreenController.gender.value = newValue!;
+                  setState(() {
+                    addPetLostDetailsScreenController.gender = newValue!;
+                  });
+
                 },
               ),
             ),
           ),
-        ),
     );
   }
 
   Widget breedDropDownButton(){
-    return Obx(()=>
-        Container(
+    return Container(
           padding: const EdgeInsets.only(right: 10),
           height: 45,
           width: Get.width/1.5,
@@ -384,7 +389,7 @@ class _AddPetLostDetailsFormState extends State<AddPetLostDetailsForm> {
                 icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                 isExpanded: true,
                 focusColor: Colors.white,
-                value: addPetLostDetailsScreenController.breed.value,
+                value: addPetLostDetailsScreenController.breed,
                 //elevation: 5,
                 style: TextStyle(color: AppColors.colorDarkBlue1),
                 iconEnabledColor: Colors.black,
@@ -404,18 +409,19 @@ class _AddPetLostDetailsFormState extends State<AddPetLostDetailsForm> {
                 }).toList(),
                 hint: Text("Breed", style: TextStyle(color: AppColors.colorDarkBlue1),),
                 onChanged: (newValue) {
-                  addPetLostDetailsScreenController.breed.value = newValue!;
+                  setState(() {
+                    addPetLostDetailsScreenController.breed = newValue!;
+                  });
+
                 },
               ),
             ),
           ),
-        ),
     );
   }
 
   Widget weightDropDownButton(){
-    return Obx(()=>
-        Container(
+    return Container(
           padding: const EdgeInsets.only(right: 10),
           height: 45,
           width: Get.width/1.5,
@@ -442,7 +448,7 @@ class _AddPetLostDetailsFormState extends State<AddPetLostDetailsForm> {
                 icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                 isExpanded: true,
                 focusColor: Colors.white,
-                value: addPetLostDetailsScreenController.weight.value,
+                value: addPetLostDetailsScreenController.weight,
                 //elevation: 5,
                 style: TextStyle(color: AppColors.colorDarkBlue1),
                 iconEnabledColor: Colors.black,
@@ -464,12 +470,14 @@ class _AddPetLostDetailsFormState extends State<AddPetLostDetailsForm> {
                 }).toList(),
                 hint: Text("Weight", style: TextStyle(color: AppColors.colorDarkBlue1),),
                 onChanged: (newValue) {
-                  addPetLostDetailsScreenController.weight.value = newValue!;
+                  setState(() {
+                    addPetLostDetailsScreenController.weight = newValue!;
+                  });
+
                 },
               ),
             ),
           ),
-        ),
     );
   }
 
@@ -681,8 +689,7 @@ class _AddPetLostDetailsFormState extends State<AddPetLostDetailsForm> {
   }
 
   Widget statusDropDownModule(){
-    return Obx(()=>
-        Container(
+    return Container(
           padding: const EdgeInsets.only(right: 10),
           height: 45,
           width: Get.width/1.5,
@@ -709,7 +716,7 @@ class _AddPetLostDetailsFormState extends State<AddPetLostDetailsForm> {
                 icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                 isExpanded: true,
                 focusColor: Colors.white,
-                value: addPetLostDetailsScreenController.status.value,
+                value: addPetLostDetailsScreenController.status,
                 //elevation: 5,
                 style: TextStyle(color: AppColors.colorDarkBlue1),
                 iconEnabledColor: Colors.black,
@@ -728,12 +735,14 @@ class _AddPetLostDetailsFormState extends State<AddPetLostDetailsForm> {
                 }).toList(),
                 hint: Text("Status", style: TextStyle(color: AppColors.colorDarkBlue1),),
                 onChanged: (newValue) {
-                  addPetLostDetailsScreenController.status.value = newValue!;
+                  setState(() {
+                    addPetLostDetailsScreenController.status = newValue!;
+                  });
+
                 },
               ),
             ),
           ),
-        ),
     );
   }
 

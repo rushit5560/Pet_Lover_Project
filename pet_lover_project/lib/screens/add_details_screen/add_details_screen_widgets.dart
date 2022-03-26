@@ -81,7 +81,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
       },
       child: Container(
         height: Get.height/6.7,
-        width: Get.width/3.2,
+         width: Get.width/3.2,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
@@ -94,17 +94,19 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
             ),
           ],
         ),
-        child: addDetailsScreenController.file != null ? Image.file(addDetailsScreenController.file!, fit: BoxFit.fill,) :
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(AppImages.addImageImg, scale: 2.5,),
-            SizedBox(height: 10,),
-            Text("Add Photo", style: TextStyle(color: AppColors.colorDarkBlue1))
-          ],
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(15),
+          child: addDetailsScreenController.file != null ? Image.file(addDetailsScreenController.file!, fit: BoxFit.fill,) :
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(AppImages.addImageImg, scale: 2.5,),
+              SizedBox(height: 10,),
+              Text("Add Photo", style: TextStyle(color: AppColors.colorDarkBlue1))
+            ],
+          ),
         ),
-
       ),
     );
   }
@@ -123,12 +125,11 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
   }
 
   Widget selectAnimalDropDownButton(){
-    return Obx(()=>
-        Padding(
+    return Padding(
           padding: const EdgeInsets.only(left: 45, right: 45),
           child: Container(
              padding: const EdgeInsets.only(right: 10),
-            height: 45,
+            height: 50,
             width: Get.width/1.5,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
@@ -153,7 +154,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                   icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                   isExpanded: true,
                   focusColor: Colors.white,
-                  value: addDetailsScreenController.selectAnimal.value,
+                  value: addDetailsScreenController.selectAnimal,
                   //elevation: 5,
                   style: TextStyle(color: AppColors.colorDarkBlue1),
                   iconEnabledColor: Colors.black,
@@ -175,13 +176,15 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                   }).toList(),
                   hint: Text("Select Animal", style: TextStyle(color: AppColors.colorDarkBlue1),),
                   onChanged: (newValue) {
-                    addDetailsScreenController.selectAnimal.value = newValue!;
+                    setState(() {
+                      addDetailsScreenController.selectAnimal = newValue!;
+                    });
+
                   },
                 ),
               ),
             ),
           ),
-        ),
     );
   }
 
@@ -222,10 +225,9 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
   }
 
   Widget ageDropDownButton(){
-    return Obx(()=>
-        Container(
+    return Container(
            padding: const EdgeInsets.only(right: 10),
-          height: 45,
+          height: 50,
           width: Get.width/1.5,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
@@ -250,7 +252,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                 icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                 isExpanded: true,
                 focusColor: Colors.white,
-                value: addDetailsScreenController.age.value,
+                value: addDetailsScreenController.age,
                 //elevation: 5,
                 style: TextStyle(color: AppColors.colorDarkBlue1),
                 iconEnabledColor: Colors.black,
@@ -272,20 +274,21 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                 }).toList(),
                 hint: Text("Age", style: TextStyle(color: AppColors.colorDarkBlue1),),
                 onChanged: (newValue) {
-                  addDetailsScreenController.age.value = newValue!;
+                  setState(() {
+                    addDetailsScreenController.age = newValue;
+                  });
+
                 },
               ),
             ),
           ),
-        ),
     );
   }
 
   Widget genderDropDownButton(){
-    return Obx(()=>
-        Container(
+    return Container(
            padding: const EdgeInsets.only(right: 10),
-          height: 45,
+          height: 50,
           width: Get.width/1.5,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
@@ -310,7 +313,8 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                 icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                 isExpanded: true,
                 focusColor: Colors.white,
-                value: addDetailsScreenController.gender.value,
+                value: addDetailsScreenController.gender,
+                isDense: true,
                 //elevation: 5,
                 style: TextStyle(color: AppColors.colorDarkBlue1),
                 iconEnabledColor: Colors.black,
@@ -329,20 +333,18 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                 }).toList(),
                 hint: Text("Gender", style: TextStyle(color: AppColors.colorDarkBlue1),),
                 onChanged: (newValue) {
-                  addDetailsScreenController.gender.value = newValue!;
+                  addDetailsScreenController.gender = newValue!;
                 },
               ),
             ),
           ),
-        ),
     );
   }
 
   Widget breedDropDownButton(){
-    return Obx(()=>
-        Container(
+    return Container(
            padding: const EdgeInsets.only(right: 10),
-          height: 45,
+          height: 50,
           width: Get.width/1.5,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
@@ -367,7 +369,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                 icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                 isExpanded: true,
                 focusColor: Colors.white,
-                value: addDetailsScreenController.breed.value,
+                value: addDetailsScreenController.breed,
                 //elevation: 5,
                 style: TextStyle(color: AppColors.colorDarkBlue1),
                 iconEnabledColor: Colors.black,
@@ -387,20 +389,21 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                 }).toList(),
                 hint: Text("Breed", style: TextStyle(color: AppColors.colorDarkBlue1),),
                 onChanged: (newValue) {
-                  addDetailsScreenController.breed.value = newValue!;
+                  setState(() {
+                    addDetailsScreenController.breed = newValue!;
+                  });
+
                 },
               ),
             ),
           ),
-        ),
     );
   }
 
   Widget weightDropDownButton(){
-    return Obx(()=>
-        Container(
+    return Container(
            padding: const EdgeInsets.only(right: 10),
-          height: 45,
+          height: 50,
           width: Get.width/1.5,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
@@ -425,7 +428,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                 icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
                 isExpanded: true,
                 focusColor: Colors.white,
-                value: addDetailsScreenController.weight.value,
+                value: addDetailsScreenController.weight,
                 //elevation: 5,
                 style: TextStyle(color: AppColors.colorDarkBlue1),
                 iconEnabledColor: Colors.black,
@@ -447,12 +450,14 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
                 }).toList(),
                 hint: Text("Weight", style: TextStyle(color: AppColors.colorDarkBlue1),),
                 onChanged: (newValue) {
-                  addDetailsScreenController.weight.value = newValue!;
+                  setState(() {
+                    addDetailsScreenController.weight = newValue!;
+                  });
+
                 },
               ),
             ),
           ),
-        ),
     );
   }
 
@@ -494,7 +499,7 @@ class _AddDetailsFormState extends State<AddDetailsForm> {
     return Padding(
       padding: const EdgeInsets.only(left: 45, right: 45),
       child: Container(
-        height: 45,
+        height: 50,
         padding: const EdgeInsets.only(right: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),

@@ -22,7 +22,7 @@ class AddPetLostDetailsScreen extends StatelessWidget {
           children: [
             CommonAppBarModule(title: 'Add Details', appBarOption: AppBarOption.backButtonScreenOption),
 
-            SizedBox(height: 30,),
+            const SizedBox(height: 30,),
 
             Expanded(
                 child: AddPetLostDetailsForm())

@@ -7,9 +7,9 @@ class PetProfileScreenController extends GetxController{
   final GlobalKey<FormState> profileFormKey = GlobalKey<FormState>();
   RxString selectedDate = 'DOB'.obs;
   RxString vaccinate = 'cash'.obs;
-  RxString gender = 'Female'.obs;
-  RxString breed = '1'.obs;
-  RxString weight = '31'.obs;
+  String ? gender;
+  String ? breed;
+  String ? weight;
   File? file;
   final nameTextFieldController = TextEditingController();
   final colorTextFieldController = TextEditingController();

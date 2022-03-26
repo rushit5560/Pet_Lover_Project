@@ -63,7 +63,7 @@ class TextFieldElevationModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height ?? 40,
+      height: height ?? 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         boxShadow: [

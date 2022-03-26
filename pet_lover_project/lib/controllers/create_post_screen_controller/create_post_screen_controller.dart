@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,4 +8,5 @@ class CreatePostScreenController extends GetxController {
   RxBool isSuccessStatus = false.obs;
   RxString postOptionValue = 'public'.obs;
   TextEditingController captionFieldController = TextEditingController();
+  File? file;
 }
