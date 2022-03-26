@@ -27,7 +27,7 @@ class LostPetListScreen extends StatelessWidget {
               child: PetLostListsModule(),
             ),
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }

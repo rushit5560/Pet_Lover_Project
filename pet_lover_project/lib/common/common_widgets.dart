@@ -57,12 +57,13 @@ class AuthScreenBackGroundModule extends StatelessWidget {
 }
 
 class TextFieldElevationModule extends StatelessWidget {
-  const TextFieldElevationModule({Key? key}) : super(key: key);
+  final double? height;
+  const TextFieldElevationModule({Key? key, this.height}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 45,
+      height: height ?? 40,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         boxShadow: [

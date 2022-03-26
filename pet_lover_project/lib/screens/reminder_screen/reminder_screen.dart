@@ -29,7 +29,7 @@ class ReminderScreen extends StatelessWidget {
 
             Expanded(child: ReminderGridList())
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }

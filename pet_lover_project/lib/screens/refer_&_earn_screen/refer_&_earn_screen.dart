@@ -27,7 +27,7 @@ class ReferEarnScreen extends StatelessWidget {
             const InviteButtonModule()
 
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }

@@ -30,7 +30,7 @@ class VetDetailsScreen extends StatelessWidget {
                           SizedBox(height: 15),
                           AddressAndTimeModule(),
                         ],
-                      ).commonPadding(),
+                      ).commonAllSidePadding(),
                     ],
                   ),
                 ),

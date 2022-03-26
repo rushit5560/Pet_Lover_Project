@@ -45,7 +45,7 @@ class CheckoutScreen extends StatelessWidget {
             )
 
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }

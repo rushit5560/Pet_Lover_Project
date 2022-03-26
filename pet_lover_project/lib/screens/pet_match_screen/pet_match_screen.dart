@@ -34,7 +34,7 @@ class PetMatchScreen extends StatelessWidget {
                       const SizedBox(height: 20),
                       const DirectionAndMessageButtonModule()
                     ]
-                  ).commonPadding(),
+                  ).commonAllSidePadding(),
 
                 ],
               ),

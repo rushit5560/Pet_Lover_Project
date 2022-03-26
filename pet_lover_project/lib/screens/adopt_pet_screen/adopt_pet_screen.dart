@@ -25,7 +25,7 @@ class AdoptPetScreen extends StatelessWidget {
 
             Expanded(child: AdoptPetGridList())
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }

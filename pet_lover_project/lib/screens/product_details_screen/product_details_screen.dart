@@ -34,7 +34,7 @@ class ProductDetailsScreen extends StatelessWidget {
                       const AddToCartButtonModule(),
                       const SizedBox(height: 10),
                     ],
-                  ).commonPadding(),
+                  ).commonAllSidePadding(),
                 ],
               ),
             ),

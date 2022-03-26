@@ -31,7 +31,7 @@ class ConversationScreen extends StatelessWidget {
               ),
               // const SizedBox(height: 10),
             ],
-          ).commonPadding(),
+          ).commonAllSidePadding(),
         ),
       ),
     );

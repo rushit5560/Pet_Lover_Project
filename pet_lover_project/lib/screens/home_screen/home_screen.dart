@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }

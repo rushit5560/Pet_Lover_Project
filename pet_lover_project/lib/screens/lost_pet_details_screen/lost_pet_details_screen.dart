@@ -38,7 +38,7 @@ class LostPetDetailsScreen extends StatelessWidget {
               ),
             ),
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }

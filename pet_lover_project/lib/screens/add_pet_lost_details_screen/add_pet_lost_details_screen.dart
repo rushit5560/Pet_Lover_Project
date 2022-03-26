@@ -27,7 +27,7 @@ class AddPetLostDetailsScreen extends StatelessWidget {
             Expanded(
                 child: AddPetLostDetailsForm())
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }

@@ -38,7 +38,7 @@ class TrackOrderScreen extends StatelessWidget {
 
 
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }

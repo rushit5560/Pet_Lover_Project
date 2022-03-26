@@ -28,7 +28,7 @@ class CreatePostScreen extends StatelessWidget {
               ),
             ),
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }

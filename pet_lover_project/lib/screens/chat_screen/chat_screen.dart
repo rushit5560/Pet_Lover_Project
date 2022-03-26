@@ -41,7 +41,7 @@ class ChatScreen extends StatelessWidget {
 
 
           ],
-        ).commonPadding()
+        ).commonAllSidePadding()
       ),
     );
   }

@@ -45,7 +45,7 @@ class CartScreen extends StatelessWidget {
 
 
           ],
-        ).commonPadding()
+        ).commonAllSidePadding()
       ),
     );
   }

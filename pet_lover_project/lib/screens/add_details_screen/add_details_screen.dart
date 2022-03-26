@@ -27,7 +27,7 @@ class AddDetailsScreen extends StatelessWidget {
             Expanded(
                 child: AddDetailsForm())
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }

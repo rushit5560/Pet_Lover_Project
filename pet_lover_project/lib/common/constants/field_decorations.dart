@@ -4,8 +4,7 @@ import '../../controllers/pet_shop_screen_controller/pet_shop_screen_controller.
 import 'app_colors.dart';
 
 
-InputDecoration signInFormFieldDecoration(
-    {required String hintText, int index = 0}) {
+InputDecoration signInFormFieldDecoration({required String hintText, int index = 0}) {
   // SignInScreenController signInScreenController = SignInScreenController();
   return InputDecoration(
     hintText: hintText,
@@ -69,5 +68,15 @@ InputDecoration searchFieldDecorationHomeScreen(HomeScreenController screenContr
       },
       child: Icon(Icons.search_rounded, color: AppColors.colorDarkBlue),
     ),
+  );
+}
+
+InputDecoration userProfileFieldDecoration({String? hintText}) {
+  return InputDecoration(
+    hintText: hintText ?? "Hint Text",
+    hintStyle: TextStyle(color: AppColors.colorDarkBlue1),
+    border: InputBorder.none,
+    isDense: true,
+    contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
   );
 }

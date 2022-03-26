@@ -24,7 +24,7 @@ class PetViewScreen extends StatelessWidget {
             Expanded(
                 child: PetPostList())
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }

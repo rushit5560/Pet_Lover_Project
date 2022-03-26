@@ -37,7 +37,7 @@ class UserProfileScreen extends StatelessWidget {
                   ),
                 ),
               ],
-            ).commonPadding(),
+            ).commonAllSidePadding(),
           ],
         ),
       ),

@@ -34,7 +34,7 @@ class NearByPetServicesScreen extends StatelessWidget {
 
                   PetServicesModule(),
                 ],
-              ).commonPadding()
+              ).commonAllSidePadding()
             ],
           ),
         ),

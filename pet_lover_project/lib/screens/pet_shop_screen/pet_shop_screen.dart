@@ -35,7 +35,7 @@ class PetShopScreen extends StatelessWidget {
               ),
             )
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }

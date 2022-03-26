@@ -39,7 +39,7 @@ class _SetReminderScreenState extends State<SetReminderScreen> {
               ),
             ),
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }

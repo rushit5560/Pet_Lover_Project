@@ -21,7 +21,7 @@ class MyOrderScreen extends StatelessWidget {
             const SizedBox(height: 20,),
             Expanded(child: OrderList()),
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }

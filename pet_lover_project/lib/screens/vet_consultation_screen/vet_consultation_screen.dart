@@ -31,7 +31,7 @@ class VetConsultationScreen extends StatelessWidget {
             )
 
           ],
-        ).commonPadding(),
+        ).commonAllSidePadding(),
       ),
     );
   }
