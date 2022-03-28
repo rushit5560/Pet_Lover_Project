@@ -5,6 +5,7 @@ class SignUpScreenController extends GetxController {
   RxBool isLoading = false.obs;
   RxBool isStatusSuccess = false.obs;
   RxString selectServiceCategory = "Service Category".obs;
+  RxBool isPassVisible = false.obs;
 
   GlobalKey<FormState> signUpFormKey = GlobalKey();
   TextEditingController businessNameFieldController = TextEditingController();
