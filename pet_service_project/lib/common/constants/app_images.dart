@@ -23,4 +23,5 @@ class AppImages{
   static const myServicesImg = imageMainPath + "my_services.png";
   static const changePasswordImg = imageMainPath + "change_password.png";
   static const signOutImg = imageMainPath + "sign_out.png";
+  static const productImgListImg = imageMainPath + "product_img_list.png";
 }

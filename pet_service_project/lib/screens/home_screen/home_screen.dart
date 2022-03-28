@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.colorLightBlue,
-      drawer: CustomDrawer(),
+      drawer: const CustomDrawer(),
 
       body: SafeArea(
         child: Column(
