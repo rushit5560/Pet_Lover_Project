@@ -8,6 +8,7 @@ import '../../common/constants/app_colors.dart';
 import '../../common/constants/app_images.dart';
 import '../../controller/index_screen_controller/index_screen_controller.dart';
 import '../home_screen/home_screen.dart';
+import '../notification_screen/notification_screen.dart';
 
 class IndexScreen extends StatelessWidget {
   IndexScreen({Key? key}) : super(key: key);
@@ -40,7 +41,7 @@ class IndexScreen extends StatelessWidget {
     } else if (indexScreenController.menuIndex.value == 2) {
       return HomeScreen();
     } else {
-      return AllAppointmentListScreen();
+      return NotificationScreen();
     }
   }
 

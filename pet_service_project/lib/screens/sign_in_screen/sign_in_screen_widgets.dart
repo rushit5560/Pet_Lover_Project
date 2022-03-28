@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_service_project/screens/index_screen/index_screen.dart';
 import '../../common/common_widgets.dart';
 import '../../common/constants/app_colors.dart';
 import '../../common/field_decoration.dart';
 import '../../common/field_validation.dart';
 import '../../controller/sign_in_screen_controller/sign_in_screen_controller.dart';
-import '../home_screen/home_screen.dart';
 import '../sign_up_screen/sign_up_screen.dart';
 
 
@@ -21,9 +21,9 @@ class SignInForm extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           EmailTextFieldModule(),
-          const SizedBox(height: 30),
+          const SizedBox(height: 20),
           PasswordTextFieldModule(),
-          const SizedBox(height: 25),
+          const SizedBox(height: 20),
           const ForgotPassModule(),
           const SizedBox(height: 25),
           SignInButtonModule(),
@@ -43,7 +43,7 @@ class EmailTextFieldModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 40,
+      height: 50,
       child: Stack(
         children: [
           const TextFieldElevationModule(),
@@ -51,7 +51,7 @@ class EmailTextFieldModule extends StatelessWidget {
             controller: screenController.emailTextFieldController,
             keyboardType: TextInputType.emailAddress,
             cursorColor: AppColors.colorDarkBlue1,
-            decoration: signUpFormFieldDecoration(hintText: 'Email'),
+            decoration: signInFormFieldDecoration(hintText: 'Email'),
             validator: (value) => fieldValidator.validateEmail(value!),
           ),
         ],
@@ -68,7 +68,7 @@ class PasswordTextFieldModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 40,
+      height: 50,
       child: Stack(
         children: [
           const TextFieldElevationModule(),
@@ -76,7 +76,7 @@ class PasswordTextFieldModule extends StatelessWidget {
             controller: screenController.passwordTextFieldController,
             keyboardType: TextInputType.text,
             cursorColor: AppColors.colorDarkBlue1,
-            decoration: signUpFormFieldDecoration(hintText: 'Password', index: 1),
+            decoration: signInFormFieldDecoration(hintText: 'Password', index: 1),
             validator: (value) => fieldValidator.validatePassword(value!),
           ),
         ],
@@ -118,7 +118,7 @@ class SignUpTextModule extends StatelessWidget {
         const Text("Don't have an account? "),
         GestureDetector(
           onTap: () {
-            Get.to(() => SignUpScreen(), transition: Transition.zoom);
+            Get.off(() => SignUpScreen(), transition: Transition.zoom);
           },
           child: Text(
             "SIGNUP",
@@ -143,7 +143,7 @@ class SignInButtonModule extends StatelessWidget {
       onTap: () {
 
         if(screenController.signInFormKey.currentState!.validate()){
-          Get.offAll(()=> HomeScreen(), transition: Transition.zoom);
+          Get.offAll(()=> IndexScreen(), transition: Transition.zoom);
         }
 
       },

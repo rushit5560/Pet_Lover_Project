@@ -14,25 +14,23 @@ InputDecoration signUpFormFieldDecoration(
     hintText: hintText,
     hintStyle: TextStyle(color: AppColors.colorDarkBlue1),
     isDense: true,
-    contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-    filled: true,
-    fillColor: Colors.white,
+    contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 14),
+    // filled: true,
+    // fillColor: Colors.white,
     border: InputBorder.none,
-    suffixIcon: Container(
-      child: index == 0
-          ? null
-          : GestureDetector(
-              onTap: () {
-                signUpScreenController.isPassVisible.value =
-                    !signUpScreenController.isPassVisible.value;
-                log('isPassVisible : ${signUpScreenController.isPassVisible.value}');
-              },
-              child: Obx(
-                () => Icon(signUpScreenController.isPassVisible.value
-                    ? Icons.visibility_rounded
-                    : Icons.visibility_off_rounded),
-              ),
-            ),
+    suffixIcon: index == 0
+        ? null
+        : GestureDetector(
+      onTap: () {
+        signUpScreenController.isPassVisible.value =
+        !signUpScreenController.isPassVisible.value;
+        log('isPassVisible : ${signUpScreenController.isPassVisible.value}');
+      },
+      child: Obx(
+            () => Icon(signUpScreenController.isPassVisible.value
+            ? Icons.visibility_rounded
+            : Icons.visibility_off_rounded),
+      ),
     ),
   );
 }
@@ -44,25 +42,23 @@ InputDecoration signInFormFieldDecoration(
     hintText: hintText,
     hintStyle: TextStyle(color: AppColors.colorDarkBlue1),
     isDense: true,
-    contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+    contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 14),
     filled: true,
     fillColor: Colors.white,
     border: InputBorder.none,
-    suffixIcon: Container(
-      child: index == 0
-          ? null
-          : GestureDetector(
-              onTap: () {
-                signInScreenController.isPassVisible.value =
-                    !signInScreenController.isPassVisible.value;
-                log('isPassVisible : ${signInScreenController.isPassVisible.value}');
-              },
-              child: Obx(
-                () => Icon(signInScreenController.isPassVisible.value
-                    ? Icons.visibility_rounded
-                    : Icons.visibility_off_rounded),
-              ),
-            ),
+    suffixIcon: index == 0
+        ? null
+        : GestureDetector(
+      onTap: () {
+        signInScreenController.isPassVisible.value =
+        !signInScreenController.isPassVisible.value;
+        log('isPassVisible : ${signInScreenController.isPassVisible.value}');
+      },
+      child: Obx(
+            () => Icon(signInScreenController.isPassVisible.value
+            ? Icons.visibility_rounded
+            : Icons.visibility_off_rounded),
+      ),
     ),
   );
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_service_project/common/extension_methods/extension_methods.dart';
+import 'package:pet_service_project/screens/home_screen/home_screen.dart';
 
 import '../../common/common_widgets.dart';
 import '../../common/constants/app_colors.dart';
@@ -8,60 +9,8 @@ import '../../common/constants/app_images.dart';
 import '../../common/field_decoration.dart';
 import '../../common/field_validation.dart';
 import '../../controller/sign_up_screen_controller/sign_up_screen_controller.dart';
+import '../sign_in_screen/sign_in_screen.dart';
 
-
-// class AuthScreenBackGroundModule extends StatelessWidget {
-//   final String heading;
-//
-//   const AuthScreenBackGroundModule({Key? key, required this.heading})
-//       : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: [
-//         Expanded(
-//           flex: 35,
-//           child: _imageAndTextModule(heading: heading),
-//         ),
-//         Expanded(
-//           flex: 65,
-//           child: Container(color: Colors.white),
-//         ),
-//       ],
-//     );
-//   }
-//
-//   Widget _imageAndTextModule({required String heading}) {
-//     return Stack(
-//       children: [
-//         Container(
-//           decoration: const BoxDecoration(
-//               color: Colors.white,
-//               image: DecorationImage(
-//                 image: AssetImage(AppImages.authBgImg),
-//                 fit: BoxFit.cover,
-//               )),
-//         ),
-//         Positioned(
-//           top: 25,
-//           left: 40,
-//           child: SafeArea(
-//             child: Text(
-//               heading,
-//               maxLines: 1,
-//               style: const TextStyle(
-//                 fontWeight: FontWeight.bold,
-//                 fontSize: 25,
-//                 color: Colors.white,
-//               ),
-//             ),
-//           ),
-//         ),
-//       ],
-//     );
-//   }
-// }
 
 class SignUpFormModule extends StatelessWidget {
   SignUpFormModule({Key? key}) : super(key: key);
@@ -181,7 +130,7 @@ class BusinessNameFieldModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 40,
+      height: 50,
       child: Stack(
         children: [
           const TextFieldElevationModule(),
@@ -206,7 +155,7 @@ class PhoneFieldModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 40,
+      height: 50,
       child: Stack(
         children: [
           const TextFieldElevationModule(),
@@ -231,7 +180,7 @@ class AddressFieldModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 40,
+      height: 50,
       child: Stack(
         children: [
           const TextFieldElevationModule(),
@@ -256,7 +205,7 @@ class LocationTextFieldModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
        return Container(
-      height: 40,
+      height: 50,
       padding: const EdgeInsets.only(right: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
@@ -297,7 +246,7 @@ class CityFieldModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 40,
+      height: 50,
       child: Stack(
         children: [
           const TextFieldElevationModule(),
@@ -322,7 +271,7 @@ class StateFieldModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 40,
+      height: 50,
       child: Stack(
         children: [
           const TextFieldElevationModule(),
@@ -347,7 +296,7 @@ class CountryFieldModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 40,
+      height: 50,
       child: Stack(
         children: [
           const TextFieldElevationModule(),
@@ -372,7 +321,7 @@ class PasswordFieldModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 40,
+      height: 50,
       child: Stack(
         children: [
           const TextFieldElevationModule(),
@@ -397,7 +346,7 @@ class ConfirmPasswordFieldModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 40,
+      height: 50,
       child: Stack(
         children: [
           const TextFieldElevationModule(),
@@ -423,7 +372,7 @@ class SignUpButtonModule extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if(screenController.signUpFormKey.currentState!.validate()){
-          // Get.offAll(()=> IndexScreen(), transition: Transition.zoom);
+          Get.offAll(()=> HomeScreen(), transition: Transition.zoom);
         }
       },
       child: Container(
@@ -459,7 +408,7 @@ class AlreadyTextModule extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            // Get.off(() => SignInScreen(), transition: Transition.zoom);
+            Get.off(() => SignInScreen(), transition: Transition.zoom);
           },
           child: Text(
             "SIGNIN",
@@ -484,7 +433,7 @@ class ServiceCategoryModule extends StatelessWidget {
     return Obx(
       ()=> Container(
         padding: const EdgeInsets.only(right: 10),
-        height: 40,
+        height: 50,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           boxShadow: [

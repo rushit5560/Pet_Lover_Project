@@ -69,8 +69,8 @@ class TextFieldElevationModule extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: AppColors.colorDarkBlue1.withOpacity(0.2),
-            blurRadius: 10,
-            spreadRadius: 5,
+            blurRadius: 8,
+            spreadRadius: 3,
             blurStyle: BlurStyle.outer,
           ),
         ],
