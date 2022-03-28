@@ -20,7 +20,7 @@ class CommonAppBarModule extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         _leftSideButton(context),
-        appBarOption == AppBarOption.homeScreenOption
+        appBarOption == AppBarOption.homeScreenOption || appBarOption == AppBarOption.allAppointmentListScreenOption
             ? Image.asset(AppImages.petLoverNameImg, scale: 3)
             : Text(
                 title,
@@ -54,7 +54,7 @@ class CommonAppBarModule extends StatelessWidget {
 
         ),
         child: Image.asset(
-          appBarOption == AppBarOption.homeScreenOption
+          appBarOption == AppBarOption.homeScreenOption || appBarOption == AppBarOption.allAppointmentListScreenOption
               ? AppImages.menuIconImg
               :  AppImages.backButtonImg,
           scale: 2,
@@ -83,7 +83,7 @@ class CommonAppBarModule extends StatelessWidget {
             ),
           ],
         ),
-        child: appBarOption == AppBarOption.homeScreenOption
+        child: appBarOption == AppBarOption.homeScreenOption || appBarOption == AppBarOption.allAppointmentListScreenOption
           ? Image.asset(AppImages.msgIconImg, scale: 2)
         : null,
       ),
