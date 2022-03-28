@@ -3,6 +3,31 @@ import 'package:flutter/material.dart';
 import '../../common/constants/app_colors.dart';
 import '../../common/constants/app_images.dart';
 
+class NotificationScreenAppBarModule extends StatelessWidget {
+  const NotificationScreenAppBarModule({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 52,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Text(
+            'Notification',
+            maxLines: 1,
+            style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 22),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+
 class NotificationList extends StatelessWidget {
   const NotificationList({Key? key}) : super(key: key);
 

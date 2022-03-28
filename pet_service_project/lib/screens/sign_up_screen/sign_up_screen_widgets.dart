@@ -36,6 +36,7 @@ class SignUpFormModule extends StatelessWidget {
           Row(
             children: [
               Expanded(child: CityFieldModule()),
+              const SizedBox(width: 20),
               Expanded(child: StateFieldModule()),
             ],
           ),

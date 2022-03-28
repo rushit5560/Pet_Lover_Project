@@ -14,8 +14,8 @@ class NotificationScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            CommonAppBarModule(title: 'Notification', appBarOption: AppBarOption.backButtonScreenOption),
-
+            // CommonAppBarModule(title: 'Notification', appBarOption: AppBarOption.notificationScreenOption),
+            NotificationScreenAppBarModule(),
             const SizedBox(height: 20,),
 
             const Expanded(

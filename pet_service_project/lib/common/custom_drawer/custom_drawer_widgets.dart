@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_service_project/screens/sign_in_screen/sign_in_screen.dart';
 import '../constants/app_colors.dart';
 import '../constants/app_images.dart';
 
@@ -205,7 +206,7 @@ class SignOutModule extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Get.back();
-        // Get.to(()=> PetProfileScreen(), transition: Transition.leftToRight);
+        Get.offAll(()=> SignInScreen(), transition: Transition.leftToRight);
       },
       child: Container(
         decoration: BoxDecoration(
