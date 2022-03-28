@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 class SignUpScreenController extends GetxController {
   RxBool isLoading = false.obs;
   RxBool isStatusSuccess = false.obs;
+  RxString selectServiceCategory = "Service Category".obs;
 
   GlobalKey<FormState> signUpFormKey = GlobalKey();
   TextEditingController businessNameFieldController = TextEditingController();

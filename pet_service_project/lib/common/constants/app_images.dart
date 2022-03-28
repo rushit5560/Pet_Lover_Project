@@ -11,4 +11,5 @@ class AppImages{
   static const pendingAppointmentImg = imageMainPath + "pending_appointment.png";
   static const confirmAppointmentImg = imageMainPath + "confirm_appointment.png";
   static const chatProfile3Img = imageMainPath + "chat_profile3.png";
+  static const dropDownArrowImg = imageMainPath + "drop_down_arrow.png";
 }

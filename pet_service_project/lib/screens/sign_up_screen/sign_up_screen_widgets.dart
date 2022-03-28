@@ -76,6 +76,8 @@ class SignUpFormModule extends StatelessWidget {
           const SizedBox(height: 25),
           BusinessNameFieldModule(),
           const SizedBox(height: 25),
+          ServiceCategoryModule(),
+          const SizedBox(height: 25),
           PhoneFieldModule(),
           const SizedBox(height: 25),
           AddressFieldModule(),
@@ -469,6 +471,72 @@ class AlreadyTextModule extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class ServiceCategoryModule extends StatelessWidget {
+  ServiceCategoryModule({Key? key}) : super(key: key);
+  final screenController = Get.find<SignUpScreenController>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Obx(
+      ()=> Container(
+        padding: const EdgeInsets.only(right: 10),
+        height: 40,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.colorDarkBlue1.withOpacity(0.2),
+              blurRadius: 10,
+              spreadRadius: 5,
+              blurStyle: BlurStyle.outer,
+            ),
+          ],
+        ),
+        child: Theme(
+          data: Theme.of(context).copyWith(
+              canvasColor: Colors.white,
+              // background color for the dropdown items
+              buttonTheme: ButtonTheme.of(context).copyWith(
+                alignedDropdown: true, //If false (the default), then the dropdown's menu will be wider than its button.
+              )),
+          child: DropdownButtonHideUnderline(
+            child: DropdownButton<String>(
+              icon: Image.asset(AppImages.dropDownArrowImg, scale: 2,),
+              isExpanded: true,
+              focusColor: Colors.white,
+              value: screenController.selectServiceCategory.value,
+              //elevation: 5,
+              style: TextStyle(color: AppColors.colorDarkBlue1),
+              iconEnabledColor: Colors.black,
+              items: <String>[
+                'Service Category',
+                'Doctor1',
+                'Doctor2',
+                'Doctor3',
+                'Doctor4',
+                'Doctor5'
+              ].
+              map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(
+                    value,
+                    style: TextStyle(color: AppColors.colorDarkBlue1, fontSize: 15),
+                  ),
+                );
+              }).toList(),
+              hint: Text("Service Category", style: TextStyle(color: AppColors.colorDarkBlue1),),
+              onChanged: (newValue) {
+                  screenController.selectServiceCategory.value = newValue!;
+              },
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
