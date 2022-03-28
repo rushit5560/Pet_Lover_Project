@@ -5,6 +5,7 @@ import 'package:pet_service_project/common/constants/enums.dart';
 import 'package:pet_service_project/common/extension_methods/extension_methods.dart';
 
 import '../../common/custom_appbar/custom_appbar.dart';
+import '../../common/custom_drawer/custom_drawer.dart';
 import '../../controller/home_screen_controller/home_screen_controller.dart';
 import 'home_screen_widgets.dart';
 
@@ -16,6 +17,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.colorLightBlue,
+      drawer: CustomDrawer(),
+
       body: SafeArea(
         child: Column(
           children: [

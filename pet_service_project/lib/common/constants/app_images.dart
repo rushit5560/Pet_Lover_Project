@@ -12,4 +12,15 @@ class AppImages{
   static const confirmAppointmentImg = imageMainPath + "confirm_appointment.png";
   static const chatProfile3Img = imageMainPath + "chat_profile3.png";
   static const dropDownArrowImg = imageMainPath + "drop_down_arrow.png";
+
+  static const appointmentMenuImg = imageMainPath + "appointment_menu.png";
+  static const homeMenuImg = imageMainPath + "home_menu.png";
+  static const notificationMenuImg = imageMainPath + "Notification_menu.png";
+  static const blogMenuImg = imageMainPath + "blog_menu.png";
+  static const profilePicImg = imageMainPath + "profile_pic.png";
+  static const editOptionImg = imageMainPath + "edit_option.png";
+
+  static const myServicesImg = imageMainPath + "my_services.png";
+  static const changePasswordImg = imageMainPath + "change_password.png";
+  static const signOutImg = imageMainPath + "sign_out.png";
 }

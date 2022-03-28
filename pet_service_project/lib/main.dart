@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_service_project/screens/index_screen/index_screen.dart';
 
 import 'screens/sign_up_screen/sign_up_screen.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: "Pet Service Project",
       debugShowCheckedModeBanner: false,
-      home: SignUpScreen(),
+      home: IndexScreen(),
     );
   }
 }

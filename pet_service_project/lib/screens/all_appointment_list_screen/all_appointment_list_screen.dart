@@ -27,14 +27,16 @@ class AllAppointmentListScreen extends StatelessWidget {
             AllTabsModule(),
             const SizedBox(height: 15),
             Obx(
-              ()=> Expanded(
+              () => Expanded(
                 child: allAppointmentListScreenController.isAppointmentTabSelected.value == 1
-                ? const AllAppointmentListModule()
-                : allAppointmentListScreenController.isAppointmentTabSelected.value == 2
-                ? const PendingAppointmentListModule()
-                : allAppointmentListScreenController.isAppointmentTabSelected.value == 3
-                ? const ConfirmAppointmentListModule()
-                : const DoneAppointmentListModule(),
+                    ? const AllAppointmentListModule()
+                    : allAppointmentListScreenController.isAppointmentTabSelected.value == 2
+                        ? const PendingAppointmentListModule()
+                        : allAppointmentListScreenController.isAppointmentTabSelected.value == 3
+                            ? const ConfirmAppointmentListModule()
+                            : allAppointmentListScreenController.isAppointmentTabSelected.value == 4
+                                ? const DoneAppointmentListModule()
+                                : Container(),
               ),
             ),
           ],
