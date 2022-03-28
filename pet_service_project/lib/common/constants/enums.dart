@@ -1,0 +1,4 @@
+enum AppBarOption {
+  backButtonScreenOption,
+  homeScreenOption,
+}
