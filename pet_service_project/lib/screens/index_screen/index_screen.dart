@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_service_project/screens/all_appointment_list_screen/all_appointment_list_screen.dart';
+import 'package:pet_service_project/screens/blog_screen/blog_screen.dart';
 
 import '../../common/constants/app_colors.dart';
 import '../../common/constants/app_images.dart';
@@ -39,7 +40,7 @@ class IndexScreen extends StatelessWidget {
     } else if (indexScreenController.menuIndex.value == 1) {
       return AllAppointmentListScreen();
     } else if (indexScreenController.menuIndex.value == 2) {
-      return HomeScreen();
+      return BlogScreen();
     } else {
       return NotificationScreen();
     }

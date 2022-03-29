@@ -9,6 +9,7 @@ import 'package:pet_service_project/common/extension_methods/extension_methods.d
 import '../../common/constants/app_colors.dart';
 import '../../common/constants/app_images.dart';
 import '../../controller/all_appointment_list_screen_controller/all_appointment_list_screen_controller.dart';
+import '../user_details_screen/user_details_screen.dart';
 
 class SearchFieldModule extends StatelessWidget {
   SearchFieldModule({Key? key}) : super(key: key);
@@ -147,105 +148,108 @@ class AllAppointmentListModule extends StatelessWidget {
       shrinkWrap: true,
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, i) {
-        return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.colorDarkBlue1.withOpacity(0.2),
-                blurRadius: 5,
-                blurStyle: BlurStyle.outer,
-              ),
-            ],
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Row(
-                  children: [
-                    _profilePicModule(),
-                    const SizedBox(width: 15),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Denver Ballard',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 3),
-                          Row(
-                            children: const [
-                              Text(
-                                'Price - ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                ),
-                              ),
-                              Text(
-                                '\$20.00',
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(fontSize: 10),
-                              ),
-
-                              SizedBox(width: 10),
-
-                              Text(
-                                'Time - ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                ),
-                              ),
-                              Expanded(
-                                child: Text(
-                                  '\$10.00 AM',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          const SizedBox(height: 3),
-                          Row(
-                            children: const [
-                              Text(
-                                'Service - ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                ),
-                              ),
-                              Expanded(
-                                child: Text(
-                                  'lorem Ipsum',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+        return GestureDetector(
+          onTap: () => Get.to(()=> UserDetailsScreen(), transition: Transition.zoom),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                  blurRadius: 5,
+                  blurStyle: BlurStyle.outer,
                 ),
-              ),
-              _confirmButtonModule(),
+              ],
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Row(
+                    children: [
+                      _profilePicModule(),
+                      const SizedBox(width: 15),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Denver Ballard',
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 3),
+                            Row(
+                              children: const [
+                                Text(
+                                  'Price - ',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                                Text(
+                                  '\$20.00',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(fontSize: 10),
+                                ),
 
-            ],
-          ).commonAllSidePadding(padding: 13),
-        ).commonSymmetricPadding(vertical: 8);
+                                SizedBox(width: 10),
+
+                                Text(
+                                  'Time - ',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    '\$10.00 AM',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                ),
+                              ],
+                            ),
+
+                            const SizedBox(height: 3),
+                            Row(
+                              children: const [
+                                Text(
+                                  'Service - ',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    'lorem Ipsum',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                _confirmButtonModule(),
+
+              ],
+            ).commonAllSidePadding(padding: 13),
+          ).commonSymmetricPadding(vertical: 8),
+        );
       },
     );
   }
@@ -291,105 +295,108 @@ class PendingAppointmentListModule extends StatelessWidget {
       shrinkWrap: true,
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, i) {
-        return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.colorDarkBlue1.withOpacity(0.2),
-                blurRadius: 5,
-                blurStyle: BlurStyle.outer,
-              ),
-            ],
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Row(
-                  children: [
-                    _profilePicModule(),
-                    const SizedBox(width: 15),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Denver Ballard',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 3),
-                          Row(
-                            children: const [
-                              Text(
-                                'Price - ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                ),
-                              ),
-                              Text(
-                                '\$20.00',
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(fontSize: 10),
-                              ),
-
-                              SizedBox(width: 10),
-
-                              Text(
-                                'Time - ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                ),
-                              ),
-                              Expanded(
-                                child: Text(
-                                  '\$10.00 AM',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          const SizedBox(height: 3),
-                          Row(
-                            children: const [
-                              Text(
-                                'Service - ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                ),
-                              ),
-                              Expanded(
-                                child: Text(
-                                  'lorem Ipsum',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+        return GestureDetector(
+          onTap: () => Get.to(()=> UserDetailsScreen(), transition: Transition.zoom),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                  blurRadius: 5,
+                  blurStyle: BlurStyle.outer,
                 ),
-              ),
-              _confirmButtonModule(),
+              ],
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Row(
+                    children: [
+                      _profilePicModule(),
+                      const SizedBox(width: 15),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Denver Ballard',
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 3),
+                            Row(
+                              children: const [
+                                Text(
+                                  'Price - ',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                                Text(
+                                  '\$20.00',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(fontSize: 10),
+                                ),
 
-            ],
-          ).commonAllSidePadding(padding: 13),
-        ).commonSymmetricPadding(vertical: 8);
+                                SizedBox(width: 10),
+
+                                Text(
+                                  'Time - ',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    '\$10.00 AM',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                ),
+                              ],
+                            ),
+
+                            const SizedBox(height: 3),
+                            Row(
+                              children: const [
+                                Text(
+                                  'Service - ',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    'lorem Ipsum',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                _confirmButtonModule(),
+
+              ],
+            ).commonAllSidePadding(padding: 13),
+          ).commonSymmetricPadding(vertical: 8),
+        );
       },
     );
   }
@@ -435,105 +442,108 @@ class ConfirmAppointmentListModule extends StatelessWidget {
       shrinkWrap: true,
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, i) {
-        return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.colorDarkBlue1.withOpacity(0.2),
-                blurRadius: 5,
-                blurStyle: BlurStyle.outer,
-              ),
-            ],
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Row(
-                  children: [
-                    _profilePicModule(),
-                    const SizedBox(width: 15),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Denver Ballard',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 3),
-                          Row(
-                            children: const [
-                              Text(
-                                'Price - ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                ),
-                              ),
-                              Text(
-                                '\$20.00',
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(fontSize: 10),
-                              ),
-
-                              SizedBox(width: 10),
-
-                              Text(
-                                'Time - ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                ),
-                              ),
-                              Expanded(
-                                child: Text(
-                                  '\$10.00 AM',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          const SizedBox(height: 3),
-                          Row(
-                            children: const [
-                              Text(
-                                'Service - ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                ),
-                              ),
-                              Expanded(
-                                child: Text(
-                                  'lorem Ipsum',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+        return GestureDetector(
+          onTap: () => Get.to(()=> UserDetailsScreen(), transition: Transition.zoom),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                  blurRadius: 5,
+                  blurStyle: BlurStyle.outer,
                 ),
-              ),
-              _confirmButtonModule(),
+              ],
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Row(
+                    children: [
+                      _profilePicModule(),
+                      const SizedBox(width: 15),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Denver Ballard',
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 3),
+                            Row(
+                              children: const [
+                                Text(
+                                  'Price - ',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                                Text(
+                                  '\$20.00',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(fontSize: 10),
+                                ),
 
-            ],
-          ).commonAllSidePadding(padding: 13),
-        ).commonSymmetricPadding(vertical: 8);
+                                SizedBox(width: 10),
+
+                                Text(
+                                  'Time - ',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    '\$10.00 AM',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                ),
+                              ],
+                            ),
+
+                            const SizedBox(height: 3),
+                            Row(
+                              children: const [
+                                Text(
+                                  'Service - ',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    'lorem Ipsum',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                _confirmButtonModule(),
+
+              ],
+            ).commonAllSidePadding(padding: 13),
+          ).commonSymmetricPadding(vertical: 8),
+        );
       },
     );
   }
@@ -579,105 +589,108 @@ class DoneAppointmentListModule extends StatelessWidget {
       shrinkWrap: true,
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, i) {
-        return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.colorDarkBlue1.withOpacity(0.2),
-                blurRadius: 5,
-                blurStyle: BlurStyle.outer,
-              ),
-            ],
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Row(
-                  children: [
-                    _profilePicModule(),
-                    const SizedBox(width: 15),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Denver Ballard',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 3),
-                          Row(
-                            children: const [
-                              Text(
-                                'Price - ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                ),
-                              ),
-                              Text(
-                                '\$20.00',
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(fontSize: 10),
-                              ),
-
-                              SizedBox(width: 10),
-
-                              Text(
-                                'Time - ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                ),
-                              ),
-                              Expanded(
-                                child: Text(
-                                  '\$10.00 AM',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          const SizedBox(height: 3),
-                          Row(
-                            children: const [
-                              Text(
-                                'Service - ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                ),
-                              ),
-                              Expanded(
-                                child: Text(
-                                  'lorem Ipsum',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+        return GestureDetector(
+          onTap: () => Get.to(()=> UserDetailsScreen(), transition: Transition.zoom),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.colorDarkBlue1.withOpacity(0.2),
+                  blurRadius: 5,
+                  blurStyle: BlurStyle.outer,
                 ),
-              ),
-              _confirmButtonModule(),
+              ],
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Row(
+                    children: [
+                      _profilePicModule(),
+                      const SizedBox(width: 15),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Denver Ballard',
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 3),
+                            Row(
+                              children: const [
+                                Text(
+                                  'Price - ',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                                Text(
+                                  '\$20.00',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(fontSize: 10),
+                                ),
 
-            ],
-          ).commonAllSidePadding(padding: 13),
-        ).commonSymmetricPadding(vertical: 8);
+                                SizedBox(width: 10),
+
+                                Text(
+                                  'Time - ',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    '\$10.00 AM',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                ),
+                              ],
+                            ),
+
+                            const SizedBox(height: 3),
+                            Row(
+                              children: const [
+                                Text(
+                                  'Service - ',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    'lorem Ipsum',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                _confirmButtonModule(),
+
+              ],
+            ).commonAllSidePadding(padding: 13),
+          ).commonSymmetricPadding(vertical: 8),
+        );
       },
     );
   }

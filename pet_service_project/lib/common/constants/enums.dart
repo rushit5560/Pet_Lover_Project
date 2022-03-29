@@ -3,4 +3,5 @@ enum AppBarOption {
   homeScreenOption,
   allAppointmentListScreenOption,
   notificationScreenOption,
+  blogScreenOption,
 }

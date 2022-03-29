@@ -18,42 +18,40 @@ class SignUpFormModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          AddPhotoModule(),
-          const SizedBox(height: 25),
-          BusinessNameFieldModule(),
-          const SizedBox(height: 25),
-          ServiceCategoryModule(),
-          const SizedBox(height: 25),
-          PhoneFieldModule(),
-          const SizedBox(height: 25),
-          AddressFieldModule(),
-          const SizedBox(height: 25),
-          LocationTextFieldModule(),
-          const SizedBox(height: 25),
-          Row(
-            children: [
-              Expanded(child: CityFieldModule()),
-              const SizedBox(width: 20),
-              Expanded(child: StateFieldModule()),
-            ],
-          ),
-          const SizedBox(height: 25),
-          CountryFieldModule(),
-          const SizedBox(height: 25),
-          PasswordFieldModule(),
-          const SizedBox(height: 25),
-          ConfirmPasswordFieldModule(),
-          const SizedBox(height: 40),
-          SignUpButtonModule(),
-          const SizedBox(height: 25),
-          const AlreadyTextModule(),
-          const SizedBox(height: 10),
-        ],
-      ).commonSymmetricPadding(horizontal: 45, vertical: 10),
-    );
+    return Column(
+      children: [
+        AddPhotoModule(),
+        const SizedBox(height: 25),
+        BusinessNameFieldModule(),
+        const SizedBox(height: 25),
+        ServiceCategoryModule(),
+        const SizedBox(height: 25),
+        PhoneFieldModule(),
+        const SizedBox(height: 25),
+        AddressFieldModule(),
+        const SizedBox(height: 25),
+        LocationTextFieldModule(),
+        const SizedBox(height: 25),
+        Row(
+          children: [
+            Expanded(child: CityFieldModule()),
+            const SizedBox(width: 20),
+            Expanded(child: StateFieldModule()),
+          ],
+        ),
+        const SizedBox(height: 25),
+        CountryFieldModule(),
+        const SizedBox(height: 25),
+        PasswordFieldModule(),
+        const SizedBox(height: 25),
+        ConfirmPasswordFieldModule(),
+        const SizedBox(height: 40),
+        SignUpButtonModule(),
+        const SizedBox(height: 25),
+        const AlreadyTextModule(),
+        const SizedBox(height: 10),
+      ],
+    ).commonSymmetricPadding(horizontal: 45, vertical: 10);
   }
 
 }
@@ -130,20 +128,17 @@ class BusinessNameFieldModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50,
-      child: Stack(
-        children: [
-          const TextFieldElevationModule(),
-          TextFormField(
-            controller: screenController.businessNameFieldController,
-            keyboardType: TextInputType.text,
-            cursorColor: AppColors.colorDarkBlue1,
-            decoration: signUpFormFieldDecoration(hintText: 'Name'),
-            validator: (value) => fieldValidator.validateFullName(value!),
-          ),
-        ],
-      ),
+    return Stack(
+      children: [
+        const TextFieldElevationModule(),
+        TextFormField(
+          controller: screenController.businessNameFieldController,
+          keyboardType: TextInputType.text,
+          cursorColor: AppColors.colorDarkBlue1,
+          decoration: signUpFormFieldDecoration(hintText: 'Name'),
+          validator: (value) => fieldValidator.validateFullName(value!),
+        ),
+      ],
     );
   }
 }
@@ -155,20 +150,17 @@ class PhoneFieldModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50,
-      child: Stack(
-        children: [
-          const TextFieldElevationModule(),
-          TextFormField(
-            controller: screenController.phoneFieldController,
-            keyboardType: TextInputType.phone,
-            cursorColor: AppColors.colorDarkBlue1,
-            decoration: signUpFormFieldDecoration(hintText: 'Phone'),
-            validator: (value) => fieldValidator.validateMobile(value!),
-          ),
-        ],
-      ),
+    return Stack(
+      children: [
+        const TextFieldElevationModule(),
+        TextFormField(
+          controller: screenController.phoneFieldController,
+          keyboardType: TextInputType.phone,
+          cursorColor: AppColors.colorDarkBlue1,
+          decoration: signUpFormFieldDecoration(hintText: 'Phone'),
+          validator: (value) => fieldValidator.validateMobile(value!),
+        ),
+      ],
     );
   }
 }
@@ -180,20 +172,17 @@ class AddressFieldModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50,
-      child: Stack(
-        children: [
-          const TextFieldElevationModule(),
-          TextFormField(
-            controller: screenController.addressFieldController,
-            keyboardType: TextInputType.text,
-            cursorColor: AppColors.colorDarkBlue1,
-            decoration: signUpFormFieldDecoration(hintText: 'Address'),
-            validator: (value) => fieldValidator.validateAddress(value!),
-          ),
-        ],
-      ),
+    return Stack(
+      children: [
+        const TextFieldElevationModule(),
+        TextFormField(
+          controller: screenController.addressFieldController,
+          keyboardType: TextInputType.text,
+          cursorColor: AppColors.colorDarkBlue1,
+          decoration: signUpFormFieldDecoration(hintText: 'Address'),
+          validator: (value) => fieldValidator.validateAddress(value!),
+        ),
+      ],
     );
   }
 }
@@ -246,20 +235,17 @@ class CityFieldModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50,
-      child: Stack(
-        children: [
-          const TextFieldElevationModule(),
-          TextFormField(
-            controller: screenController.cityFieldController,
-            keyboardType: TextInputType.text,
-            cursorColor: AppColors.colorDarkBlue1,
-            decoration: signUpFormFieldDecoration(hintText: 'City'),
-            validator: (value) => fieldValidator.validateFullName(value!),
-          ),
-        ],
-      ),
+    return Stack(
+      children: [
+        const TextFieldElevationModule(),
+        TextFormField(
+          controller: screenController.cityFieldController,
+          keyboardType: TextInputType.text,
+          cursorColor: AppColors.colorDarkBlue1,
+          decoration: signUpFormFieldDecoration(hintText: 'City'),
+          validator: (value) => fieldValidator.validateFullName(value!),
+        ),
+      ],
     );
   }
 }
@@ -271,20 +257,17 @@ class StateFieldModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50,
-      child: Stack(
-        children: [
-          const TextFieldElevationModule(),
-          TextFormField(
-            controller: screenController.stateFieldController,
-            keyboardType: TextInputType.text,
-            cursorColor: AppColors.colorDarkBlue1,
-            decoration: signUpFormFieldDecoration(hintText: 'State'),
-            validator: (value) => fieldValidator.validateFullName(value!),
-          ),
-        ],
-      ),
+    return Stack(
+      children: [
+        const TextFieldElevationModule(),
+        TextFormField(
+          controller: screenController.stateFieldController,
+          keyboardType: TextInputType.text,
+          cursorColor: AppColors.colorDarkBlue1,
+          decoration: signUpFormFieldDecoration(hintText: 'State'),
+          validator: (value) => fieldValidator.validateFullName(value!),
+        ),
+      ],
     );
   }
 }
@@ -296,20 +279,17 @@ class CountryFieldModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50,
-      child: Stack(
-        children: [
-          const TextFieldElevationModule(),
-          TextFormField(
-            controller: screenController.countryFieldController,
-            keyboardType: TextInputType.text,
-            cursorColor: AppColors.colorDarkBlue1,
-            decoration: signUpFormFieldDecoration(hintText: 'Country'),
-            validator: (value) => fieldValidator.validateFullName(value!),
-          ),
-        ],
-      ),
+    return Stack(
+      children: [
+        const TextFieldElevationModule(),
+        TextFormField(
+          controller: screenController.countryFieldController,
+          keyboardType: TextInputType.text,
+          cursorColor: AppColors.colorDarkBlue1,
+          decoration: signUpFormFieldDecoration(hintText: 'Country'),
+          validator: (value) => fieldValidator.validateFullName(value!),
+        ),
+      ],
     );
   }
 }
@@ -321,20 +301,17 @@ class PasswordFieldModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50,
-      child: Stack(
-        children: [
-          const TextFieldElevationModule(),
-          TextFormField(
-            controller: screenController.passwordFieldController,
-            keyboardType: TextInputType.text,
-            cursorColor: AppColors.colorDarkBlue1,
-            decoration: signUpFormFieldDecoration(hintText: 'Password'),
-            validator: (value) => fieldValidator.validatePassword(value!),
-          ),
-        ],
-      ),
+    return Stack(
+      children: [
+        const TextFieldElevationModule(),
+        TextFormField(
+          controller: screenController.passwordFieldController,
+          keyboardType: TextInputType.text,
+          cursorColor: AppColors.colorDarkBlue1,
+          decoration: signUpFormFieldDecoration(hintText: 'Password'),
+          validator: (value) => fieldValidator.validatePassword(value!),
+        ),
+      ],
     );
   }
 }
@@ -346,20 +323,17 @@ class ConfirmPasswordFieldModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50,
-      child: Stack(
-        children: [
-          const TextFieldElevationModule(),
-          TextFormField(
-            controller: screenController.cPasswordFieldController,
-            keyboardType: TextInputType.text,
-            cursorColor: AppColors.colorDarkBlue1,
-            decoration: signUpFormFieldDecoration(hintText: 'Confirm Password'),
-            validator: (value) => fieldValidator.validateConfirmPassword(value!, screenController.passwordFieldController.text),
-          ),
-        ],
-      ),
+    return Stack(
+      children: [
+        const TextFieldElevationModule(),
+        TextFormField(
+          controller: screenController.cPasswordFieldController,
+          keyboardType: TextInputType.text,
+          cursorColor: AppColors.colorDarkBlue1,
+          decoration: signUpFormFieldDecoration(hintText: 'Confirm Password'),
+          validator: (value) => fieldValidator.validateConfirmPassword(value!, screenController.passwordFieldController.text),
+        ),
+      ],
     );
   }
 }
@@ -384,7 +358,7 @@ class SignUpButtonModule extends StatelessWidget {
         child: const Padding(
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
           child: Text(
-            'SIGN UP',
+            'SIGNUP',
             style: TextStyle(
                 color: Colors.white
             ),
@@ -415,7 +389,7 @@ class AlreadyTextModule extends StatelessWidget {
             "SIGNIN",
             style: TextStyle(
               color: AppColors.colorDarkBlue,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w600,
                 fontSize: 13,
             ),
           ),

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_service_project/screens/change_password_screen/change_password_screen.dart';
+import 'package:pet_service_project/screens/my_service_screen/my_service_screen.dart';
 import 'package:pet_service_project/screens/sign_in_screen/sign_in_screen.dart';
+import '../../screens/edit_user_profile_screen/edit_user_profile_screen.dart';
 import '../constants/app_colors.dart';
 import '../constants/app_images.dart';
 
@@ -58,13 +61,18 @@ class UserDetailsModule extends StatelessWidget {
           Material(
             elevation: 3,
             borderRadius: BorderRadius.circular(10),
-            child: Container(
-              height: 40,
-              width: 40,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-              child: Padding(
-                padding: const EdgeInsets.all(13),
-                child: Image.asset(AppImages.editOptionImg),
+            child: GestureDetector(
+              onTap: () {
+                Get.to(()=> EditUserProfileScreen(), transition: Transition.zoom);
+              },
+              child: Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                child: Padding(
+                  padding: const EdgeInsets.all(13),
+                  child: Image.asset(AppImages.editOptionImg),
+                ),
               ),
             ),
           ),
@@ -82,7 +90,7 @@ class MyServicesModule extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Get.back();
-        // Get.to(()=> PetProfileScreen(), transition: Transition.leftToRight);
+        Get.to(()=> MyServiceScreen(), transition: Transition.leftToRight);
       },
       child: Container(
         decoration: BoxDecoration(
@@ -144,7 +152,7 @@ class ChangePasswordModule extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Get.back();
-        // Get.to(()=> PetProfileScreen(), transition: Transition.leftToRight);
+        Get.to(()=> ChangePasswordScreen(), transition: Transition.leftToRight);
       },
       child: Container(
         decoration: BoxDecoration(

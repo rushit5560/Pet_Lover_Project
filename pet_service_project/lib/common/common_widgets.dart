@@ -4,9 +4,8 @@ import 'package:pet_service_project/common/constants/app_images.dart';
 import 'constants/app_colors.dart';
 
 class AuthScreenBackGroundModule extends StatelessWidget {
-  final String heading;
 
-  const AuthScreenBackGroundModule({Key? key, required this.heading})
+  const AuthScreenBackGroundModule({Key? key})
       : super(key: key);
 
   @override
@@ -15,7 +14,7 @@ class AuthScreenBackGroundModule extends StatelessWidget {
       children: [
         Expanded(
           flex: 35,
-          child: _imageAndTextModule(heading: heading),
+          child: _imageAndTextModule(),
         ),
         Expanded(
           flex: 65,
@@ -25,33 +24,14 @@ class AuthScreenBackGroundModule extends StatelessWidget {
     );
   }
 
-  Widget _imageAndTextModule({required String heading}) {
-    return Stack(
-      children: [
-        Container(
-          decoration: const BoxDecoration(
-              color: Colors.white,
-              image: DecorationImage(
-                image: AssetImage(AppImages.authBgImg),
-                fit: BoxFit.cover,
-              )),
-        ),
-        Positioned(
-          top: 25,
-          left: 40,
-          child: SafeArea(
-            child: Text(
-              heading,
-              maxLines: 1,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 25,
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
-      ],
+  Widget _imageAndTextModule() {
+    return Container(
+      decoration: const BoxDecoration(
+          color: Colors.white,
+          image: DecorationImage(
+            image: AssetImage(AppImages.authBgImg),
+            fit: BoxFit.cover,
+          )),
     );
   }
 }

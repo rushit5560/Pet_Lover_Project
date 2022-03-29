@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_service_project/screens/conversation_screen/conversation_screen.dart';
 import '../../common/constants/app_colors.dart';
 import '../../common/constants/app_images.dart';
 import '../../controller/user_details_screen_controller/user_details_screen_controller.dart';
@@ -206,30 +207,33 @@ class MessageButtonModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.colorDarkBlue1,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
-        child: Row(
-          children: const [
-            Text(
-              'Message',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 10,
-                color: Colors.white,
+    return GestureDetector(
+      onTap: () => Get.to(()=> ConversationScreen(), transition: Transition.zoom),
+      child: Container(
+        decoration: BoxDecoration(
+          color: AppColors.colorDarkBlue1,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
+          child: Row(
+            children: const [
+              Text(
+                'Message',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 10,
+                  color: Colors.white,
+                ),
               ),
-            ),
-            SizedBox(width: 8),
-            Icon(
-              Icons.message,
-              color: Colors.white,
-              size: 10,
-            ),
-          ],
+              SizedBox(width: 8),
+              Icon(
+                Icons.message,
+                color: Colors.white,
+                size: 10,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -241,30 +245,33 @@ class ConfirmButtonModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.colorDarkBlue1,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
-        child: Row(
-          children: const [
-            Text(
-              'Confirm',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 10,
-                color: Colors.white,
+    return GestureDetector(
+      onTap: () => Get.back(),
+      child: Container(
+        decoration: BoxDecoration(
+          color: AppColors.colorDarkBlue1,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
+          child: Row(
+            children: const [
+              Text(
+                'Confirm',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 10,
+                  color: Colors.white,
+                ),
               ),
-            ),
-            SizedBox(width: 8),
-            Icon(
-              Icons.message,
-              color: Colors.white,
-              size: 10,
-            ),
-          ],
+              SizedBox(width: 8),
+              Icon(
+                Icons.message,
+                color: Colors.white,
+                size: 10,
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -24,4 +24,12 @@ class AppImages{
   static const changePasswordImg = imageMainPath + "change_password.png";
   static const signOutImg = imageMainPath + "sign_out.png";
   static const productImgListImg = imageMainPath + "product_img_list.png";
+
+  static const emojiImg = imageMainPath + "emoji.png";
+  static const micImg = imageMainPath + "mic.png";
+  static const sendImg = imageMainPath + "send.png";
+  static const likeImg = imageMainPath + "like.png";
+  static const rightDirectionArrowImg = imageMainPath + "right_direction_arrow.png";
+  static const blogCropImageContainerImg = imageMainPath + "blog_crop_image_container.png";
+  static const chatProfile2Img = imageMainPath + "chat_profile2.png";
 }

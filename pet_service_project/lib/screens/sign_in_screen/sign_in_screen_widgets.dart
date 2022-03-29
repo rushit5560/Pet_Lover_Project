@@ -6,6 +6,7 @@ import '../../common/constants/app_colors.dart';
 import '../../common/field_decoration.dart';
 import '../../common/field_validation.dart';
 import '../../controller/sign_in_screen_controller/sign_in_screen_controller.dart';
+import '../Forgot_password_screen/forgot_password_screen.dart';
 import '../sign_up_screen/sign_up_screen.dart';
 
 
@@ -42,20 +43,17 @@ class EmailTextFieldModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50,
-      child: Stack(
-        children: [
-          const TextFieldElevationModule(),
-          TextFormField(
-            controller: screenController.emailTextFieldController,
-            keyboardType: TextInputType.emailAddress,
-            cursorColor: AppColors.colorDarkBlue1,
-            decoration: signInFormFieldDecoration(hintText: 'Email'),
-            validator: (value) => fieldValidator.validateEmail(value!),
-          ),
-        ],
-      ),
+    return Stack(
+      children: [
+        const TextFieldElevationModule(),
+        TextFormField(
+          controller: screenController.emailTextFieldController,
+          keyboardType: TextInputType.emailAddress,
+          cursorColor: AppColors.colorDarkBlue1,
+          decoration: signInFormFieldDecoration(hintText: 'Email', signInScreenController: screenController),
+          validator: (value) => fieldValidator.validateEmail(value!),
+        ),
+      ],
     );
   }
 }
@@ -67,20 +65,20 @@ class PasswordTextFieldModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50,
-      child: Stack(
-        children: [
-          const TextFieldElevationModule(),
-          TextFormField(
+    return Stack(
+      children: [
+        const TextFieldElevationModule(),
+        Obx(
+          ()=> TextFormField(
             controller: screenController.passwordTextFieldController,
             keyboardType: TextInputType.text,
             cursorColor: AppColors.colorDarkBlue1,
-            decoration: signInFormFieldDecoration(hintText: 'Password', index: 1),
+            obscureText: screenController.isPassVisible.value,
+            decoration: signInFormFieldDecoration(hintText: 'Password', index: 1, signInScreenController: screenController),
             validator: (value) => fieldValidator.validatePassword(value!),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -92,7 +90,7 @@ class ForgotPassModule extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Get.to(() => ForgotPasswordScreen(), transition: Transition.zoom);
+        Get.to(() => ForgotPasswordScreen(), transition: Transition.zoom);
       },
       child: Container(
         alignment: Alignment.centerRight,
@@ -124,7 +122,7 @@ class SignUpTextModule extends StatelessWidget {
             "SIGNUP",
             style: TextStyle(
               color: AppColors.colorDarkBlue,
-              // fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),

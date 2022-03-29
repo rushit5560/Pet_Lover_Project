@@ -12,16 +12,32 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      // resizeToAvoidBottomInset: false,
       body: Stack(
         alignment: Alignment.center,
         children: [
-          const AuthScreenBackGroundModule(heading: 'SIGN IN'),
+          const AuthScreenBackGroundModule(),
 
-          Padding(
-            //padding: const EdgeInsets.all(35),
-            padding: const EdgeInsets.only(left: 35, right: 35, top: 100, bottom: 10),
-            child: SignInForm(),
+          ListView(
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(top: 30, left: 30),
+                child: Text(
+                  'SIGN IN',
+                  maxLines: 1,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 100),
+              Padding(
+                padding: const EdgeInsets.only(left: 35, right: 35, top: 100, bottom: 10),
+                child: SignInForm(),
+              ),
+            ],
           ),
         ],
       ),

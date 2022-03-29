@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../common/common_widgets.dart';
-import '../../controller/sign_up_screen_controller/sign_up_screen_controller.dart';
-import 'sign_up_screen_widgets.dart';
+import '../../controller/forgot_password_screen_controller/forgot_password_screen_controller.dart';
+import 'forgot_password_screen_widgets.dart';
 
-class SignUpScreen extends StatelessWidget {
-  SignUpScreen({Key? key}) : super(key: key);
-  final signUpScreenController = Get.put(SignUpScreenController());
+class ForgotPasswordScreen extends StatelessWidget {
+  ForgotPasswordScreen({Key? key}) : super(key: key);
+
+  final forgotPasswordScreenController = Get.put(ForgotPasswordScreenController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: false,
       body: Stack(
         alignment: Alignment.center,
         children: [
@@ -23,7 +24,7 @@ class SignUpScreen extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(top: 30, left: 30),
                 child: Text(
-                  'SIGN UP',
+                  'FORGOT PASSWORD',
                   maxLines: 1,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -32,8 +33,11 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 140),
-              SignUpFormModule(),
+              const SizedBox(height: 160),
+              Padding(
+                padding: const EdgeInsets.all(35),
+                child: ForgotPasswordForm(),
+              ),
             ],
           ),
         ],

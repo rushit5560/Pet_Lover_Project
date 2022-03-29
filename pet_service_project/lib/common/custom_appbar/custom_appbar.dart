@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_service_project/screens/chat_screen/chat_screen.dart';
 
 import '../constants/app_colors.dart';
 import '../constants/app_images.dart';
@@ -91,12 +92,16 @@ class CommonAppBarModule extends StatelessWidget {
   }
 
 
-  _rightSideButtonClick({required AppBarOption appBarOption}) {}
+  _rightSideButtonClick({required AppBarOption appBarOption}) {
+    if(appBarOption == AppBarOption.homeScreenOption || appBarOption == AppBarOption.allAppointmentListScreenOption){
+      Get.to(()=> ChatScreen(), transition: Transition.rightToLeft);
+    }
+  }
 
 
   _leftSideButtonClick({required AppBarOption appBarOption, required BuildContext context}) {
 
-    if (appBarOption == AppBarOption.homeScreenOption) {
+    if (appBarOption == AppBarOption.homeScreenOption || appBarOption == AppBarOption.allAppointmentListScreenOption) {
       Scaffold.of(context).openDrawer();
     } else {
       Get.back();

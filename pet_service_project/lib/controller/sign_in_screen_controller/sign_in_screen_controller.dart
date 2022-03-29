@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class SignInScreenController extends GetxController {
   RxBool isLoading = false.obs;
   RxBool isSuccessStatus = false.obs;
-  RxBool isPassVisible = false.obs;
+  RxBool isPassVisible = true.obs;
 
   final GlobalKey<FormState> signInFormKey = GlobalKey<FormState>();
   TextEditingController emailTextFieldController = TextEditingController(text: "abc@gmail.com");
